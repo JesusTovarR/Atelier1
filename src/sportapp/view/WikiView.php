@@ -94,8 +94,25 @@ class WikiView  extends AbstractView{
     }
 
     protected function renderEvents(){
-        $html= '<h1>Bienvenues, voici tous nos événements et sa description</h1>';
-        $html.= '<li><a href="'.$this->script_name.'/sportnet/inscription/">S&#39;inscrire</a></li>';
+        $html= '<h1>Bienvenues, voici tous nos événements et sa description</h1>
+                 <table >
+                <thead>
+                    <tr>
+                        Événement
+                    </tr>
+                </thead>
+                <tbody>';
+        foreach ($this->data as $valeur){
+            $html.='<form method = "post" action ="'.$this->script_name.'/sportnet/inscription/?title='.$valeur->id.'">
+                <tr>
+                    <td>'.$valeur->name.'</td>
+                    <td> <input type="submit" name="inscription" value="S&#39;inscrire"/></td>
+                </tr>
+              </form>';
+        }
+
+        $html.='</tbody>
+            </table>';
         $html.= '<li><a href="'.$this->script_name.'/sportnet/resultats/">Résultats</a></li>';
         return $html;
     }

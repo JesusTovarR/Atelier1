@@ -1,6 +1,7 @@
 <?php
 
 namespace sportapp\control;
+use sportapp\model\Event;
 use sportapp\model\User;
 use sportapp\model\Page;
 use sportapp\utils\HttpRequest;
@@ -89,9 +90,9 @@ class WikiController {
     }
 
     public function allEvents(){
-
-        $events = new WikiView(null);
-        $events->render(SPORTNET_VIEW_EVENTS);
+        $events = Event::findAll();
+        $vEvents = new WikiView($events);
+        $vEvents->render(SPORTNET_VIEW_EVENTS);
 
     }
 
