@@ -1,0 +1,42 @@
+$alertbcolor:#A8A3A4;
+$alertborder : #333232;
+$alertcolor:#0A0607;
+
+
+
+.alert{
+	background-color: $alertbcolor;
+	border: 1px solid $alertborder;
+	border-radius: 3px;
+	color: $alertcolor;
+	padding:10px;
+}
+
+.success-alert{
+	@extend .alert;
+	background-color:#29F20F;
+	border: 1px solid #24631C;
+	color: #12330E;
+}
+
+.info-alert{
+	@extend .alert;
+	background-color:#3685F5;
+	border: 1px solid #013885;
+	color: #091B36;
+}
+
+.warning-alert{
+	@extend .alert;
+	background-color:#E37120;
+	border: 1px solid #9C4B11;
+	color: #291303;
+}
+
+.danger-alert{
+	@extend .alert;
+	background-color:#E80C1A;
+	border: 1px solid #820911;
+	color: #291112;
+	
+}
