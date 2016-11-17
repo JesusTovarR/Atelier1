@@ -65,7 +65,7 @@ class WikiView  extends AbstractView{
                             <textarea name="article" rows="10" cols="40"></textarea>
                         </div>
                         <div class="login_button">
-                        <button type="sumit" name="logup" >Enregistrer</button>
+                        <button class="btn" type="sumit" name="logup" >Enregistrer</button>
                         </div>
                     </form>
                  </section>
@@ -101,7 +101,7 @@ class WikiView  extends AbstractView{
     }
 
     protected function renderInscription(){
-        $html= '<h1>Bienvenues, vous peuvez s&#39;inscrire ici</h1>';
+        $html= '<h1>Bienvenues, vous pouvez vous s&#39;inscrire ici</h1>';
         $html.= ' <a href="'.$this->script_name.'/sportnet/infoParticipant/"><button type="sumit" name="" >S&#39;inscrire</button></a>';
         return $html;
     }
@@ -118,34 +118,34 @@ class WikiView  extends AbstractView{
 
     protected function renderNewEvent(){
         $html= '<article>
-                  <section>
-                    <h2>Cr&eacute;er un &eacute;v&eacute;nement</h2>
+                  <section class="column_5 offset_1 milieu">
+                    <h2 class="row column_4 title">Cr&eacute;er un &eacute;v&eacute;nement</h2>
                     <form method = "post" action ="'.$this->script_name.'/admin/addEvent/">
-                        <div>
+                        <div class="row">
                           <label for="name">Nom</label><br>
                           <input type="text" name="name"/>
                         </div>
-                        <div>
+                        <div class="row">
                           <label for="place">Lieu</label><br>
                           <input type="text" name="palce"/>
                         </div>
-                        <div>
+                        <div class="row">
                           <label for="discipline">Dicipline</label><br>
                           <input type="text" name="discipline"/>
                         </div>
-                        <div>
+                        <div class="row">
                           <label>Date de début</label><br>
                           <input type="date" name="star_date"/>
                         </div>
-                        <div>
+                        <div class="row">
                           <label>Date de fin</label><br>
                           <input type="date" name="end_date"/>
                         </div>
-                        <div>
+                        <div class="row">
                           <label>Description</label><br>
                           <textarea name="descritpion" row="10" cols="50"></textarea>
                         </div>
-                        <div>
+                        <div class="row">
                           <input type="submit" name="newEvent" value="Créer"/> 
                           <input type="reset" name="annuler" value="Annuler"/>
                         </div>
@@ -157,26 +157,26 @@ class WikiView  extends AbstractView{
 
     protected function renderNewTail(){
         $html= '<article>
-                  <section>
-                    <h2>Ajouter une &eacute;preuve</h2>
+                  <section class="column_5 offset_1 milieu">
+                    <h2 class="row column_4 title">Ajouter une &eacute;preuve</h2>
                     <form method="post" action="">
-                        <div>
+                        <div class="row">
                           <label for="name">Nom de l\'&eacute;preuve</label><br>
                           <input type="text" name="name"/>
                         </div>
-                        <div>
+                        <div class="row">
                           <label for="place">Lieu</label><br>
                           <input type="text" name="place"/>
                         </div>
-                        <div>
+                        <div class="row">
                            <label>description</label><br>
                            <textarea name="descritpion" row="10" cols="50"></textarea><br>
                         </div>
-                        <div>
+                        <div class="row">
                            <label>Tarif</label><br>
                            <input type="number" id="price" name="price"/>euros
                         </div>
-                        <div>
+                        <div class="row">
                           <input type="submit" value="creer"/>
                           <input type="reset" value="annuler"/>
                         </div>
@@ -186,30 +186,30 @@ class WikiView  extends AbstractView{
     }
     protected function renderGestion(){
         $html= ' <article>
-                      <section>
-                        <h2>G&eacute;rer mon &eacute;v&eacute;nement</h2>
+                      <section class="column_5 offset_1 milieu">
+                        <h2 class="row column_4 title">G&eacute;rer mon &eacute;v&eacute;nement</h2>
                         <form method="post" action="">
-                            <div>
+                            <div class="row">
                               <label for="name">Nom</label><br>
                               <input type="text" name="name"/>
                             </div>
-                            <div>
+                            <div class="row">
                               <label for="place">Lieu</label><br>
                               <input type="text" name="place"/>
                             </div>
-                            <div>
+                            <div class="row">
                               <label for="discipline">email</label><br>
                               <input type="text" name="discipline"/>
                             </div>
-                            <div>
+                            <div class="row">
                                <label>Description</label><br>
                                <textarea name="descritpion" row="10" cols="50"></textarea>
                              </div>
-                             <div>
+                             <div class="row">
                                <label>Date</label><br>
                                <input type="date" name="date"/><br>
                              </div>
-                             <div>
+                             <div class="row">
                               <input type="submit" neme="valider" value="Valider"/> 
                               <input type="reset" name="annuler" value="Annuler"/>
                              </div>
