@@ -56,6 +56,10 @@ class WikiAdminView  extends AbstractView{
                           <input type="email" name="login"/>
                        </div>
                        <div>
+                          <label for="naissance">Date de naissance</label><br>
+                          <input type="date" name="naissance"/>
+                       </div>
+                       <div>
                           <label for="pass">Mot de passe</label><br>
                           <input type="password" name="pass"/>
                        </div>

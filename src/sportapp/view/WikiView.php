@@ -95,7 +95,7 @@ class WikiView  extends AbstractView{
 
     protected function renderEvents(){
         $html= '<h1>Bienvenues, voici tous nos événements et sa description</h1>
-                 <table >
+                 <table border="1px" >
                 <thead>
                     <tr>
                         Événement

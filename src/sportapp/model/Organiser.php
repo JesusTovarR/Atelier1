@@ -5,7 +5,7 @@ use sportapp\utils\ConnectionFactory;
 use sportapp\model\Event;
 
  class Organiser extends AbstractModel{
-     private $id, $firstname, $name, $mail, $password;
+     private $id, $firstname, $name, $naissance, $mail, $password;
 
      public function __construct()
      {
@@ -30,10 +30,11 @@ use sportapp\model\Event;
 
      protected function update()
      {
-         $update = 'UPDATE organiser SET firstname = :firstname, name = :name, mail = :mail, password = :password where id = :id';
+         $update = 'UPDATE organiser SET firstname = :firstname, name = :name, naissance = :naissance, mail = :mail, password = :password where id = :id';
          $update_prep = $this->db->prepare($update);
          $update_prep->bindParam(':firstname', $this->firstname, \PDO::PARAM_STR);
          $update_prep->bindParam(':name', $this->name, \PDO::PARAM_STR);
+         $update_prep->bindParam(':naissance', $this->naissance, \PDO::PARAM_STR);
          $update_prep->bindParam(':mail', $this->mail, \PDO::PARAM_STR);
          $update_prep->bindParam(':password', $this->password, \PDO::PARAM_STR);
          $update_prep->bindParam(':id', $this->id, \PDO::PARAM_INT);
@@ -43,11 +44,12 @@ use sportapp\model\Event;
 
      protected function insert()
      {
-         $insert = 'INSERT INTO organiser values(null, :firstname, :name, :mail, :password)';
+         $insert = 'INSERT INTO organiser values(null, :firstname, :name, :naissance, :mail, :password)';
          $insert_prep = $this->db->prepare($insert);
          //$p_hash = password_hash($this->pass, PASSWORD_DEFAULT);
          $insert_prep->bindParam(':firstname', $this->firstname, \PDO::PARAM_STR);
          $insert_prep->bindParam(':name', $this->name, \PDO::PARAM_STR);
+         $insert_prep->bindParam(':naissance', $this->naissance, \PDO::PARAM_STR);
          $insert_prep->bindParam(':mail', $this->mail, \PDO::PARAM_STR);
         // $insert_prep->bindParam(':password', $p_hash, \PDO::PARAM_STR);
          $insert_prep->bindParam(':password', $this->password, \PDO::PARAM_STR);

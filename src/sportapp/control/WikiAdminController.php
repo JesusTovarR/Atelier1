@@ -134,6 +134,7 @@ class WikiAdminController {
             $user=new Organiser();
             $user->firstname=$this->request->post['firstname'];
             $user->name=$this->request->post['name'];
+            $user->naissance=$this->request->post['naissance'];
             $user->mail=$this->request->post['login'];
             $user->password=$this->request->post['pass'];
             $user->save();
