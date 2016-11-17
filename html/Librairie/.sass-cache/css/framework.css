@@ -1,0 +1,224 @@
+@import url(reset.css);
+@font-face {
+  font-family: 'Police';
+  src: url("../bloggerFont/blogger_Sans.otf"); }
+body {
+  font-family: 'Police';
+  width: 100%;
+  padding: 0; }
+
+header {
+  text-align: center;
+  margin: auto; }
+
+h1, header h1, h2, h3, h4, h5, h6 {
+  color: #000000;
+  font-weight: bold;
+  font-family: Georgia,Arial,Calibri,sans-serif; }
+  h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+    color: #8C8C8C;
+    font-size: 0.6em; }
+
+h1, header h1 {
+  font-size: 3em; }
+
+h2 {
+  font-size: 2.6em; }
+
+h3 {
+  font-size: 2.2em; }
+
+h4 {
+  font-size: 1.7em; }
+
+h5 {
+  font-size: 1.3em; }
+
+h6 {
+  font-size: 1em; }
+
+/*Balise de type inline*/
+mark {
+  background-color: #F21105;
+  color: #FFFFFF; }
+
+del {
+  text-decoration: line-through; }
+
+ins {
+  text-decoration: underline; }
+
+u {
+  text-decoration: underline; }
+
+strong {
+  font-weight: bold; }
+
+em {
+  font-style: italic; }
+
+q::before, q::after {
+  content: "''"; }
+
+/*Balise citation*/
+blockquote {
+  margin: 2%;
+  background-color: #DCDDDE;
+  border-left: 1px solid black;
+  padding-left: 2%; }
+
+code {
+  background-color: #C1C7C9;
+  color: #3C36F5; }
+
+p {
+  margin-bottom: 1%;
+  text-align: justify; }
+
+pre {
+  background-color: #DCDDDE;
+  border: 1px solid #3C36F5;
+  border-radius: 3px;
+  padding: 3px;
+  overflow: auto;
+  text-align: justify; }
+
+kbd {
+  border: 1px solid #416357; }
+
+.altern div:nth-child(2n) {
+  background-color: #FAF450; }
+.altern div:nth-child(2n+1) {
+  background-color: #005B4F; }
+
+.navbar2 ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center; }
+  .navbar2 ul li ul {
+    display: none;
+    position: absolute; }
+  .navbar2 ul li:hover ul {
+    display: block; }
+    .navbar2 ul li:hover ul li {
+      float: none; }
+.navbar2 li {
+  list-style-type: none;
+  float: left;
+  margin: auto;
+  padding: 0;
+  background-color: #1A92BA; }
+  .navbar2 li a {
+    display: block;
+    width: 120px;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    margin: auto;
+    height: 30px; }
+    .navbar2 li a:hover {
+      background-color: #9CAFB5;
+      border-top: 1px solid #000000; }
+
+.navbar {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center; }
+  .navbar li ul {
+    display: none;
+    position: absolute; }
+  .navbar li:hover ul {
+    display: block; }
+    .navbar li:hover ul li {
+      float: none; }
+  .navbar li {
+    list-style-type: none;
+    float: left;
+    margin: auto;
+    padding: 0;
+    background-color: #418A86; }
+    .navbar li a {
+      display: block;
+      width: 120px;
+      color: white;
+      text-decoration: none;
+      padding: 5px;
+      margin: auto;
+      height: 30px; }
+      .navbar li a:hover {
+        background-color: #80BDBA;
+        border-top: 1px solid #273D3C; }
+      .navbar li a.disabled {
+        cursor: default;
+        color: #939998; }
+      .navbar li a.active {
+        background-color: #57A193;
+        color: #334180; }
+
+/*Listes*/
+ul {
+  margin-left: 20px; }
+  ul li {
+    list-style-type: disc; }
+  ul.list-style-square li {
+    list-style-type: square; }
+  ul.no-style li {
+    list-style-type: none; }
+
+/*Alignement*/
+.textAlignleft {
+  text-align: left; }
+
+.textAlignright {
+  text-align: right; }
+
+.textAlignjustify {
+  text-align-justify: justify; }
+
+.textCapital {
+  text-transform: capitalize; }
+
+.textLower {
+  text-transform: lowercase; }
+
+.textUpper {
+  text-transform: uppercase; }
+
+.active:hover {
+  color: #3C36F5; }
+
+.btn, .jumbotron button, .jumbotron .btn {
+  background-color: #3779B3;
+  border: 1px solid #064780;
+  color: #F5FCFC; }
+  .btn:focus, .jumbotron button:focus {
+    background-color: #1f4465;
+    color: #a7e4e4; }
+  .btn:hover, .jumbotron button:hover {
+    background-color: #436B8F;
+    color: #121d27; }
+
+.jumbotron {
+  background-color: #C5C9C9;
+  max-width: 55em;
+  margin: auto;
+  padding: 30px;
+  text-align: center; }
+
+.breadcrumb li {
+  display: inline-block;
+  list-style-type: none; }
+  .breadcrumb li::after {
+    content: ">";
+    padding: 5px; }
+  .breadcrumb li:last-child a, .breadcrumb li.disabled a {
+    color: #666C6E;
+    cursor: default; }
+    .breadcrumb li:last-child a:hover, .breadcrumb li.disabled a:hover {
+      text-decoration: none; }
+  .breadcrumb li:last-child::after {
+    content: none; }
+
+/*# sourceMappingURL=framework.css.map */

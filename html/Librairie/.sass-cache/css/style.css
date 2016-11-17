@@ -1,0 +1,22 @@
+#alt{
+	margin:10px;
+}
+
+.space{
+	padding:5%;
+}
+
+#container{
+	margin-top: 15px;
+	height:300px;
+}
+
+#container div {
+
+	border: 1px solid #28A872;
+	height:50px;
+
+}
+#container div div{
+	background-color: #89E0C2;
+}
