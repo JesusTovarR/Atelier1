@@ -13,11 +13,11 @@ class Authentification extends AbstractAuthentification
         if(isset($_SESSION['user_login'])){
             $this->user_login = $_SESSION['user_login'];
             $this->logged_in = true;
-            $this->access_level = $_SESSION['access_level'];
+            //$this->access_level = $_SESSION['access_level'];
         }else{
             $this->user_login = null;
             $this->logged_in = false;
-            $this->access_level = ACCESS_LEVEL_NONE;
+           // $this->access_level = ACCESS_LEVEL_NONE;
         }
     }
 
@@ -25,7 +25,6 @@ class Authentification extends AbstractAuthentification
     public function login($login){
         $user = Organiser::findByLogin($login);
         return $user;
-
     }
 /*
     public function login($login){

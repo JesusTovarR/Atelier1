@@ -99,12 +99,12 @@ abstract class AbstractView {
     protected function renderMenu2(){
         $html  = '<h2>Menu</h2>';
         $html .= '<ul>';
-        $html .= '<li><a href="'.$this->script_name.'/admin/perso/">Tous les articles</a></li>';
+        $html .= '<li><a href="'.$this->script_name.'/admin/myEvents/">Tous mes événements</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/sportnet/new/">Créer une page</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/newEvent/">Créer un événement</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/newTail/">Créer une épreuve</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/gestion/">Gérer</a></li>';
-        $html .= '<li><a href="'.$this->script_name.'/admin/perso/">Votre Space</a></li>';
+        $html .= '<li><a href="'.$this->script_name.'/admin/myEvents/">Votre Space</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/logout/">Desconexion</a></li>';
         $html .= "</ul>";
         return $html;

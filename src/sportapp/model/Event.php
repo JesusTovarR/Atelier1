@@ -103,7 +103,7 @@ use sportapp\model\Trial;
          $select = 'SELECT * FROM tblevent';
          $resultat = $db->query($select);
          if($resultat){
-             return $resultat->fetchAll(\PDO::FETCH_CLASS, __CLASS__);
+             return $resultat->fetchAll(\PDO::FETCH_CLASS);
          }else{
              return null;
          }

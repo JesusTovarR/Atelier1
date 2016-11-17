@@ -45,7 +45,7 @@ class WikiAdminController {
         $newevent->render(SPORTNET_VIEW_GESTION);
 
     }
-    
+    /*
     public function checkUser(){
 
         if($this->request->post['login']!='' && $this->request->post['pass']!='' && isset($this->request->post['login']) && isset($this->request->post['pass'])){
@@ -72,6 +72,33 @@ class WikiAdminController {
         }
 
     }
+*/
+    public function checkUser(){
+
+        if($this->request->post['login']!='' && $this->request->post['pass']!='' && isset($this->request->post['login']) && isset($this->request->post['pass'])){
+            $user= new Authentification();
+            $u=$user->login($this->request->post['login']);
+            if(!is_null($u)){
+                //if($u->login==$this->request->post['login'] && password_verify($this->request->post['pass'], $u->pass)){
+                if($u->mail==$this->request->post['login'] && $this->request->post['pass']==$u->password){
+                    $_SESSION['user_login']=$u->mail;
+                    // $_SESSION['access_level']=$u->level;
+                    $this->userSpace();
+                }else{
+                    $form = new WikiAdminView(null);
+                    $form->render(SPORTNET_VIEW_LOGIN);
+                }
+
+            }else{
+                $form = new WikiAdminView(null);
+                $form->render(SPORTNET_VIEW_LOGIN);
+            }
+        }else{
+            $form = new WikiAdminView(null);
+            $form->render(SPORTNET_VIEW_LOGIN);
+        }
+
+    }
 
     
     public function logoutUser(){
@@ -87,12 +114,12 @@ class WikiAdminController {
 
         $connexion=new Authentification();
         if($connexion->logged_in==true){
-            $user = User::findByLogin($_SESSION['user_login']);
-            $articles=new User();
+            $user = Organiser::findByLogin($_SESSION['user_login']);
+            $articles=new Organiser();
             $articles->id=$user->id;
-            $artUser=$articles->getPages();
+            $artUser=$articles->getEvents();
             $spaceP = new WikiView($artUser);
-            $spaceP->render(SPORTNET_VIEW_SINGUP);
+            $spaceP->render(SPORTNET_VIEW_MYEVENTS);
 
         }
     }
@@ -105,7 +132,7 @@ class WikiAdminController {
     public function addUser(){
 
             $user=new Organiser();
-            $user->firrstname=$this->request->post['firstname'];
+            $user->firstname=$this->request->post['firstname'];
             $user->name=$this->request->post['name'];
             $user->mail=$this->request->post['login'];
             $user->password=$this->request->post['pass'];
@@ -124,14 +151,11 @@ class WikiAdminController {
         $organiser=Organiser::findByLogin($_SESSION['user_login']);
         $event->organiser=$organiser->id;
         $event->save();
-        $allevents=new Organiser();
-        $myevent = $allevents->getEvents();
-        $vEvent = new WikiView($myevent);
-        $vEvent->render(SPORTNET_VIEW_MYEVENTS);
+        $this->MyEvents();
 
     }
 
-    public function userSpace2(){
+    public function MyEvents(){
 
         $connexion=new Authentification();
         if($connexion->logged_in==true){
@@ -140,7 +164,7 @@ class WikiAdminController {
             $events->id=$organise->id;
             $eventUser=$events->getEvents();
             $spaceP = new WikiView($eventUser);
-            $spaceP->render(SPORTNET_VIEW_EVENTSUSER);
+            $spaceP->render(SPORTNET_VIEW_MYEVENTS);
 
         }
     }
