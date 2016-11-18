@@ -274,23 +274,17 @@ class SportnetView  extends AbstractView{
         <link rel="stylesheet" href="${style_file3}"> 
     </head>
 
-    <body>
+    <body class="grid_float">
         
-        <header class="theme-backcolor1"> ${header}  </header>
+        <header class="row"> ${header}  <nav id="menu" class=""> ${menu} </nav></header>
         
         <section>
-    
-            <aside>    
-
-                <nav id="menu" class="theme-backcolor1"> ${menu} </nav>
-
-            </aside>
 
             <article class="theme-backcolor2">  ${main} </article>
 
         </section>
 
-        <footer class="theme-backcolor1"> ${footer} </footer>
+        <footer class="row"> ${footer} </footer>
 
     </body>
 </html>
