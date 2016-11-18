@@ -11,20 +11,6 @@ class SportnetView  extends AbstractView{
         parent::__construct($data);
     }
 
-    protected function renderSpacePerso(){
-        $html = "<ul>";
-        foreach ($this->data as $valeur){
-            $html.="<li><a href='$this->script_name/sportnet/view/?title=$valeur->title'>$valeur->title</a></li>";
-        }
-        $html.="</ul>";
-        $html.= "<ul>";
-        foreach ($this->data as $valeur){
-            $html.="<li><a href='$this->script_name/sportnet/edit/?title=$valeur->title'>Modifier</a></li>";
-        }
-        $html.="</ul>";
-        return $html;
-    }
-
     protected function renderMyEvents(){
         $html = "<ul>";
         foreach ($this->data as $valeur){
@@ -221,10 +207,6 @@ class SportnetView  extends AbstractView{
 
 
         switch($selector){
-        case 'singup':
-            $main = $this->renderSpacePerso();
-            break;
-
         case 'accueil':
             $main = $this->renderAccueil();
             break;

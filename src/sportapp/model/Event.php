@@ -79,7 +79,6 @@ use sportapp\model\Trial;
          $selectById = 'SELECT * FROM tblevent where id = :id';
          $selectById_prep = $db->prepare($selectById);
          $selectById_prep->bindParam(':id', $id, \PDO::PARAM_INT);
-         echo 'hola';
          if($selectById_prep->execute()){
              return $selectById_prep->fetchObject();
          }else{

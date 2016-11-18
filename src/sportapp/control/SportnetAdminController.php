@@ -42,34 +42,7 @@ class SportnetAdminController {
         $newevent->render(SPORTNET_VIEW_GESTION);
 
     }
-    /*
-    public function checkUser(){
 
-        if($this->request->post['login']!='' && $this->request->post['pass']!='' && isset($this->request->post['login']) && isset($this->request->post['pass'])){
-            $user= new Authentification();
-            $u=$user->login($this->request->post['login']);
-            if(!is_null($u)){
-                //if($u->login==$this->request->post['login'] && password_verify($this->request->post['pass'], $u->pass)){
-                if($u->mail==$this->request->post['login'] && $this->request->post['pass']==$u->password){
-                        $_SESSION['user_login']=$u->email;
-                       // $_SESSION['access_level']=$u->level;
-                        $this->userSpace();
-                }else{
-                    $form = new WikiAdminView();
-                    $form->render(SPORTNET_VIEW_LOGIN);
-                }
-
-            }else{
-                $form = new WikiAdminView();
-                $form->render(SPORTNET_VIEW_LOGIN);
-            }
-        }else{
-            $form = new WikiAdminView();
-            $form->render(SPORTNET_VIEW_LOGIN);
-        }
-
-    }
-*/
     public function checkUser(){
 
         if($this->request->post['login']!='' && $this->request->post['pass']!='' && isset($this->request->post['login']) && isset($this->request->post['pass'])){
@@ -80,7 +53,7 @@ class SportnetAdminController {
                 if($u->mail==$this->request->post['login'] && $this->request->post['pass']==$u->password){
                     $_SESSION['user_login']=$u->mail;
                     // $_SESSION['access_level']=$u->level;
-                    $this->userSpace();
+                    $this->MyEvents();
                 }else{
                     $form = new SportnetAdminView(null);
                     $form->render(SPORTNET_VIEW_LOGIN);
@@ -106,20 +79,6 @@ class SportnetAdminController {
         $default->accueil();
         
      }
-
-    public function userSpace(){
-
-        $connexion=new Authentification();
-        if($connexion->logged_in==true){
-            $user = Organiser::findByLogin($_SESSION['user_login']);
-            $articles=new Organiser();
-            $articles->id=$user->id;
-            $artUser=$articles->getEvents();
-            $spaceP = new SportnetView($artUser);
-            $spaceP->render(SPORTNET_VIEW_MYEVENTS);
-
-        }
-    }
 
     public function createUser(){
         $form = new SportnetAdminView();

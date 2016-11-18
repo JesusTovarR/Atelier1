@@ -14,11 +14,8 @@ define("SPORTNET_VIEW_MYEVENTS", 'myEvents');
 define("SPORTNET_VIEW_NEWTAIL", 'newTail');
 define("SPORTNET_VIEW_GESTION", 'gestion');
 define("SPORTNET_VIEW_LOGIN", 'login');
-//define("SPORTNET_VIEW_SINGUP", 'singup');
 define("SPORTNET_VIEW_LOGOUT", 'logout');
-//define("SPORTNET_VIEW_NEW", 'newPage');
 define("SPORTNET_VIEW_COMPTE", 'compte');
-//define("SPORTNET_VIEW_EDIT", 'editPage');
 
 $router = new \sportapp\utils\Router();
 $router->addRoute('default',     '\sportapp\control\SportnetController', 'accueil');
@@ -32,14 +29,10 @@ $router->addRoute('/admin/newTail/', '\sportapp\control\SportnetAdminController'
 $router->addRoute('/admin/gestion/', '\sportapp\control\SportnetAdminController', 'gestion');
 $router->addRoute('/admin/login/', '\sportapp\control\SportnetAdminController', 'loginUser');
 $router->addRoute('/admin/singup/', '\sportapp\control\SportnetAdminController', 'checkUser');
-$router->addRoute('/admin/perso/', '\sportapp\control\SportnetAdminController', 'userSpace');
 $router->addRoute('/admin/logout/', '\sportapp\control\SportnetAdminController', 'logoutUser');
-//$router->addRoute('/sportnet/new/', '\sportapp\control\SportnetController', 'newPage');
-//$router->addRoute('/sportnet/save/', '\sportapp\control\SportnetController', 'savePage');
 $router->addRoute('/sportnet/create/', '\sportapp\control\SportnetAdminController', 'createUser');
 $router->addRoute('/admin/add/', '\sportapp\control\SportnetAdminController', 'addUser');
 $router->addRoute('/admin/addEvent/', '\sportapp\control\SportnetAdminController', 'addEvent');
-//$router->addRoute('/sportnet/edit/', '\sportapp\control\SportnetController', 'editPage');
 $http_req = new sportapp\utils\HttpRequest();
 $router->dispatch($http_req);
 
