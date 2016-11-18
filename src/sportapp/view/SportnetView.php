@@ -2,6 +2,10 @@
 
 namespace sportapp\view;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7a1084fd3885424dbb4b37c764e529f928d7854e
 class SportnetView  extends AbstractView{
 
     public function __construct($data){
@@ -73,7 +77,45 @@ class SportnetView  extends AbstractView{
         $html.='<p>'.$this->data->start_date.'</p>';
         $html.='<p>'.$this->data->end_date.'</p>';
         $html.='<p>'.$this->data->description.'</p>';
+<<<<<<< HEAD
+        $html.= ' <a href="'.$this->script_name.'/sportnet/infoParticipant/"><button type="sumit" name="" >S&#39;inscrire</button></a>';
+
+        $html.= '<section>
+                    <h2>S&#39;inscrire au événement</h2>
+                    <form method = "post" action ="'.$this->script_name.'/admin/add/">
+                        <div class="row">
+                          <label for="firstname">Nom</label><br>
+                          <input type="text" name="firstname"/>
+                       </div>
+                       <div class="row">
+                          <label for="name">Prénom</label><br>
+                          <input type="text" name="name"/>
+                       </div>
+                       <div class="row">
+                          <label for="email">email</label><br>
+                          <input type="email" name="login"/>
+                       </div>
+                       <div class="row">
+                          <label for="naissance">Date de naissance</label><br>
+                          <input type="date" name="naissance"/>
+                       </div>
+                       <div class="row">
+                          <label for="pass">Mot de passe</label><br>
+                          <input type="password" name="pass"/>
+                       </div>
+                       <div class="row">
+                          <label for="pass">Confirmation de mot de passe</label><br>
+                          <input type="password" name="pass_verifycation"/>
+                       </div>
+                       <div class="row">
+                          <input type="submit" value="Valider"/>
+                          <input type="reset" value="Annuler"/>
+                       </div>
+                    </form>
+                  </section>';
+=======
         $html.= ' <a href="'.$this->script_name.'/sportnet/infoParticipant/"><button type="submit" name="" >S&#39;inscrire</button></a>';
+>>>>>>> e737a8d6371c19a4000fa57643c65ae3fecc07d2
         return $html;
     }
 

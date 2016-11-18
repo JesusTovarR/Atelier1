@@ -2,9 +2,6 @@
 
 namespace sportapp\view;
 
-
-use Michelf\Markdown;
-
 class SportnetAdminView  extends AbstractView{
 
     /* Constructeur
@@ -70,11 +67,6 @@ class SportnetAdminView  extends AbstractView{
                        </div>
                     </form>
                   </section>';
-        return $html;
-    }
-
-    protected function renderView(){
-        $html = Markdown::defaultTransform($this->data->text);
         return $html;
     }
 
