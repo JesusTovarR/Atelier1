@@ -3,7 +3,6 @@ body{
 }
 header{
 	background-color: #4D93AB;
-	height: 100px; 
 }
 #logo{
 	color: #FFFFFF;
@@ -27,9 +26,7 @@ header{
 	border: 3px solid #4A7685;
 	border-radius: 3px;
 	height:600px;
-	
 	box-sizing : border-box;
-
 }
 
 .validate{
@@ -78,6 +75,8 @@ label {
 }
 
 
+
+
 .foot{
 	height:100px;
 	background-color: #4D93AB;
@@ -92,6 +91,7 @@ label {
 	label{
 		text-align: right;
 	}
+	
 
 }
 
