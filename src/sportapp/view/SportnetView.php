@@ -26,20 +26,20 @@ class SportnetView  extends AbstractView{
     }
 
     protected function renderAccueil(){
-        $html= ' <section>
+        $html= ' <section class="column_4">
                         <h2 class="row column_4 title">Bienvenue</h2>
-                        <p>Cr&eacute;ez vos &eacute;v&eacute;nements sportifs grâce à Sportnet...</p>
-                      </section>
-                      <section>
+                        <p>Avec Sportnet, cr&eacute;ez  tous vos &eacute;v&eacute;nements sportifs</p>
+                  </section>
+                  <section class="row">
                           <div>
-                            <img src="">
+                            <img src="'.$this->app_root.'/html/Librairie/images/sport.jpg">
                           </div>
                 
                           <div>
-                            <img src="">
+                            <img src="'.$this->app_root.'/html/Librairie/images/sport2.jpg">
                           </div>
                 
-                      </section>';
+                  </section>';
         return $html;
     }
 
