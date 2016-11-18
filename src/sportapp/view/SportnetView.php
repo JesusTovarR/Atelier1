@@ -9,15 +9,19 @@ class SportnetView  extends AbstractView{
     }
 
     protected function renderMyEvents(){
-        $html='<h2 class="row column_4 title">Bienvenue '.$_SESSION['user_login'].', voici tous vos événements</h2>
-                <table border="2px">
-                <thead>
+        $html='<h2 class="row column_5 offset_1 title">Bienvenue '.$_SESSION['user_login'].', voici tous vos événements</h2>
+        <table>
+             <thead>
                     <tr>
                         <td>Nom</td>
                         <td>Description</td>
                         <td>Lieu</td>
                         <td>Date du debut</td>
                         <td>Date du fin</td>
+                        <td>Status</td>
+                        <td>Inscriptions</td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </thead>
                 <tbody>';
@@ -33,10 +37,15 @@ class SportnetView  extends AbstractView{
                     }else{
                     $html.="<td>Publié</td>";
                     }
+                    if($valeur->inscription==0){
+                        $html.="<td>Fermées</td>";
+                    }else{
+                        $html.="<td>Ouvertes</td>";
+                    }
             $html.="<td><a href='$this->script_name/admin/gestion/?id=$valeur->id'><button>Gérer</button></a></td>
                     <td><a  href='$this->script_name/admin/supprimerEvent/?id=$valeur->id'><button>Supprimer</button></a></td>
                 </tr>";
-        }
+                }
 
         $html.='</tbody>
             </table>';
@@ -240,13 +249,42 @@ class SportnetView  extends AbstractView{
                              <div class="row">
                                <label>Date du fin</label><br>
                                <input type="date" name="end_date"  value="'.$this->data->end_date.'"/><br>
-                             </div>
+                             </div>';
+                        if($this->data->status==0){
+                            $html.='
+                                     <div class="row">
+                                        <select name="status">
+                                         <option value="0">Non Publier</option>
+                                         <option value="1">Publier</option>
+                                        </select>
+                                     </div>';
+                        }else{
+                            $html.='
+                                         <div class="row">
+                                            <select name="status">
+                                             <option value="1">Publier</option>
+                                             <option value="0">Non Publier</option>
+                                            </select>
+                                         </div>';
+                        }
+                        if($this->data->inscription==0){
+                            $html.='
                              <div class="row">
-                                <select name="status">
-                                 <option value="0">Non Publier</option>
-                                 <option value="1">Publier</option>
+                                <select name="inscription">
+                                 <option value="0">Fermées</option>
+                                 <option value="1">Ouvertes</option>
                                 </select>
-                             </div>
+                             </div>';
+                        }else{
+                            $html.='
+                             <div class="row">
+                                <select name="inscription">
+                                 <option value="1">Ouvertes</option>
+                                 <option value="0">Fermées</option>
+                                </select>
+                             </div>';
+                        }
+                        $html.='
                              <div class="row">
                               <input type="submit" neme="valider" value="Valider"/> 
                               <input type="reset" name="annuler" value="Annuler"/>
@@ -349,7 +387,7 @@ class SportnetView  extends AbstractView{
         
         <section>
 
-            <article class="theme-backcolor2">  ${main} </article>
+            <article class="">  ${main} </article>
 
         </section>
 

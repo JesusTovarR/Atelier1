@@ -6,7 +6,7 @@ use sportapp\model\Trial;
 
  class Event extends AbstractModel{
 
-     private $id, $name, $description, $place, $dicipline, $star_date, $end_date, $status, $organiser;
+     private $id, $name, $description, $place, $dicipline, $star_date, $end_date, $status, $inscription, $organiser;
 
      public function __get($attr_name) {
          if (property_exists( __CLASS__, $attr_name))
@@ -30,7 +30,7 @@ use sportapp\model\Trial;
 
      protected function update(){
 
-         $update = 'UPDATE tblevent SET name= :name, description = :description, place = :place, dicipline= :dicipline, start_date = :star_date, end_date = :end_date, status = :status,id_organiser = :organiser where id = :id';
+         $update = 'UPDATE tblevent SET name= :name, description = :description, place = :place, dicipline= :dicipline, start_date = :star_date, end_date = :end_date, status = :status, inscription = :inscription, id_organiser = :organiser where id = :id';
          $update_prep = $this->db->prepare($update);
          $update_prep->bindParam(':name', $this->name, \PDO::PARAM_STR);
          $update_prep->bindParam(':description', $this->description, \PDO::PARAM_STR);
@@ -39,6 +39,7 @@ use sportapp\model\Trial;
          $update_prep->bindParam(':star_date', $this->star_date, \PDO::PARAM_STR);
          $update_prep->bindParam(':end_date', $this->end_date, \PDO::PARAM_STR);
          $update_prep->bindParam(':status', $this->status, \PDO::PARAM_INT);
+         $update_prep->bindParam(':inscription', $this->inscription, \PDO::PARAM_INT);
          $update_prep->bindParam(':organiser', $this->organiser, \PDO::PARAM_INT);
          $update_prep->bindParam(':id', $this->id, \PDO::PARAM_INT);
          $nb_lgines = $update_prep->execute();
@@ -46,7 +47,7 @@ use sportapp\model\Trial;
      }
 
      protected function insert(){
-         $insert = 'INSERT INTO tblevent values(null, :name, :description, :place, :dicipline, :star_date, :end_date, :status, :organiser )';
+         $insert = 'INSERT INTO tblevent values(null, :name, :description, :place, :dicipline, :star_date, :end_date, :status, :inscription, :organiser )';
          $insert_prep = $this->db->prepare($insert);
          $insert_prep->bindParam(':name', $this->name, \PDO::PARAM_STR);
          $insert_prep->bindParam(':description', $this->description, \PDO::PARAM_STR);
@@ -55,6 +56,7 @@ use sportapp\model\Trial;
          $insert_prep->bindParam(':star_date', $this->star_date, \PDO::PARAM_STR);
          $insert_prep->bindParam(':end_date', $this->end_date, \PDO::PARAM_STR);
          $insert_prep->bindParam(':status', $this->status, \PDO::PARAM_INT);
+         $insert_prep->bindParam(':inscription', $this->inscription, \PDO::PARAM_INT);
          $insert_prep->bindParam(':organiser', $this->organiser, \PDO::PARAM_INT);
          $nb_lignes = $insert_prep->execute();
          return $nb_lignes;

@@ -43,7 +43,7 @@ header{
 
 input {
 	/* styles de caractères */
-	font:Verdana, Geneva, sans-serif;
+	font-family: Verdana ,Geneva, sans-serif;
 	font-size: 14px; 
 	color: #4b4b4b; 
 	/* marge et taille */
@@ -68,7 +68,7 @@ label {
 	margin: 10px 20px 0 0;
 	width: 150px;
 	/* styles de caractères */
-	font:Verdana, Geneva, sans-serif;
+	font-family:Verdana, Geneva, sans-serif;
 	font-size: 14px;
 	color: #445668;
 	text-align: left; 
@@ -103,7 +103,6 @@ label {
 
 }
 
-////////////////////
 section > div > img{
 	border: 1px solid black;
 }

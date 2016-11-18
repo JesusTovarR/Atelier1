@@ -59,7 +59,7 @@ class SportnetAdminController {
         if($this->request->post['login']!='' && $this->request->post['pass']!='' && isset($this->request->post['login']) && isset($this->request->post['pass'])){
             $user= new Authentification();
             $u=$user->login($this->request->post['login']);
-            if(!is_null($u)){
+            if(!false===($u)||!is_null($u)){
                 //if($u->login==$this->request->post['login'] && password_verify($this->request->post['pass'], $u->pass)){
                 if($u->mail==$this->request->post['login'] && $this->request->post['pass']==$u->password){
                     $_SESSION['user_login']=$u->mail;
@@ -116,6 +116,7 @@ class SportnetAdminController {
         $event->star_date=$this->request->post['star_date'];
         $event->end_date=$this->request->post['end_date'];
         $event->status=0;
+        $event->inscription=0;
         $event->description=$this->request->post['descritpion'];
         $organiser=Organiser::findByLogin($_SESSION['user_login']);
         $event->organiser=$organiser->id;
@@ -137,6 +138,11 @@ class SportnetAdminController {
             $event->status=1;
         }else{
             $event->status=0;
+        }
+        if($this->request->post['inscription']==1){
+            $event->inscription=1;
+        }else{
+            $event->inscription=0;
         }
         $event->organiser=$this->request->post['organiser'];
         $event->save();
