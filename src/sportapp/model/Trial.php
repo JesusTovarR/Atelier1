@@ -2,7 +2,6 @@
 namespace sportapp\model;
 
 use sportapp\utils\ConnectionFactory as ConnectionFactory;
-use sportapp\model\Event;
 
 class Trial extends AbstractModel{
 
