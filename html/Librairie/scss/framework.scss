@@ -32,10 +32,9 @@ $btn_fontcolor:#F5FCFC;
 
 body{
 	
-	font-family:'Police', Verdana, Helvetica;
+	font-family:Verdana, Helvetica;
 	width: 100%;
-	padding: 0;
-	
+	padding: 0;	
 }
 
 header{
@@ -52,7 +51,7 @@ header{
 	%title{
 		color:$black;
 		font-weight:bold;
-		font-family:Georgia,Arial,Calibri,sans-serif;
+		font-family:Candara,Arial,Calibri,sans-serif;
 		small{
 		color:$grey;
 		font-size:$valSmall;
@@ -239,7 +238,7 @@ header{
 
 	 		a{
 	 			 display:block;
-				 width:150px;
+				 width:100%;
 				 color:white;
 				 text-decoration:none;
 				 padding:5px;

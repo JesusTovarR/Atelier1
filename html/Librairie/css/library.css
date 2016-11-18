@@ -331,7 +331,7 @@ button, .btn, .jumbotron button, .jumbotron .green-btn, .jumbotron .red-btn, .gr
   font-family: 'Police';
   src: url("../bloggerFont/blogger_Sans.otf"); }
 body {
-  font-family: 'Police', Verdana, Helvetica;
+  font-family: Verdana, Helvetica;
   width: 100%;
   padding: 0; }
 
@@ -342,7 +342,7 @@ header {
 h1, header h1, h2, h3, h4, h5, h6 {
   color: #000000;
   font-weight: bold;
-  font-family: Georgia,Arial,Calibri,sans-serif; }
+  font-family: Candara,Arial,Calibri,sans-serif; }
   h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
     color: #8C8C8C;
     font-size: 0.6em; }
@@ -469,7 +469,7 @@ kbd {
     background-color: #418A86; }
     .navbar li a {
       display: block;
-      width: 150px;
+      width: 100%;
       color: white;
       text-decoration: none;
       padding: 5px;

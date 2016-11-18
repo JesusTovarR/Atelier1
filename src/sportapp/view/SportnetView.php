@@ -26,8 +26,7 @@ class SportnetView  extends AbstractView{
     }
 
     protected function renderAccueil(){
-        $html= ' <article>
-                      <section>
+        $html= ' <section>
                         <h2 class="row column_4 title">Bienvenue</h2>
                         <p>Cr&eacute;ez vos &eacute;v&eacute;nements sportifs grâce à Sportnet...</p>
                       </section>
@@ -40,13 +39,12 @@ class SportnetView  extends AbstractView{
                             <img src="">
                           </div>
                 
-                      </section>
-                </article>';
+                      </section>';
         return $html;
     }
 
     protected function renderEvents(){
-        $html= '<h1 class="row column_4 title">Bienvenues, voici tous nos événements et sa description</h1>
+        $html= '<h2 class="row column_4 title">Bienvenues, voici tous nos événements et sa description</h2>
                  <table border="1px" >
                 <thead>
                     <tr>
@@ -71,7 +69,7 @@ class SportnetView  extends AbstractView{
     }
 
     protected function renderInscription(){
-        $html= '<h1 class="row column_4 title">Bienvenues, vous pouvez vous s&#39;inscrire dans l&#39;événement suivant:</h1>';
+        $html= '<h2 class="row column_4 title">Bienvenues, vous pouvez vous s&#39;inscrire dans l&#39;événement suivant:</h2>';
         $html.='<h2>'.$this->data->name.'</h2>';
         $html.='<p>'.$this->data->place.'</p>';
         $html.='<p>'.$this->data->dicipline.'</p>';
