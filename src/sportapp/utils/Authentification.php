@@ -40,12 +40,13 @@ class Authentification extends AbstractAuthentification
         unset($_SESSION['access_level']);
         $this->logged_in = false;
     }
-
+/*
     public function checkAccessRight($requested)
     {
         return ($this->access_level >= $requested);
     }
-
+*/
+/*
     function createUser($login, $pass, $accesLevel){
         $user=new User();
         $user->login=$login;
@@ -53,5 +54,5 @@ class Authentification extends AbstractAuthentification
         $user->pass=$phash;
         $user->level=$accesLevel;
         $user->save();
-    }
+    }*/
 }

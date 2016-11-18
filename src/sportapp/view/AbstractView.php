@@ -1,6 +1,7 @@
 <?php
 
 namespace sportapp\view;
+
 use sportapp\utils\HttpRequest;
 
 abstract class AbstractView {
@@ -88,7 +89,6 @@ abstract class AbstractView {
         $html .= '<ul>';
         $html .= '<li><a href="'.$this->script_name.'/sportnet/default/">Accueil</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/sportnet/events/">Nos événements</a></li>';
-        $html .= '<li><a href="'.$this->script_name.'/sportnet/all/">Tous les articles</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/login/">Connexion</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/sportnet/create/">Créer un compte organisateur</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/sportnet/default/">Contact</a></li>';
@@ -100,7 +100,6 @@ abstract class AbstractView {
         $html  = '<h2>Menu</h2>';
         $html .= '<ul>';
         $html .= '<li><a href="'.$this->script_name.'/admin/myEvents/">Tous mes événements</a></li>';
-        $html .= '<li><a href="'.$this->script_name.'/sportnet/new/">Créer une page</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/newEvent/">Créer un événement</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/newTail/">Créer une épreuve</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/gestion/">Gérer</a></li>';

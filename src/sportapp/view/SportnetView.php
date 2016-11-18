@@ -5,24 +5,10 @@ namespace sportapp\view;
 
 use Michelf\Markdown;
 
-class WikiView  extends AbstractView{
+class SportnetView  extends AbstractView{
 
     public function __construct($data){
         parent::__construct($data);
-    }
-
-    protected function renderAll(){
-        $html = "<ul>";
-        foreach ($this->data as $valeur){
-                $html.="<li><a href='$this->script_name/sportnet/view/?title=$valeur->title'>$valeur->title</a></li>";
-        }
-        $html.="</ul>";
-        return $html;
-    }
-
-    protected function renderView(){
-        $html = Markdown::defaultTransform($this->data->text);
-        return $html;
     }
 
     protected function renderSpacePerso(){
@@ -50,26 +36,6 @@ class WikiView  extends AbstractView{
             $html.="<li><a href='$this->script_name/sportnet/edit/?name=$valeur->name'>Modifier</a></li>";
         }
         $html.="</ul>";*/
-        return $html;
-    }
-
-    protected function renderNewPage(){
-        $html= '<article>
-                 <section>
-                    <form class= "login" method = "post" action ="'.$this->script_name.'/sportnet/save/" name="formulaireArticle">
-                        <div class="login_text">
-                            <label>Titre</label><br>
-                            <input type ="text" name="title"/>
-                        </div>
-                        <div class="pass_text">
-                            <textarea name="article" rows="10" cols="40"></textarea>
-                        </div>
-                        <div class="login_button">
-                        <button class="btn" type="sumit" name="logup" >Enregistrer</button>
-                        </div>
-                    </form>
-                 </section>
-                </article>';
         return $html;
     }
 
@@ -251,45 +217,12 @@ class WikiView  extends AbstractView{
         return $html;
     }
 
-    protected function renderEditPage(){
-        $html= '<form class= "login" method = "post" action ="'.$this->script_name.'/sportnet/save/" name="formulaireEdition">
-                        <div class="login_text">
-                            <label>"'.$this->data->title.'"</label><br>
-                            <input type ="hidden" name="id" value="'.$this->data->id.'"/>
-                            <input type ="hidden" name="title" value="'.$this->data->title.'"/>
-                        </div>
-                        <div class="pass_text">
-                            <textarea name="article" rows="10" cols="40" value="">'.$this->data->text.'</textarea>
-                        </div>
-                        <div class="login_button">
-                        <button type="sumit" name="logup" >Enregistrer</button>
-                        </div>
-                    </form>';
-        return $html;
-    }
-
     public function render($selector){
 
 
         switch($selector){
-        case 'view':
-            $main = $this->renderView();
-            break;
-
-        case 'all':
-            $main = $this->renderAll();
-            break;
-
         case 'singup':
             $main = $this->renderSpacePerso();
-            break;
-
-        case 'newPage':
-            $main = $this->renderNewPage();
-            break;
-
-        case 'editPage':
-            $main = $this->renderEditPage();
             break;
 
         case 'accueil':
@@ -395,3 +328,5 @@ EOT;
 
 
 }
+
+

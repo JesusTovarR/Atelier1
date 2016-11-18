@@ -5,7 +5,7 @@ namespace sportapp\view;
 
 use Michelf\Markdown;
 
-class WikiAdminView  extends AbstractView{
+class SportnetAdminView  extends AbstractView{
 
     /* Constructeur
     *
