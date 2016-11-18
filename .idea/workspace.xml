@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52fac649-c173-4979-b432-69043a3a8e46" name="Default" comment="" />
+    <list default="true" id="52fac649-c173-4979-b432-69043a3a8e46" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sportapp/model/Event.php" afterPath="$PROJECT_DIR$/src/sportapp/model/Event.php" />
+    </list>
     <ignored path="miniwiki.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -24,8 +26,8 @@
       <file leaf-file-name="Event.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sportapp/model/Event.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2594">
-              <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+            <state relative-caret-position="135">
+              <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -82,12 +84,12 @@
         <option value="$PROJECT_DIR$/src/sportapp/utils/AbstractAuthentification.php" />
         <option value="$PROJECT_DIR$/main.php" />
         <option value="$PROJECT_DIR$/src/sportapp/control/SportnetAdminController.php" />
-        <option value="$PROJECT_DIR$/src/sportapp/model/Event.php" />
         <option value="$PROJECT_DIR$/src/sportapp/control/SportnetController.php" />
         <option value="$PROJECT_DIR$/src/sportapp/view/AbstractView.php" />
         <option value="$PROJECT_DIR$/src/sportapp/view/SportnetAdminView.php" />
         <option value="$PROJECT_DIR$/src/sportapp/view/SportnetView.php" />
         <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/src/sportapp/model/Event.php" />
       </list>
     </option>
   </component>
@@ -295,12 +297,12 @@
       <workItem from="1479420205446" duration="6325000" />
       <workItem from="1479458321979" duration="8451000" />
       <workItem from="1479472964935" duration="1677000" />
-      <workItem from="1479474757743" duration="41000" />
+      <workItem from="1479474757743" duration="232000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125087000" />
+    <option name="totallyTimeSpent" value="125278000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
@@ -473,7 +475,7 @@
         <state relative-caret-position="946">
           <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
           <folding>
-            <element signature="e#34#63#0#PHP" expanded="true" />
+            <element signature="e#34#63#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -515,7 +517,7 @@
         <state relative-caret-position="585">
           <caret line="84" column="42" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="42" />
           <folding>
-            <element signature="e#36#65#0#PHP" expanded="true" />
+            <element signature="e#36#65#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -597,8 +599,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sportapp/model/Event.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2594">
-          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        <state relative-caret-position="135">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
           <folding />
         </state>
       </provider>
