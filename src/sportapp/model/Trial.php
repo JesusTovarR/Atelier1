@@ -4,7 +4,7 @@ namespace sportapp\model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class trial extends Model
+class Trial extends Model
 {
     protected $table = 'trial';
     protected $primaryKey = 'id';

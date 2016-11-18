@@ -1,15 +1,30 @@
 <?php
 
+
 namespace sportapp\control;
 
 use sportapp\model\Event;
 use sportapp\utils\HttpRequest;
 use sportapp\view\SportnetView;
+use sportapp\utils\AppInit;
+use \sportapp\model\Organizer;
+use \sportapp\model\Trial;
+use sportapp\model\Participant;
+use \Illuminate\Database\Capsule\Manager as DB;
 
+AppInit::bootEloquent('conf/conf.ini');
+DB::connection()->enableQueryLog();
+
+
+$queries = DB::getQueryLog();
+
+foreach ($queries as $query){
+    var_dump($query);
+}
 
 class SportnetController {
 
-    /* Attribut pour stocker l'objet HttpRequest */ 
+    /* Attribut pour stocker l'objet HttpRequest */
     private $request=null; 
 
     /*
@@ -32,15 +47,13 @@ class SportnetController {
     }
 
     public function allEvents(){
-        $events = Event::findAll();
-        $vEvents = new SportnetView($events);
+        $vEvents = new SportnetView(Event::all());
         $vEvents->render(SPORTNET_VIEW_EVENTS);
-
     }
 
     public function inscriptionEvent(){
         if(isset($this->request->get['id'])){
-            $event=Event::findById($this->request->get['id']);
+            $event=Event::find($this->request->get['id']);
             $vEvent = new SportnetView($event);
             $vEvent->render(SPORTNET_VIEW_INSCRIPTION);
         }else{

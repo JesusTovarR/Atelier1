@@ -10,7 +10,7 @@ namespace sportnet\model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class inscription extends Model
+class Enscription extends Model
 {
     protected $table ='inscription';
     protected $primaryKey = 'id';
