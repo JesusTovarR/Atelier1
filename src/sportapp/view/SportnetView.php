@@ -70,7 +70,7 @@ class SportnetView  extends AbstractView{
 
     protected function renderInscription(){
         $html= '<h2 class="row column_4 title">Bienvenues, vous pouvez vous s&#39;inscrire dans l&#39;événement suivant:</h2>';
-        $html.='<h2>'.$this->data->name.'</h2>';
+        $html.='<h3>'.$this->data->name.'</h3>';
         $html.='<p>'.$this->data->place.'</p>';
         $html.='<p>'.$this->data->dicipline.'</p>';
         $html.='<p>'.$this->data->start_date.'</p>';
@@ -186,10 +186,10 @@ class SportnetView  extends AbstractView{
                              
                         <aside id="menu">
                            <p>Liste des participants</p>
-                           <button type="sumbit" value="open">Ovrir Inscription</button>
-                           <button type="sumbit" value="close"/>Clos Inscription</button>
-                           <button type="sumbit" value="publish"/>Publier Événement</button>
-                           <button type="sumbit" value="upload"/>Deposer Résultats</button>
+                           <div class="space"><button class="btn type="sumbit" value="open">Ouvrir Inscription</button></div>
+                           <div class="space"><button class="btn type="sumbit" value="close"/>Fermer Inscription</button></div>
+                           <div class="space"><button class="btn type="sumbit" value="publish"/>Publier Événement</button></div>
+                           <div class="space"><button class="btn type="sumbit" value="upload"/>Deposer Résultats</button></div>
                         </aside>
                       </section>';
         return $html;
@@ -284,7 +284,7 @@ class SportnetView  extends AbstractView{
 
         </section>
 
-        <footer class="row"> ${footer} </footer>
+        <footer class="row foot"> ${footer} </footer>
 
     </body>
 </html>
