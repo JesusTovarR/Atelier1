@@ -6,7 +6,7 @@
  * Time: 03:40 PM
  */
 
-namespace sportnet\model;
+namespace sportapp\model;
 use Illuminate\Database\Eloquent\Model;
 
 class Participant extends Model

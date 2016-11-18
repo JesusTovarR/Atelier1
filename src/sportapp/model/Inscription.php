@@ -6,11 +6,11 @@
  * Time: 08:53 PM
  */
 
-namespace sportnet\model;
+namespace sportapp\model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class inscription extends Model
+class Inscription extends Model
 {
     protected $table ='inscription';
     protected $primaryKey = 'id';

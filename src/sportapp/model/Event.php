@@ -3,7 +3,7 @@ namespace sportapp\model;
 
 
 use Illuminate\Database\Eloquent\Model;
-class event extends Model
+class Event extends Model
 {
     protected $table = 'event';
     protected $primaryKey = 'id';
@@ -72,11 +72,7 @@ class event extends Model
     }
 
     public function allEvents(){
-        foreach (Event::all() as $book)
-        {
-            echo $book->name;
-            echo "<br/>";
-        }
+       Event::all();
     }
 
     /*
