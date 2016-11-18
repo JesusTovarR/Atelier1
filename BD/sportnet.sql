@@ -1,148 +1,170 @@
-drop database sportnet;
-create database IF NOT EXISTS sportnet;
+-- phpMyAdmin SQL Dump
+-- version 3.5.1
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tiempo de generación: 17-11-2016 a las 16:58:56
+-- Versión del servidor: 5.5.24-log
+-- Versión de PHP: 5.4.3
 
-use sportnet;
-
-create table IF NOT EXISTS 	participant(
-id int(11) not null AUTO_INCREMENT PRIMARY KEY,
-last_name varchar(25) not null,
-name varchar(25) not null,
-email varchar(25) not null,
-birthday date not null,
-nb_participant int(10) unique not null /*dossard*/
-);
-
-create table IF NOT EXISTS organizer(
-id int(11) not null AUTO_INCREMENT PRIMARY KEY,
-last_name varchar(25) not null,
-name varchar(25) not null,
-email varchar(25) not null,
-password varchar(20) not NULL,
-birthday date not null 
-);
-
-create table IF NOT EXISTS event(
-id int(11) not null AUTO_INCREMENT PRIMARY KEY,
-name varchar(100) not null,
-description varchar(100) DEFAULT NULL,
-place varchar(20) not NULL,
-dicipline varchar(20) not NULL,
-date_start date not null,
-date_end date not null,
-id_o int(11) not null,
-FOREIGN KEY(id_o) REFERENCES organizer(id) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-create table IF NOT EXISTS trial(
-id int(11) not null AUTO_INCREMENT PRIMARY KEY,
-name varchar(100) not null,
-description varchar(100) DEFAULT NULL,
-date date not null,
-time time not null, 
-id_e int(11) not null,
-id_o int(11) not null,
-FOREIGN KEY(id_e) REFERENCES event(id) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY(id_o) REFERENCES organizer(id) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-create table IF NOT EXISTS inscription(
-id int(11) not null AUTO_INCREMENT PRIMARY KEY,
-date_ins date not null,
-id_e int(11) not null,
-FOREIGN KEY(id_e) REFERENCES event(id) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-create table IF NOT EXISTS trial_participant(
-id_p int(11) not null, 
-id_t int(11) not null,
-id_i int(11) not null,
-FOREIGN KEY(id_p) REFERENCES participant(id) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY(id_t) REFERENCES trial(id) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY(id_i) REFERENCES inscription(id) ON DELETE CASCADE ON UPDATE CASCADE,
-PRIMARY KEY(id_p,id_t) 
-);
-
-/*create table IF NOT EXISTS inscription_trial(
-id_i int(11) not null,
-id_t int(11) not null,
-FOREIGN KEY(id_i) REFERENCES inscription(id) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY(id_t) REFERENCES trial(id) ON DELETE CASCADE ON UPDATE CASCADE,
-PRIMARY KEY(id_i,id_t) 
-);
-*/
-
-INSERT INTO organizer (`last_name`,`name`,`email`,password,`birthday`) VALUES
-('MENDEZ','DANIEL','daniel@gmail.com','123','1993-12-4'),
-('TOVAR','JOSE','jose@gmail.com','123','1995-7-9');
-
-INSERT INTO event (`name`,`description`,`place`,`dicipline`, `date_start`,`date_end`,`id_o` ) VALUES
-('La Randolubilhac Equestre 2016','description','place','dicipline','2016-06-05','2016-06-05',1),
-('Handi Val Trophée 2016','description','place','dicipline','2016-03-20','2016-03-20',1),
-('8ème Triathlon Agenais','description','place','dicipline','2016-10-05','2016-10-05',2),
-('ARVEnture Stand Up Paddle 2015','description','place','dicipline','2016-12-04','2016-12-04',2),
-('Téléthon à Guécélard','description','place','dicipline','2016-11-22','2016-11-22',1),
-('Les 3 heures de Saint-Aubin 2016','description','place','dicipline','2015-04-02','2015-04-02',2);
-
-INSERT INTO participant (`last_name`,`name`,`email`,`birthday`,`nb_participant`) VALUES
-('BUSTOS MENDOZA', 'CESAR ROGELIO','mendoza@gmail.com','2001-1-1',1),
-('LARIOS DELGADO', 'JOEL SURISSADDAI','delgado@gmail.com','2001-1-1',2),
-('MALDONADO HINOJOSA','MARIA LUISA','marialuisa@gmail.com','2001-1-1',3),
-('RAMOS MARTINEZ', 'VIRIDIANA','viridiana.ramos@gmail.com','2001-1-1',4),
-('LEON MORAN','KENIA SARAHI','moran@gmail.com','2001-1-1',5),
-('OLMOS DAVILA','JOSE JULIAN','olmos@gmail.com','2001-1-1',6);
-
-INSERT INTO trial (`name`,`description`,`date`,`time`,`id_e`,`id_o`) VALUES
-('Cyclisme sur route - Option 1','description of trial','2016-12-4','13:00:00',5,1 ),
-('Cyclisme sur route - Option 2','description of trial','2016-12-4','14:00:00',5,1),
-('Cyclisme sur route - Option 3','description of trial','2016-12-4','15:00:00',5,1),
-('Cyclisme sur route - Option 4','description of trial','2016-12-4','16:00:00',5,1),
-('Cyclisme sur route - Option 5','description of trial','2016-12-4','17:00:00',5,1),
-('Cyclisme sur route - Option 6','description of trial','2016-12-4','18:00:00',5,1);
-
-INSERT INTO inscription(`date_ins`,`id_e`) VALUES
-('2016-11-17',5),
-('2016-11-17',5),
-('2016-11-17',5),
-('2016-11-17',5),
-('2016-11-17',5),
-('2016-11-17',5);
-
-INSERT INTO trial_participant(`id_p`,`id_t`,`id_i`) VALUES
-(1,2,1),
-(2,1,1),
-(3,1,1),
-(4,1,2),
-(5,3,2),
-(6,4,2);
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
-/*create table IF NOT EXISTS inscription(
-id int(11) not null,
-id_e int(11) not null,
-id_t int(11) not null,
-id_p int(11) not null,
-FOREIGN KEY(id_e) REFERENCES event(id) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY(id_t) REFERENCES trial(id) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY(id_p) REFERENCES participant(id) ON DELETE CASCADE ON UPDATE CASCADE,
-PRIMARY KEY(id,id_e,id_t,id_p) 
-);
+--
+-- Base de datos: `sportnet`
+--
 
-INSERT INTO inscription (`id`, `id_e`, `id_t`, `id_p`) VALUES
-(1,1,1,1),
-(2,1,1,1),
-(3,1,1,1),
-(4,1,1,1),
-(5,1,1,1),
-(6,1,1,1);
-*/
+-- --------------------------------------------------------
 
+--
+-- Estructura de tabla para la tabla `organiser`
+--
 
+CREATE TABLE IF NOT EXISTS `organiser` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(50) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  `naissance` date DEFAULT NULL,
+  `mail` varchar(20) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
+--
+-- Volcado de datos para la tabla `organiser`
+--
 
+INSERT INTO `organiser` (`id`, `firstname`, `name`, `naissance`, `mail`, `password`) VALUES
+(1, 'Tovar', 'Jesus', NULL, 'jesus@gmail.com', 'holahola'),
+(2, 'Tovar', 'Jesus', NULL, 'jesus@2gmail.com', 'holahola'),
+(3, 'Rocha', 'Jesus', NULL, 'rocha@gmail.com', '1234'),
+(4, 'Rocha', 'Jesus', NULL, 'rocha@gmail.com', '1234'),
+(5, 'Mendez', 'Daniel', NULL, 'mendez@gmail.com', '1234'),
+(6, 'Tovar', 'Jesus', '1995-02-18', 'j@gmail.com', '1234');
 
+-- --------------------------------------------------------
 
+--
+-- Estructura de tabla para la tabla `page`
+--
 
+CREATE TABLE IF NOT EXISTS `page` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL,
+  `text` text NOT NULL,
+  `date` date NOT NULL,
+  `author` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `title` (`title`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
+--
+-- Volcado de datos para la tabla `page`
+--
 
+INSERT INTO `page` (`id`, `title`, `text`, `date`, `author`) VALUES
+(1, 'Main', 'Accueil\r\n-------\r\n\r\nMiniwiki: un wiki tout mimi\r\n---------------------------\r\n\r\nIl est *mini*, il est *wiki* mon **miniwiki**\r\n\r\nMiniwiki, mais il fait le maximum !\r\n-----------------------------------\r\n\r\nJe suis un moteur de wiki crée à l''occasion du projet de programmation web par les étudiants de l''iut Charlemagne.\r\n\r\n----\r\n\r\nLiens\r\n-----\r\n\r\n* Pour apprendre la syntaxe [Markdown] (http://daringfireball.net/projects/markdown)\r\n* Ce lien pointe vers le site de l''[iut](http://iut-charlemagne.univ-lorraine.fr)\r\n\r\n\r\n\r\n', '2012-12-06', 1),
+(2, 'Rock', 'Le rock est un genre musical apparu il y a longtemps (mais pas trop non plus) aux états unis\r\n\r\n## Les genres de Rock\r\n\r\nLe rock se décompose en de très nombreuses branches qu''il est impossible d''énumérer.\r\n\r\nMais si on essayait quand même, on pourrait citer\r\n\r\n* le [[Rock]] \r\n* le [[Punk-Rock]]\r\n* le [[Rock Musette]]\r\n* le [[Rock Crevette]]\r\n* les autres types de rock\r\n\r\n#Les fameux groupes de rock\r\n\r\nParmi les groupes de rock, on dénombre\r\n\r\n# Les Rolling Stones\r\n# Stray Cats\r\n# Deep Purple\r\n\r\nA noter que Justin Bibier et Britney Spears ne sont pas les meilleurs représentants de ce genre musical.\r\n\r\n## L''avenir du rock\r\n\r\nOn attend toujours l''inventeur du Rock numérique.\r\n\r\n## citation\r\n\r\n> Le rock c''est comme un parapluie qui laisserait passer l''eau (Mary Poppins)\r\n', '2012-12-06', 1),
+(3, 'Punk-Rock', '## Descriptif\r\n\r\nLe punk rock est un mouvement issu du Rock où le batteur a l''autorisation de jouer très fort pour couvrir le son des autres instruments.\r\n\r\n## Lien\r\n\r\n[wikipedia](http://fr.wikipedia.org/wiki/Punk_rock)\r\n\r\n\r\n## Citation\r\n\r\n> J''ai toujours eu du mal avec le punk (Mozart)\r\n', '2012-12-06', 1),
+(4, 'Rock Musette', '## Descriptif\r\n\r\nLe rock musette permet de se balancer au son de l''accordéon électrique.\r\n\r\n', '2015-10-12', 2),
+(5, 'Rock Crevette', '## Le Rock Crevette\r\n\r\nCe n''est pas pour les marins d''eau douce !!! \r\n\r\n## Citation\r\n\r\n> Le rock crevette c''est de la musique Palourde (Flipper le Dauphin)\r\n', '2012-12-06', 2),
+(8, 'Les meilleures blagues droles', '* un programme javelot, tu le lances, il plante.\r\n\r\n* pour l''examen d''HTML, je balise\r\n\r\n* j''ai pris une nouvelle résolution pour noel : 800*600\r\n\r\n* ah, ca y est, c''est tombé en marche.\r\n\r\n----\r\n\r\nDans un réfrigirateur, 10 oeufs sont alignés dans le bac à oeufs.\r\nLe 1er dit au 2ème:" tu ne trouves pas qu''il a une drôle de tête le dernier oeuf?"\r\nLe 2ème répond :"bah oui!, tu as raison !!!"\r\nLe 2ème oeuf se retourne sur le 3ème et lui dit........ ainsi de suite jusquau 9ème oeuf, qui se retourne vers le 10ème oeuf et lui dit : "C''est vraie que pour un oeuf t''as une drôle de tête."\r\nLe 10ème se retourne vers son voisin et lui répond "Imbécile moi je suis in kiwi" ', '2012-12-06', 3),
+(9, 'Mi pagina', 'hola2', '2016-11-17', 4),
+(11, 'Hola', 'Ma premier page créée déjà modifié', '2016-11-17', 4);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `participants`
+--
+
+CREATE TABLE IF NOT EXISTS `participants` (
+  `id_participant` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(50) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  `mail` varchar(20) DEFAULT NULL,
+  `n_dossard` int(11) NOT NULL,
+  `id_event` int(11) NOT NULL,
+  PRIMARY KEY (`id_participant`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tblevent`
+--
+
+CREATE TABLE IF NOT EXISTS `tblevent` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `place` varchar(20) DEFAULT NULL,
+  `dicipline` varchar(20) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `id_organiser` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Volcado de datos para la tabla `tblevent`
+--
+
+INSERT INTO `tblevent` (`id`, `name`, `description`, `place`, `dicipline`, `start_date`, `end_date`, `id_organiser`) VALUES
+(1, 'Event', 'Le plus joli\r\n\r\nawjbdklfkbjskjfbk.sb cmnx cnxc ksbc\r\njasbf,msb,f,kjhbsdakfjhbsdkjfhbklasdhfblkd', 'Nancy', 'Individuel', '2016-11-01', '2016-11-04', 1),
+(2, 'Event2', 'lkahdjhasdjkfbjkasdbvjknadvn\r\nasdfjnskadbvkbvlasd\r\nsjdvnkjsdbvjbvkln', 'Nancy2', 'otra', '2016-11-02', '2016-11-19', 1),
+(3, 'Teleton', 'jabskbdasbckasjbc', 'Nancy', '10 km', '2016-01-25', '2016-01-29', 1),
+(4, 'Marathon', 'ksjfhksdbfkbdkjbcksbdc', 'Marseille', 'VTT', '2017-03-02', '2017-03-10', 5),
+(5, 'Caminar', 'jgvsdjfvjkahsdvbjkcdvasdkvfc', 'Paris', 'Marcher', '2017-03-02', '2017-03-10', 5),
+(6, 'jas', 'sefjasifg', 'kjasb', 'jdasb', '2016-01-25', '2016-01-29', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `trial`
+--
+
+CREATE TABLE IF NOT EXISTS `trial` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` int(20) DEFAULT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `date_trial` date DEFAULT NULL,
+  `id_event` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(128) NOT NULL,
+  `pass` varchar(256) NOT NULL,
+  `level` int(11) NOT NULL COMMENT '-100:NONE; 100:USER; 500:ADMIN',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `login` (`login`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`id`, `login`, `pass`, `level`) VALUES
+(1, 'john', '$2y$10$st3OSGl37z4XM5jIRNWD4ORqeiv65LNv6J2cbMKsKXawwFofZ2zGa', 100),
+(2, 'tom', '$2y$10$.2dix/dSHVQt32zIaxVYguy.3D2Iki.0as9fX7dgH1splrhfzHPAa', 100),
+(3, 'mike', '$2y$10$NqACSfKhW0UZFcGtSy5t.uvs6Hj3EurQ0UpFlxqdR0m6uhDHP8nHa', 500),
+(4, 'Jose', '1234', 100),
+(5, 'Jesus', '1234', 100);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

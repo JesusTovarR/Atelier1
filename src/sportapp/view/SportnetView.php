@@ -3,8 +3,6 @@
 namespace sportapp\view;
 
 
-use Michelf\Markdown;
-
 class SportnetView  extends AbstractView{
 
     public function __construct($data){
