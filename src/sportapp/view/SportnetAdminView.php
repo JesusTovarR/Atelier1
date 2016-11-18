@@ -17,8 +17,7 @@ class SportnetAdminView  extends AbstractView{
     }
 
     protected function renderLogin(){
-        $html= '<article>
-                  <section>
+        $html= '<section>
                     <h2>Bienvenue</h2>
                     <form class= "login" method = "post" action ="'.$this->script_name.'/admin/singup/" name="formulaire">
                        <div class="login_text">
@@ -33,47 +32,44 @@ class SportnetAdminView  extends AbstractView{
                            <input type="submit" value="Se connecter"/>
                        </div>
                     </form>
-                  </section>
-                </article>';
+                  </section>';
         return $html;
     }
 
     protected function renderCreateUser(){
-        $html= '<article>
-                  <section>
+        $html= '<section>
                     <h2>S&#39;inscrire en tant qu&#39;Organisateur</h2>
                     <form method = "post" action ="'.$this->script_name.'/admin/add/">
-                        <div>
+                        <div class="row">
                           <label for="firstname">Nom</label><br>
                           <input type="text" name="firstname"/>
                        </div>
-                       <div>
+                       <div class="row">
                           <label for="name">Prénom</label><br>
                           <input type="text" name="name"/>
                        </div>
-                       <div>
+                       <div class="row">
                           <label for="email">email</label><br>
                           <input type="email" name="login"/>
                        </div>
-                       <div>
+                       <div class="row">
                           <label for="naissance">Date de naissance</label><br>
                           <input type="date" name="naissance"/>
                        </div>
-                       <div>
+                       <div class="row">
                           <label for="pass">Mot de passe</label><br>
                           <input type="password" name="pass"/>
                        </div>
-                       <div>
+                       <div class="row">
                           <label for="pass">Confirmation de mot de passe</label><br>
                           <input type="password" name="pass_verifycation"/>
                        </div>
-                       <div>
+                       <div class="row">
                           <input type="submit" value="Valider"/>
                           <input type="reset" value="Annuler"/>
                        </div>
                     </form>
-                  </section>
-                </article>';
+                  </section>';
         return $html;
     }
 
