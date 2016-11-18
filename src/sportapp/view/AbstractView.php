@@ -86,7 +86,7 @@ abstract class AbstractView {
      */
     protected function renderMenu(){
      
-        $html  = '<ul class="navbar column_4 nav">';
+        $html  = '<ul class="navbar column_5 nav">';
         $html .= '<li><a href="'.$this->script_name.'/sportnet/default/">Accueil</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/sportnet/events/">Nos événements</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/login/">Connexion</a></li>';

@@ -17,9 +17,9 @@ class SportnetAdminView  extends AbstractView{
     }
 
     protected function renderLogin(){
-        $html= '<section>
-                    <h2 class="row column_4 title">Bienvenue</h2>
-                    <form class= "login" method = "post" action ="'.$this->script_name.'/admin/singup/" name="formulaire">
+        $html= '<section  class="column_4 offset_1 connexion">
+                    <h2 class="row column_4 title">Se connecter</h2>
+                    <form class= "login space" method = "post" action ="'.$this->script_name.'/admin/singup/" name="formulaire">
                        <div class="login_text">
                            <label for="email">Email</label><br>
                            <input type ="text" name="login"/>
