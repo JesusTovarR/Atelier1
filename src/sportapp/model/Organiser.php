@@ -46,12 +46,13 @@ use sportapp\model\Event;
      {
          $insert = 'INSERT INTO organiser values(null, :firstname, :name, :naissance, :mail, :password)';
          $insert_prep = $this->db->prepare($insert);
-         //$p_hash = password_hash($this->pass, PASSWORD_DEFAULT);
+        // $p_hash = password_hash($this->pass, PASSWORD_DEFAULT);
+      //   echo $p_hash;
          $insert_prep->bindParam(':firstname', $this->firstname, \PDO::PARAM_STR);
          $insert_prep->bindParam(':name', $this->name, \PDO::PARAM_STR);
          $insert_prep->bindParam(':naissance', $this->naissance, \PDO::PARAM_STR);
          $insert_prep->bindParam(':mail', $this->mail, \PDO::PARAM_STR);
-        // $insert_prep->bindParam(':password', $p_hash, \PDO::PARAM_STR);
+      //   $insert_prep->bindParam(':password', $p_hash, \PDO::PARAM_STR);
          $insert_prep->bindParam(':password', $this->password, \PDO::PARAM_STR);
          $nb_lignes = $insert_prep->execute();
          return $nb_lignes;

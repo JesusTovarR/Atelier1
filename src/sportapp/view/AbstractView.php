@@ -101,7 +101,6 @@ abstract class AbstractView {
         $html .= '<li><a href="'.$this->script_name.'/admin/myEvents/">Tous mes événements</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/newEvent/">Créer un événement</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/newTrial/">Créer une épreuve</a></li>';
-        $html .= '<li><a href="'.$this->script_name.'/admin/gestion/">Gérer</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/myEvents/">Votre Space</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/logout/">Desconexion</a></li>';
         $html .= "</ul>";

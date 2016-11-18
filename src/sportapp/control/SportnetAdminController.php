@@ -45,10 +45,13 @@ class SportnetAdminController {
     }
 
     public function gestion(){
-
-        $newevent = new SportnetView(null);
-        $newevent->render(SPORTNET_VIEW_GESTION);
-
+        if(isset($this->request->get['id'])){
+            $event=Event::findById($this->request->get['id']);
+            $vGestion = new SportnetView($event);
+            $vGestion->render(SPORTNET_VIEW_GESTION);
+        }else{
+            $this->MyEvents();
+        }
     }
 
     public function checkUser(){
@@ -99,6 +102,7 @@ class SportnetAdminController {
             $user->name=$this->request->post['name'];
             $user->naissance=$this->request->post['naissance'];
             $user->mail=$this->request->post['login'];
+           // $p_hash=password_hash($this->request->post['pass'], PASSWORD_DEFAULT);
             $user->password=$this->request->post['pass'];
             $user->save();
             $this->checkUser();
@@ -111,6 +115,7 @@ class SportnetAdminController {
         $event->dicipline=$this->request->post['discipline'];
         $event->star_date=$this->request->post['star_date'];
         $event->end_date=$this->request->post['end_date'];
+        $event->status=0;
         $event->description=$this->request->post['descritpion'];
         $organiser=Organiser::findByLogin($_SESSION['user_login']);
         $event->organiser=$organiser->id;
@@ -118,6 +123,35 @@ class SportnetAdminController {
         $this->MyEvents();
 
     }
+
+    public function editEvent(){
+        $event=new Event();
+        $event->id=$this->request->post['id_event'];
+        $event->name=$this->request->post['name'];
+        $event->place=$this->request->post['place'];
+        $event->dicipline=$this->request->post['discipline'];
+        $event->star_date=$this->request->post['start_date'];
+        $event->end_date=$this->request->post['end_date'];
+        $event->description=$this->request->post['descritpion'];
+        if($this->request->post['status']==1){
+            $event->status=1;
+        }else{
+            $event->status=0;
+        }
+        $event->organiser=$this->request->post['organiser'];
+        $event->save();
+        $this->MyEvents();
+
+    }
+
+    public function supprimerEvent(){
+        $event=new Event();
+        $event->id=$this->request->get['id'];
+        $event->delete();
+        $this->MyEvents();
+
+    }
+
     public function addTrial(){
         $event=new Trial();
         $event->name=$this->request->post['name'];

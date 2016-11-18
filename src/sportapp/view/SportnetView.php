@@ -9,19 +9,32 @@ class SportnetView  extends AbstractView{
     }
 
     protected function renderMyEvents(){
-        $html= '<h2 class="row column_4 title">Bienvenue '.$_SESSION['user_login'].', voici tous vos événements</h2>
-                 <table border="1px" >
+        $html='<h2 class="row column_4 title">Bienvenue '.$_SESSION['user_login'].', voici tous vos événements</h2>
+                <table border="2px">
                 <thead>
                     <tr>
-                        Événement
+                        <td>Nom</td>
+                        <td>Description</td>
+                        <td>Lieu</td>
+                        <td>Date du debut</td>
+                        <td>Date du fin</td>
                     </tr>
                 </thead>
                 <tbody>';
         foreach ($this->data as $valeur){
             $html.="<tr>
                     <td>$valeur->name</td>
-                    <td><a href='$this->script_name/admin/gestion/?id=$valeur->id'><button>Gérer</button></a></td>
-                    <td><a  href='$this->script_name/admin/supprimer/?id=$valeur->id'><button>Supprimer</button></a></td>
+                    <td>$valeur->description</td>
+                    <td>$valeur->place</td>
+                    <td>$valeur->start_date</td>
+                    <td>$valeur->end_date</td>'";
+                    if($valeur->status==0){
+                   $html.="<td>Non publié</td>";
+                    }else{
+                    $html.="<td>Publié</td>";
+                    }
+            $html.="<td><a href='$this->script_name/admin/gestion/?id=$valeur->id'><button>Gérer</button></a></td>
+                    <td><a  href='$this->script_name/admin/supprimerEvent/?id=$valeur->id'><button>Supprimer</button></a></td>
                 </tr>";
         }
 
@@ -58,13 +71,12 @@ class SportnetView  extends AbstractView{
                 </thead>
                 <tbody>';
         foreach ($this->data as $valeur){
-          //  $html.='<form method = "post" action ="'.$this->script_name.'/sportnet/inscription/?id='.$valeur->id.'">
-            $html.="<tr>
+            if($valeur->status==1) {
+                $html .= "<tr>
                     <td>$valeur->name</td>
                     <td><a href='$this->script_name/sportnet/inscription/?id=$valeur->id'><button>Description</button></a></td>
                 </tr>";
-            //<input type="submit" name="inscription" value="Description"/>
-           //</form>';
+            }
         }
 
         $html.='</tbody>
@@ -202,26 +214,38 @@ class SportnetView  extends AbstractView{
     protected function renderGestion(){
         $html= '<section class="row">
                         <h2 class="row column_4 title">G&eacute;rer mon &eacute;v&eacute;nement</h2>
-                        <form class="column_5 offset_1 milieu" method="post" action="">
+                        <form class="column_5 offset_1 milieu" method="post" action="'.$this->script_name.'/admin/editEvent/">
+                             <input type ="hidden" name="id_event" value="'.$this->data->id.'"/>
+                             <input type ="hidden" name="organiser" value="'.$this->data->id_organiser.'"/>
                             <div class="row">
                               <label for="name">Nom</label><br>
-                              <input type="text" name="name"/>
+                              <input type="text" name="name"  value="'.$this->data->name.'"/>
                             </div>
                             <div class="row">
                               <label for="place">Lieu</label><br>
-                              <input type="text" name="place"/>
+                              <input type="text" name="place"  value="'.$this->data->place.'"/>
                             </div>
                             <div class="row">
-                              <label for="discipline">email</label><br>
-                              <input type="text" name="discipline"/>
+                              <label for="discipline">Dicipline</label><br>
+                              <input type="text" name="discipline"  value="'.$this->data->dicipline.'"/>
                             </div>
                             <div class="row">
                                <label>Description</label><br>
-                               <textarea name="descritpion" row="10" cols="50"></textarea>
+                               <textarea name="descritpion" row="10" cols="50">'.$this->data->description.'</textarea>
                              </div>
                              <div class="row">
-                               <label>Date</label><br>
-                               <input type="date" name="date"/><br>
+                               <label>Date du debut</label><br>
+                               <input type="date" name="start_date"  value="'.$this->data->start_date.'"/><br>
+                             </div>
+                             <div class="row">
+                               <label>Date du fin</label><br>
+                               <input type="date" name="end_date"  value="'.$this->data->end_date.'"/><br>
+                             </div>
+                             <div class="row">
+                                <select name="status">
+                                 <option value="0">Non Publier</option>
+                                 <option value="1">Publier</option>
+                                </select>
                              </div>
                              <div class="row">
                               <input type="submit" neme="valider" value="Valider"/> 
