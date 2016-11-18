@@ -14,9 +14,9 @@ class SportnetAdminView  extends AbstractView{
     }
 
     protected function renderLogin(){
-        $html= '<section>
-                    <h2>Bienvenue</h2>
-                    <form class= "login" method = "post" action ="'.$this->script_name.'/admin/singup/" name="formulaire">
+        $html= '<section  class="column_4 offset_1 connexion">
+                    <h2 class="row column_4 title">Se connecter</h2>
+                    <form class= "login space" method = "post" action ="'.$this->script_name.'/admin/singup/" name="formulaire">
                        <div class="login_text">
                            <label for="email">Email</label><br>
                            <input type ="text" name="login"/>
@@ -35,8 +35,8 @@ class SportnetAdminView  extends AbstractView{
 
     protected function renderCreateUser(){
         $html= '<section>
-                    <h2>S&#39;inscrire en tant qu&#39;Organisateur</h2>
-                    <form method = "post" action ="'.$this->script_name.'/admin/add/">
+                    <h2 class="row column_4 title">S&#39;inscrire en tant qu&#39;Organisateur</h2>
+                    <form class="center column_4" method = "post" action ="'.$this->script_name.'/admin/add/">
                         <div class="row">
                           <label for="firstname">Nom</label><br>
                           <input type="text" name="firstname"/>
@@ -118,7 +118,7 @@ class SportnetAdminView  extends AbstractView{
 
     <body class="grid_float">
         
-        <header class="row"> ${header} <nav id="menu" class=""> ${menu} </nav> </header>
+        <header id="head" class="row"> ${header} <nav id="menu" class=""> ${menu} </nav> </header>
         
         <section>
         
@@ -127,7 +127,7 @@ class SportnetAdminView  extends AbstractView{
 
         </section>
 
-        <footer class="row"> ${footer} </footer>
+        <footer class="row foot"> ${footer} </footer>
 
     </body>
 </html>
