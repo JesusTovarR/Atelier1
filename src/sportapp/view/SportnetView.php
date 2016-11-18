@@ -2,9 +2,6 @@
 
 namespace sportapp\view;
 
-
-use Michelf\Markdown;
-
 class SportnetView  extends AbstractView{
 
     public function __construct($data){
@@ -44,7 +41,7 @@ class SportnetView  extends AbstractView{
     }
 
     protected function renderEvents(){
-        $html= '<h2 class="row column_4 title">Bienvenues, voici tous nos événements et sa description</h2>
+        $html= '<h2 class="row column_4 title">Bienvenue, voici tous nos événements et leur description</h2>
                  <table border="1px" >
                 <thead>
                     <tr>
@@ -69,24 +66,24 @@ class SportnetView  extends AbstractView{
     }
 
     protected function renderInscription(){
-        $html= '<h2 class="row column_4 title">Bienvenues, vous pouvez vous s&#39;inscrire dans l&#39;événement suivant:</h2>';
-        $html.='<h2>'.$this->data->name.'</h2>';
+        $html= '<h2 class="row column_4 title">Bienvenue, vous pouvez vous s&#39;inscrire dans l&#39;événement suivant:</h2>';
+        $html.='<h3>'.$this->data->name.'</h3>';
         $html.='<p>'.$this->data->place.'</p>';
         $html.='<p>'.$this->data->dicipline.'</p>';
         $html.='<p>'.$this->data->start_date.'</p>';
         $html.='<p>'.$this->data->end_date.'</p>';
         $html.='<p>'.$this->data->description.'</p>';
-        $html.= ' <a href="'.$this->script_name.'/sportnet/infoParticipant/"><button type="sumit" name="" >S&#39;inscrire</button></a>';
+        $html.= ' <a href="'.$this->script_name.'/sportnet/infoParticipant/"><button type="submit" name="" >S&#39;inscrire</button></a>';
         return $html;
     }
 
     protected function renderInfoParticipant(){
-        $html= '<h2>Voici l&#39;information du participant</h2>';
+        $html= '<h2 class="row column_4 title>Voici l&#39;information du participant</h2>';
         return $html;
     }
 
     protected function renderResultats(){
-        $html= '<h1>Voici les résultats</h1>';
+        $html= '<h2 class="row column_4 title">Voici les résultats</h2>';
         return $html;
     }
 
@@ -155,9 +152,9 @@ class SportnetView  extends AbstractView{
         return $html;
     }
     protected function renderGestion(){
-        $html= '<section class="column_5 offset_1 milieu">
+        $html= '<section class="row">
                         <h2 class="row column_4 title">G&eacute;rer mon &eacute;v&eacute;nement</h2>
-                        <form method="post" action="">
+                        <form class="column_5 offset_1 milieu" method="post" action="">
                             <div class="row">
                               <label for="name">Nom</label><br>
                               <input type="text" name="name"/>
@@ -184,12 +181,12 @@ class SportnetView  extends AbstractView{
                              </div>
                         </form>
                              
-                        <aside id="menu">
+                        <aside id="menu" class="column_2">
                            <p>Liste des participants</p>
-                           <button type="sumbit" value="open">Ovrir Inscription</button>
-                           <button type="sumbit" value="close"/>Clos Inscription</button>
-                           <button type="sumbit" value="publish"/>Publier Événement</button>
-                           <button type="sumbit" value="upload"/>Deposer Résultats</button>
+                           <div class="space"><button class="btn type="sumbit" value="open">Ouvrir Inscription</button></div>
+                           <div class="space"><button class="btn type="sumbit" value="close"/>Fermer Inscription</button></div>
+                           <div class="space"><button class="btn type="sumbit" value="publish"/>Publier Événement</button></div>
+                           <div class="space"><button class="btn type="sumbit" value="upload"/>Deposer Résultats</button></div>
                         </aside>
                       </section>';
         return $html;
@@ -284,7 +281,7 @@ class SportnetView  extends AbstractView{
 
         </section>
 
-        <footer class="row"> ${footer} </footer>
+        <footer class="row foot"> ${footer} </footer>
 
     </body>
 </html>

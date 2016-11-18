@@ -466,7 +466,10 @@ kbd {
     float: left;
     margin: auto;
     padding: 0;
-    background-color: #418A86; }
+    background-color: #4D93AB;
+    border-right: 1px solid #215769;
+    border-bottom: 1px solid #215769;
+    margin-right: 5px; }
     .navbar li a {
       display: block;
       width: 100%;
@@ -474,10 +477,10 @@ kbd {
       text-decoration: none;
       padding: 5px;
       margin: auto;
-      height: 30px; }
+      height: 30px;
+      box-sizing: border-box; }
       .navbar li a:hover {
-        background-color: #80BDBA;
-        border-top: 1px solid #273D3C; }
+        background-color: #80BDBA; }
       .navbar li a.disabled {
         cursor: default;
         color: #939998; }
