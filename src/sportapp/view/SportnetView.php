@@ -25,30 +25,10 @@ class SportnetView  extends AbstractView{
         return $html;
     }
 
-<<<<<<< HEAD:src/sportapp/view/WikiView.php
-    protected function renderNewPage(){
-        $html= '<section class=column_5 offset_1 milieu>
-                    <form class= "login" method = "post" action ="'.$this->script_name.'/sportnet/save/" name="formulaireArticle">
-                        <div class="login_text row">
-                            <label>Titre</label><br>
-                            <input type ="text" name="title"/>
-                        </div>
-                        <div class="pass_text">
-                            <textarea name="article" rows="10" cols="40"></textarea>
-                        </div>
-                        <div class="login_button row">
-                        <button class="btn" type="sumit" name="logup" >Enregistrer</button>
-                        </div>
-                    </form>
-                 </section>';
-        return $html;
-    }
-
-=======
->>>>>>> 4490eab8340200a6004dabec05cc38475712f7df:src/sportapp/view/SportnetView.php
     protected function renderAccueil(){
-        $html= '<section>
-                        <h2 class="row column_4 title">Bienvenue</h2>
+        $html= ' <article>
+                      <section>
+                        <h2>Bienvenue</h2>
                         <p>Cr&eacute;ez vos &eacute;v&eacute;nements sportifs grâce à Sportnet...</p>
                       </section>
                       <section>
@@ -60,18 +40,14 @@ class SportnetView  extends AbstractView{
                             <img src="">
                           </div>
                 
-                </section>';
+                      </section>
+                </article>';
         return $html;
     }
 
     protected function renderEvents(){
-<<<<<<< HEAD:src/sportapp/view/WikiView.php
-        $html= '<h1 class="row column_4 title">Bienvenues, voici tous nos événements et leur description</h1>
-                 <table >
-=======
         $html= '<h1>Bienvenues, voici tous nos événements et sa description</h1>
                  <table border="1px" >
->>>>>>> 4490eab8340200a6004dabec05cc38475712f7df:src/sportapp/view/SportnetView.php
                 <thead>
                     <tr>
                         Événement
@@ -95,9 +71,6 @@ class SportnetView  extends AbstractView{
     }
 
     protected function renderInscription(){
-<<<<<<< HEAD:src/sportapp/view/WikiView.php
-        $html= '<h1 class="row column_4 title">Bienvenues, vous pouvez vous s&#39;inscrire ici</h1>';
-=======
         $html= '<h1>Bienvenues, vous pouvez vous s&#39;inscrire dans l&#39;événement suivant:</h1>';
         $html.='<h2>'.$this->data->name.'</h2>';
         $html.='<p>'.$this->data->place.'</p>';
@@ -105,18 +78,17 @@ class SportnetView  extends AbstractView{
         $html.='<p>'.$this->data->start_date.'</p>';
         $html.='<p>'.$this->data->end_date.'</p>';
         $html.='<p>'.$this->data->description.'</p>';
->>>>>>> 4490eab8340200a6004dabec05cc38475712f7df:src/sportapp/view/SportnetView.php
         $html.= ' <a href="'.$this->script_name.'/sportnet/infoParticipant/"><button type="sumit" name="" >S&#39;inscrire</button></a>';
         return $html;
     }
 
     protected function renderInfoParticipant(){
-        $html= '<h1 class="row column_4 title">Voici l&#39;information du participant</h1>';
+        $html= '<h1>Voici l&#39;information du participant</h1>';
         return $html;
     }
 
     protected function renderResultats(){
-        $html= '<h1 class="row column_4 title">Voici les résultats</h1>';
+        $html= '<h1>Voici les résultats</h1>';
         return $html;
     }
 
@@ -310,9 +282,9 @@ class SportnetView  extends AbstractView{
         <link rel="stylesheet" href="${style_file3}"> 
     </head>
 
-    <body class="grid_float">
+    <body>
         
-        <header id="head" class="theme-backcolor1  row"> ${header}  </header>
+        <header class="theme-backcolor1"> ${header}  </header>
         
         <section>
     
@@ -326,7 +298,7 @@ class SportnetView  extends AbstractView{
 
         </section>
 
-        <footer class="theme-backcolor1 row foot"> ${footer} </footer>
+        <footer class="theme-backcolor1"> ${footer} </footer>
 
     </body>
 </html>

@@ -3,8 +3,6 @@
 namespace sportapp\control;
 
 use sportapp\model\Event;
-use sportapp\model\User;
-use sportapp\model\Page;
 use sportapp\utils\HttpRequest;
 use sportapp\view\SportnetView;
 
@@ -64,10 +62,4 @@ class SportnetController {
 
     }
 
-    public function editPage(){
-        $mypage = Page::findByTitle($this->request->get['title']);
-        $vEdit = new SportnetView($mypage);
-        $vEdit->render(SPORTNET_VIEW_EDIT);
-
-    }
 }
