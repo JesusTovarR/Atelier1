@@ -81,7 +81,7 @@ class SportnetView  extends AbstractView{
     }
 
     protected function renderInfoParticipant(){
-        $html= '<h1>Voici l&#39;information du participant</h1>';
+        $html= '<h2>Voici l&#39;information du participant</h2>';
         return $html;
     }
 
@@ -91,8 +91,7 @@ class SportnetView  extends AbstractView{
     }
 
     protected function renderNewEvent(){
-        $html= '<article>
-                  <section class="column_5 offset_1 milieu">
+        $html= '<section class="column_5 offset_1 milieu">
                     <h2 class="row column_4 title">Cr&eacute;er un &eacute;v&eacute;nement</h2>
                     <form method = "post" action ="'.$this->script_name.'/admin/addEvent/">
                         <div class="row">
@@ -124,14 +123,12 @@ class SportnetView  extends AbstractView{
                           <input type="reset" name="annuler" value="Annuler"/>
                         </div>
                     </form>   
-                     </section>
-               </article>';
+                     </section>';
         return $html;
     }
 
     protected function renderNewTail(){
-        $html= '<article>
-                  <section class="column_5 offset_1 milieu">
+        $html= '<section class="column_5 offset_1 milieu">
                     <h2 class="row column_4 title">Ajouter une &eacute;preuve</h2>
                     <form method="post" action="">
                         <div class="row">
@@ -154,13 +151,11 @@ class SportnetView  extends AbstractView{
                           <input type="submit" value="creer"/>
                           <input type="reset" value="annuler"/>
                         </div>
-                    </form>
-                </article>';
+                    </form>';
         return $html;
     }
     protected function renderGestion(){
-        $html= ' <article>
-                      <section class="column_5 offset_1 milieu">
+        $html= '<section class="column_5 offset_1 milieu">
                         <h2 class="row column_4 title">G&eacute;rer mon &eacute;v&eacute;nement</h2>
                         <form method="post" action="">
                             <div class="row">
@@ -196,8 +191,7 @@ class SportnetView  extends AbstractView{
                            <button type="sumbit" value="publish"/>Publier Événement</button>
                            <button type="sumbit" value="upload"/>Deposer Résultats</button>
                         </aside>
-                      </section>
-                </article>';
+                      </section>';
         return $html;
     }
 
