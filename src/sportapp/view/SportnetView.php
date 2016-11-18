@@ -74,7 +74,6 @@ class SportnetView  extends AbstractView{
         $html.='<p>'.$this->data->start_date.'</p>';
         $html.='<p>'.$this->data->end_date.'</p>';
         $html.='<p>'.$this->data->description.'</p>';
-<<<<<<< HEAD
         $html.= ' <a href="'.$this->script_name.'/sportnet/infoParticipant/"><button type="sumit" name="" >S&#39;inscrire</button></a>';
 
         $html.= '<section>
@@ -110,9 +109,7 @@ class SportnetView  extends AbstractView{
                        </div>
                     </form>
                   </section>';
-=======
         $html.= ' <a href="'.$this->script_name.'/sportnet/infoParticipant/"><button type="submit" name="" >S&#39;inscrire</button></a>';
->>>>>>> e737a8d6371c19a4000fa57643c65ae3fecc07d2
         return $html;
     }
 
