@@ -1,6 +1,7 @@
 <?php
 
 namespace sportapp\control;
+
 use sportapp\model\Event;
 use sportapp\model\User;
 use sportapp\model\Page;
@@ -97,10 +98,14 @@ class WikiController {
     }
 
     public function inscriptionEvent(){
-
-        $insc = new WikiView(null);
-        $insc->render(SPORTNET_VIEW_INSCRIPTION);
-
+        if(isset($this->request->get['id'])){
+            $event=Event::findById($this->request->get['id']);
+            $vEvent = new WikiView($event);
+            $vEvent->render(SPORTNET_VIEW_INSCRIPTION);
+        }else{
+            $insc = new WikiView(null);
+            $insc->render(SPORTNET_VIEW_ACCUEIL);
+        }
     }
     public function infoParticipant(){
 

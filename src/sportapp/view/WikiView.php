@@ -103,12 +103,13 @@ class WikiView  extends AbstractView{
                 </thead>
                 <tbody>';
         foreach ($this->data as $valeur){
-            $html.='<form method = "post" action ="'.$this->script_name.'/sportnet/inscription/?title='.$valeur->id.'">
-                <tr>
-                    <td>'.$valeur->name.'</td>
-                    <td> <input type="submit" name="inscription" value="S&#39;inscrire"/></td>
-                </tr>
-              </form>';
+          //  $html.='<form method = "post" action ="'.$this->script_name.'/sportnet/inscription/?id='.$valeur->id.'">
+            $html.="<tr>
+                    <td>$valeur->name</td>
+                    <td><a href='$this->script_name/sportnet/inscription/?id=$valeur->id'><button>Description</button></a></td>
+                </tr>";
+            //<input type="submit" name="inscription" value="Description"/>
+           //</form>';
         }
 
         $html.='</tbody>
@@ -118,7 +119,13 @@ class WikiView  extends AbstractView{
     }
 
     protected function renderInscription(){
-        $html= '<h1>Bienvenues, vous pouvez vous s&#39;inscrire ici</h1>';
+        $html= '<h1>Bienvenues, vous pouvez vous s&#39;inscrire dans l&#39;événement suivant:</h1>';
+        $html.='<h2>'.$this->data->name.'</h2>';
+        $html.='<p>'.$this->data->place.'</p>';
+        $html.='<p>'.$this->data->dicipline.'</p>';
+        $html.='<p>'.$this->data->start_date.'</p>';
+        $html.='<p>'.$this->data->end_date.'</p>';
+        $html.='<p>'.$this->data->description.'</p>';
         $html.= ' <a href="'.$this->script_name.'/sportnet/infoParticipant/"><button type="sumit" name="" >S&#39;inscrire</button></a>';
         return $html;
     }
