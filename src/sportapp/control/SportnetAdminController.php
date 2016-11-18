@@ -5,6 +5,7 @@ namespace sportapp\control;
 use sportapp\model\Organiser;
 use sportapp\utils\Authentification;
 use sportapp\model\Event;
+use \sportapp\model\Trial;
 use sportapp\view\SportnetView;
 use sportapp\view\SportnetAdminView;
 
@@ -120,11 +121,10 @@ class SportnetAdminController {
     public function addTrial(){
         $event=new Trial();
         $event->name=$this->request->post['name'];
-        $event->id_event=$this->request->post['event'];
         $event->description=$this->request->post['descritpion'];
         $event->date_trial=$this->request->post['date'];
         $event->price=$this->request->post['price'];
-        $event->id_event=$this->request->post['end_date'];
+        $event->id_event=$this->request->post['event'];
         $event->save();
         $this->newTrial();
 

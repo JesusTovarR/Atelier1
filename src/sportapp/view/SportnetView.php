@@ -9,16 +9,24 @@ class SportnetView  extends AbstractView{
     }
 
     protected function renderMyEvents(){
-        $html = "<ul>";
+        $html= '<h2 class="row column_4 title">Bienvenue '.$_SESSION['user_login'].', voici tous vos événements</h2>
+                 <table border="1px" >
+                <thead>
+                    <tr>
+                        Événement
+                    </tr>
+                </thead>
+                <tbody>';
         foreach ($this->data as $valeur){
-            $html.="<li><a href='$this->script_name/sportnet/view/?name=$valeur->name'>$valeur->name</a></li>";
+            $html.="<tr>
+                    <td>$valeur->name</td>
+                    <td><a href='$this->script_name/admin/gestion/?id=$valeur->id'><button>Gérer</button></a></td>
+                    <td><a  href='$this->script_name/admin/supprimer/?id=$valeur->id'><button>Supprimer</button></a></td>
+                </tr>";
         }
-        $html.="</ul>";
-     /*   $html.= "<ul>";
-        foreach ($this->data as $valeur){
-            $html.="<li><a href='$this->script_name/sportnet/edit/?name=$valeur->name'>Modifier</a></li>";
-        }
-        $html.="</ul>";*/
+
+        $html.='</tbody>
+            </table>';
         return $html;
     }
 

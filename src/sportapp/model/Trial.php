@@ -29,10 +29,11 @@ class Trial extends AbstractModel{
 
     protected function update(){
 
-        $update = 'UPDATE trial SET name= :name, description = :description, date_trial = :date_trial, id_event = :event where id = :id';
+        $update = 'UPDATE trial SET name= :name, description = :description, price = :price, date_trial = :date_trial, id_event = :event where id = :id';
         $update_prep = $this->db->prepare($update);
         $update_prep->bindParam(':name', $this->name, \PDO::PARAM_STR);
         $update_prep->bindParam(':description', $this->description, \PDO::PARAM_STR);
+        $update_prep->bindParam(':price', $this->price, \PDO::PARAM_INT);
         $update_prep->bindParam(':date_trial', $this->date_trial, \PDO::PARAM_STR);
         $update_prep->bindParam(':event', $this->id_event, \PDO::PARAM_INT);
         $update_prep->bindParam(':id', $this->id, \PDO::PARAM_INT);
@@ -41,10 +42,11 @@ class Trial extends AbstractModel{
     }
 
     protected function insert(){
-        $insert = 'INSERT INTO trial values(null, :name, :description, :date_trial, :event )';
+        $insert = 'INSERT INTO trial values(null, :name, :description, :price, :date_trial, :event )';
         $insert_prep = $this->db->prepare($insert);
         $insert_prep->bindParam(':name', $this->name, \PDO::PARAM_STR);
         $insert_prep->bindParam(':description', $this->description, \PDO::PARAM_STR);
+        $insert_prep->bindParam(':price', $this->price, \PDO::PARAM_INT);
         $insert_prep->bindParam(':date_trial', $this->date_trial, \PDO::PARAM_STR);
         $insert_prep->bindParam(':event', $this->id_event, \PDO::PARAM_INT);
         $nb_lignes = $insert_prep->execute();
