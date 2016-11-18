@@ -333,7 +333,10 @@ class WikiView  extends AbstractView{
             break;
         }
 
-        $style_file = $this->app_root.'/html/style.css';
+        // $style_file = $this->app_root.'/html/style.css';
+        //<link rel="stylesheet" href="${style_file}">
+        $style_file2 = $this->app_root.'/html/Librairie/css/library.css';
+        $style_file3 = $this->app_root.'/html/Librairie/css/theme.css';
 
         $header = $this->renderHeader();
       //$header.= $this->renderMenu();
@@ -359,8 +362,9 @@ class WikiView  extends AbstractView{
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>SportNet</title>
-        <link rel="stylesheet" href="${style_file}"> 
+        <title>Sportnet</title>
+        <link rel="stylesheet" href="${style_file2}"> 
+        <link rel="stylesheet" href="${style_file3}"> 
     </head>
 
     <body>
