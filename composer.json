@@ -1,5 +1,11 @@
 {
     "require": {
-        "michelf/php-markdown": "^1.6"
+        "illuminate/database": "5.0.*",
+        "php": ">=5.4"},
+
+    "autoload" : {
+        "psr-0": {
+            "sportnet\\": "src"
+        }
     }
 }
