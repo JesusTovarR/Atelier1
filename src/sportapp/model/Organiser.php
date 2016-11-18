@@ -11,11 +11,11 @@ class Organizer extends Model
     protected $fillable=['last_name','name','email','password','birthday'];
 
     public function events(){
-        return $this->hasMany(Event::class,'id_o');
+        return $this->hasMany(Event,'id_o');
     }
 
     public function trials(){
-        return $this->hasMany(Trial::class,'id_o');
+        return $this->hasMany(Trial,'id_o');
     }
 
 

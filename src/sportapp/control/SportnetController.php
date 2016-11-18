@@ -53,7 +53,7 @@ class SportnetController {
 
     public function inscriptionEvent(){
         if(isset($this->request->get['id'])){
-            $event=Event::findById($this->request->get['id']);
+            $event=Event::find($this->request->get['id']);
             $vEvent = new SportnetView($event);
             $vEvent->render(SPORTNET_VIEW_INSCRIPTION);
         }else{

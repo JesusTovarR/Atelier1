@@ -20,12 +20,12 @@ class Event extends Model
 
     public function organizers()
     {
-        return $this->belongsTo(Organiser::class, 'id');
+        return $this->belongsTo(Organiser, 'id');
     }
 
     public function inscriptions()
     {
-        return $this->belongsTo(Inscription::class, 'id');
+        return $this->belongsTo(Inscription, 'id');
     }
 
     public function createEvent($name, $description, $place, $dicipline, $date_start, $date_end, $id_o)
