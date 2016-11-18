@@ -5,24 +5,10 @@ namespace sportapp\view;
 
 use Michelf\Markdown;
 
-class WikiView  extends AbstractView{
+class SportnetView  extends AbstractView{
 
     public function __construct($data){
         parent::__construct($data);
-    }
-
-    protected function renderAll(){
-        $html = "<ul>";
-        foreach ($this->data as $valeur){
-                $html.="<li><a href='$this->script_name/sportnet/view/?title=$valeur->title'>$valeur->title</a></li>";
-        }
-        $html.="</ul>";
-        return $html;
-    }
-
-    protected function renderView(){
-        $html = Markdown::defaultTransform($this->data->text);
-        return $html;
     }
 
     protected function renderSpacePerso(){
@@ -53,6 +39,7 @@ class WikiView  extends AbstractView{
         return $html;
     }
 
+<<<<<<< HEAD:src/sportapp/view/WikiView.php
     protected function renderNewPage(){
         $html= '<section class=column_5 offset_1 milieu>
                     <form class= "login" method = "post" action ="'.$this->script_name.'/sportnet/save/" name="formulaireArticle">
@@ -71,6 +58,8 @@ class WikiView  extends AbstractView{
         return $html;
     }
 
+=======
+>>>>>>> 4490eab8340200a6004dabec05cc38475712f7df:src/sportapp/view/SportnetView.php
     protected function renderAccueil(){
         $html= '<section>
                         <h2 class="row column_4 title">Bienvenue</h2>
@@ -90,8 +79,13 @@ class WikiView  extends AbstractView{
     }
 
     protected function renderEvents(){
+<<<<<<< HEAD:src/sportapp/view/WikiView.php
         $html= '<h1 class="row column_4 title">Bienvenues, voici tous nos événements et leur description</h1>
                  <table >
+=======
+        $html= '<h1>Bienvenues, voici tous nos événements et sa description</h1>
+                 <table border="1px" >
+>>>>>>> 4490eab8340200a6004dabec05cc38475712f7df:src/sportapp/view/SportnetView.php
                 <thead>
                     <tr>
                         Événement
@@ -99,12 +93,13 @@ class WikiView  extends AbstractView{
                 </thead>
                 <tbody>';
         foreach ($this->data as $valeur){
-            $html.='<form method = "post" action ="'.$this->script_name.'/sportnet/inscription/?title='.$valeur->id.'">
-                <tr>
-                    <td>'.$valeur->name.'</td>
-                    <td> <input type="submit" name="inscription" value="S&#39;inscrire"/></td>
-                </tr>
-              </form>';
+          //  $html.='<form method = "post" action ="'.$this->script_name.'/sportnet/inscription/?id='.$valeur->id.'">
+            $html.="<tr>
+                    <td>$valeur->name</td>
+                    <td><a href='$this->script_name/sportnet/inscription/?id=$valeur->id'><button>Description</button></a></td>
+                </tr>";
+            //<input type="submit" name="inscription" value="Description"/>
+           //</form>';
         }
 
         $html.='</tbody>
@@ -114,7 +109,17 @@ class WikiView  extends AbstractView{
     }
 
     protected function renderInscription(){
+<<<<<<< HEAD:src/sportapp/view/WikiView.php
         $html= '<h1 class="row column_4 title">Bienvenues, vous pouvez vous s&#39;inscrire ici</h1>';
+=======
+        $html= '<h1>Bienvenues, vous pouvez vous s&#39;inscrire dans l&#39;événement suivant:</h1>';
+        $html.='<h2>'.$this->data->name.'</h2>';
+        $html.='<p>'.$this->data->place.'</p>';
+        $html.='<p>'.$this->data->dicipline.'</p>';
+        $html.='<p>'.$this->data->start_date.'</p>';
+        $html.='<p>'.$this->data->end_date.'</p>';
+        $html.='<p>'.$this->data->description.'</p>';
+>>>>>>> 4490eab8340200a6004dabec05cc38475712f7df:src/sportapp/view/SportnetView.php
         $html.= ' <a href="'.$this->script_name.'/sportnet/infoParticipant/"><button type="sumit" name="" >S&#39;inscrire</button></a>';
         return $html;
     }
@@ -240,45 +245,12 @@ class WikiView  extends AbstractView{
         return $html;
     }
 
-    protected function renderEditPage(){
-        $html= '<form class= "login" method = "post" action ="'.$this->script_name.'/sportnet/save/" name="formulaireEdition">
-                        <div class="login_text">
-                            <label>"'.$this->data->title.'"</label><br>
-                            <input type ="hidden" name="id" value="'.$this->data->id.'"/>
-                            <input type ="hidden" name="title" value="'.$this->data->title.'"/>
-                        </div>
-                        <div class="pass_text">
-                            <textarea name="article" rows="10" cols="40" value="">'.$this->data->text.'</textarea>
-                        </div>
-                        <div class="login_button">
-                        <button type="sumit" name="logup" >Enregistrer</button>
-                        </div>
-                    </form>';
-        return $html;
-    }
-
     public function render($selector){
 
 
         switch($selector){
-        case 'view':
-            $main = $this->renderView();
-            break;
-
-        case 'all':
-            $main = $this->renderAll();
-            break;
-
         case 'singup':
             $main = $this->renderSpacePerso();
-            break;
-
-        case 'newPage':
-            $main = $this->renderNewPage();
-            break;
-
-        case 'editPage':
-            $main = $this->renderEditPage();
             break;
 
         case 'accueil':
@@ -322,7 +294,10 @@ class WikiView  extends AbstractView{
             break;
         }
 
-        $style_file = $this->app_root.'/html/style.css';
+        // $style_file = $this->app_root.'/html/style.css';
+        //<link rel="stylesheet" href="${style_file}">
+        $style_file2 = $this->app_root.'/html/Librairie/css/library.css';
+        $style_file3 = $this->app_root.'/html/Librairie/css/theme.css';
 
         $header = $this->renderHeader();
       //$header.= $this->renderMenu();
@@ -348,8 +323,9 @@ class WikiView  extends AbstractView{
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>SportNet</title>
-        <link rel="stylesheet" href="${style_file}"> 
+        <title>Sportnet</title>
+        <link rel="stylesheet" href="${style_file2}"> 
+        <link rel="stylesheet" href="${style_file3}"> 
     </head>
 
     <body class="grid_float">
@@ -380,3 +356,5 @@ EOT;
 
 
 }
+
+

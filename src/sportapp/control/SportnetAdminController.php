@@ -4,44 +4,41 @@ namespace sportapp\control;
 
 use sportapp\model\Organiser;
 use sportapp\utils\Authentification;
-use sportapp\model\User;
-use sportapp\model\Page;
 use sportapp\model\Event;
-use sportapp\view\WikiView;
-use sportapp\view\WikiAdminView;
+use sportapp\view\SportnetView;
+use sportapp\view\SportnetAdminView;
 
-class WikiAdminController {
+class SportnetAdminController {
     private $request=null; 
     
     public function __construct(\sportapp\utils\HttpRequest $http_req){
         $this->request = $http_req ;
     }
 
-    
     public function loginUser() {
 
-        $form = new WikiAdminView();
+        $form = new SportnetAdminView();
         $form->render(SPORTNET_VIEW_LOGIN);
         
     }
 
     public function newEvent(){
 
-        $newevent = new WikiView(null);
+        $newevent = new SportnetView(null);
         $newevent->render(SPORTNET_VIEW_NEWEVENT);
 
     }
 
     public function newTail(){
 
-        $newevent = new WikiView(null);
+        $newevent = new SportnetView(null);
         $newevent->render(SPORTNET_VIEW_NEWTAIL);
 
     }
 
     public function gestion(){
 
-        $newevent = new WikiView(null);
+        $newevent = new SportnetView(null);
         $newevent->render(SPORTNET_VIEW_GESTION);
 
     }
@@ -85,16 +82,16 @@ class WikiAdminController {
                     // $_SESSION['access_level']=$u->level;
                     $this->userSpace();
                 }else{
-                    $form = new WikiAdminView(null);
+                    $form = new SportnetAdminView(null);
                     $form->render(SPORTNET_VIEW_LOGIN);
                 }
 
             }else{
-                $form = new WikiAdminView(null);
+                $form = new SportnetAdminView(null);
                 $form->render(SPORTNET_VIEW_LOGIN);
             }
         }else{
-            $form = new WikiAdminView(null);
+            $form = new SportnetAdminView(null);
             $form->render(SPORTNET_VIEW_LOGIN);
         }
 
@@ -105,7 +102,7 @@ class WikiAdminController {
 
         $desc=new Authentification();
         $desc->logout();
-        $default = new WikiController($this->request);
+        $default = new SportnetController($this->request);
         $default->accueil();
         
      }
@@ -118,14 +115,14 @@ class WikiAdminController {
             $articles=new Organiser();
             $articles->id=$user->id;
             $artUser=$articles->getEvents();
-            $spaceP = new WikiView($artUser);
+            $spaceP = new SportnetView($artUser);
             $spaceP->render(SPORTNET_VIEW_MYEVENTS);
 
         }
     }
 
     public function createUser(){
-        $form = new WikiAdminView();
+        $form = new SportnetAdminView();
         $form->render(SPORTNET_VIEW_COMPTE);
     }
 
@@ -134,6 +131,7 @@ class WikiAdminController {
             $user=new Organiser();
             $user->firstname=$this->request->post['firstname'];
             $user->name=$this->request->post['name'];
+            $user->naissance=$this->request->post['naissance'];
             $user->mail=$this->request->post['login'];
             $user->password=$this->request->post['pass'];
             $user->save();
@@ -163,7 +161,7 @@ class WikiAdminController {
             $events=new Organiser();
             $events->id=$organise->id;
             $eventUser=$events->getEvents();
-            $spaceP = new WikiView($eventUser);
+            $spaceP = new SportnetView($eventUser);
             $spaceP->render(SPORTNET_VIEW_MYEVENTS);
 
         }

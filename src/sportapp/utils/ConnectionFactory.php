@@ -1,6 +1,4 @@
 <?php
-
-//namespace sportapp\utils\connectionFactory;
 namespace sportapp\utils;
 
 class ConnectionFactory{

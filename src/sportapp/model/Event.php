@@ -78,9 +78,10 @@ use sportapp\model\Trial;
          $db=ConnectionFactory::makeConnection();
          $selectById = 'SELECT * FROM tblevent where id = :id';
          $selectById_prep = $db->prepare($selectById);
-         $selectById_prep->bindParam(':id', $id, PDO::PARAM_INT);
+         $selectById_prep->bindParam(':id', $id, \PDO::PARAM_INT);
+         echo 'hola';
          if($selectById_prep->execute()){
-             return $selectById_prep->fetchObject(__CLASS__);
+             return $selectById_prep->fetchObject();
          }else{
              return null;
          }
