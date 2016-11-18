@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52fac649-c173-4979-b432-69043a3a8e46" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sportapp/model/Event.php" afterPath="$PROJECT_DIR$/src/sportapp/model/Event.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/sportapp/model/Nueva carpeta/AbstractModel.php" afterPath="" />
     </list>
     <ignored path="miniwiki.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,7 +23,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Event.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Event.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sportapp/model/Event.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -33,6 +33,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="SportnetAdminView.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sportapp/view/SportnetAdminView.php">
@@ -142,6 +143,8 @@
           </provider>
         </entry>
       </file>
+=======
+>>>>>>> ae18b5a9a9d30ba887f72f5920ddde7fd2231107
       <file leaf-file-name="Inscription.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sportapp/model/Inscription.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -155,7 +158,11 @@
       <file leaf-file-name="Organiser.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sportapp/model/Organiser.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="504">
+=======
+            <state relative-caret-position="1050">
+>>>>>>> ae18b5a9a9d30ba887f72f5920ddde7fd2231107
               <caret line="70" column="1" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
               <folding />
             </state>
@@ -165,25 +172,40 @@
       <file leaf-file-name="Participant.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sportapp/model/Participant.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="0">
+=======
+            <state relative-caret-position="-495">
+>>>>>>> ae18b5a9a9d30ba887f72f5920ddde7fd2231107
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="Trial.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sportapp/model/Trial.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
               <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+=======
+      <file leaf-file-name="Trial.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sportapp/model/Trial.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+>>>>>>> ae18b5a9a9d30ba887f72f5920ddde7fd2231107
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 =======
 >>>>>>> dba21847b64f209fce2ae70084cf7fc276531fa6
+=======
+>>>>>>> ae18b5a9a9d30ba887f72f5920ddde7fd2231107
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -349,6 +371,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/sportapp/model/Event.php" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -451,12 +474,17 @@
       <workItem from="1479472964935" duration="2154000" />
 =======
       <workItem from="1479472964935" duration="1677000" />
+<<<<<<< HEAD
       <workItem from="1479474757743" duration="232000" />
 >>>>>>> dba21847b64f209fce2ae70084cf7fc276531fa6
+=======
+      <workItem from="1479474757743" duration="546000" />
+>>>>>>> ae18b5a9a9d30ba887f72f5920ddde7fd2231107
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="125523000" />
   </component>
@@ -468,6 +496,12 @@
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
 >>>>>>> dba21847b64f209fce2ae70084cf7fc276531fa6
+=======
+    <option name="totallyTimeSpent" value="125592000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="24" width="1366" height="744" extended-state="7" />
+>>>>>>> ae18b5a9a9d30ba887f72f5920ddde7fd2231107
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15080526" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -527,8 +561,11 @@
   </component>
   <component name="editorHistoryManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     <entry file="file://$PROJECT_DIR$/src/wikiapp/view/AbstractView.php" />
+=======
+>>>>>>> ae18b5a9a9d30ba887f72f5920ddde7fd2231107
     <entry file="file://$PROJECT_DIR$/src/wikiapp/model/Event.php" />
 >>>>>>> dba21847b64f209fce2ae70084cf7fc276531fa6
     <entry file="file://$PROJECT_DIR$/src/wikiapp/model/Page.php" />
@@ -559,6 +596,7 @@
     <entry file="file://$PROJECT_DIR$/html/inscriptionOrganisateur.html" />
     <entry file="file://$PROJECT_DIR$/html/ajouterEpreuve.php" />
     <entry file="file://$PROJECT_DIR$/src/sportapp/model/User.php" />
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$USER_HOME$/Documents/GitHub/LeBonSandwich/MesComandes.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -592,6 +630,10 @@
     </entry>
 <<<<<<< HEAD
 =======
+=======
+    <entry file="file://$USER_HOME$/Documents/GitHub/LeBonSandwich/MesComandes.html" />
+    <entry file="file://$USER_HOME$/Documents/Universidad/Estadias/Laromo Compu/public_html/gestor.html" />
+>>>>>>> ae18b5a9a9d30ba887f72f5920ddde7fd2231107
     <entry file="file://$PROJECT_DIR$/src/sportapp/model/AbstractModel.php" />
 >>>>>>> dba21847b64f209fce2ae70084cf7fc276531fa6
     <entry file="file://$PROJECT_DIR$/src/sportapp/control/WikiController.php" />
@@ -821,6 +863,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sportapp/model/Event.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sportapp/model/Inscription.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -829,10 +879,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sportapp/model/Event.php">
+    <entry file="file://$PROJECT_DIR$/src/sportapp/model/Organiser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+        <state relative-caret-position="1050">
+          <caret line="70" column="1" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sportapp/model/Participant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-495">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sportapp/model/Trial.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>
