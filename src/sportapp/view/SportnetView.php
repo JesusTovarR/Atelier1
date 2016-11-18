@@ -2,7 +2,10 @@
 
 namespace sportapp\view;
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7a1084fd3885424dbb4b37c764e529f928d7854e
 class SportnetView  extends AbstractView{
 
     public function __construct($data){
