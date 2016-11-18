@@ -466,7 +466,8 @@ kbd {
     float: left;
     margin: auto;
     padding: 0;
-    background-color: #418A86; }
+    background-color: #4D93AB;
+    border-right: 1px solid #215769; }
     .navbar li a {
       display: block;
       width: 100%;
