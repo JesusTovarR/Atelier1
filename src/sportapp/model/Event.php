@@ -3,7 +3,7 @@ namespace sportapp\model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class event extends Model
+class Event extends Model
 {
     protected $table = 'event';
     protected $primaryKey = 'id';
