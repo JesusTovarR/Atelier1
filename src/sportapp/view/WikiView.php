@@ -54,29 +54,26 @@ class WikiView  extends AbstractView{
     }
 
     protected function renderNewPage(){
-        $html= '<article>
-                 <section>
+        $html= '<section class=column_5 offset_1 milieu>
                     <form class= "login" method = "post" action ="'.$this->script_name.'/sportnet/save/" name="formulaireArticle">
-                        <div class="login_text">
+                        <div class="login_text row">
                             <label>Titre</label><br>
                             <input type ="text" name="title"/>
                         </div>
                         <div class="pass_text">
                             <textarea name="article" rows="10" cols="40"></textarea>
                         </div>
-                        <div class="login_button">
+                        <div class="login_button row">
                         <button class="btn" type="sumit" name="logup" >Enregistrer</button>
                         </div>
                     </form>
-                 </section>
-                </article>';
+                 </section>';
         return $html;
     }
 
     protected function renderAccueil(){
-        $html= ' <article>
-                      <section>
-                        <h2>Bienvenue</h2>
+        $html= '<section>
+                        <h2 class="row column_4 title">Bienvenue</h2>
                         <p>Cr&eacute;ez vos &eacute;v&eacute;nements sportifs grâce à Sportnet...</p>
                       </section>
                       <section>
@@ -88,13 +85,12 @@ class WikiView  extends AbstractView{
                             <img src="">
                           </div>
                 
-                      </section>
-                </article>';
+                </section>';
         return $html;
     }
 
     protected function renderEvents(){
-        $html= '<h1>Bienvenues, voici tous nos événements et sa description</h1>
+        $html= '<h1 class="row column_4 title">Bienvenues, voici tous nos événements et leur description</h1>
                  <table >
                 <thead>
                     <tr>
@@ -118,18 +114,18 @@ class WikiView  extends AbstractView{
     }
 
     protected function renderInscription(){
-        $html= '<h1>Bienvenues, vous pouvez vous s&#39;inscrire ici</h1>';
+        $html= '<h1 class="row column_4 title">Bienvenues, vous pouvez vous s&#39;inscrire ici</h1>';
         $html.= ' <a href="'.$this->script_name.'/sportnet/infoParticipant/"><button type="sumit" name="" >S&#39;inscrire</button></a>';
         return $html;
     }
 
     protected function renderInfoParticipant(){
-        $html= '<h1>Voici l&#39;information du participant</h1>';
+        $html= '<h1 class="row column_4 title">Voici l&#39;information du participant</h1>';
         return $html;
     }
 
     protected function renderResultats(){
-        $html= '<h1>Voici les résultats</h1>';
+        $html= '<h1 class="row column_4 title">Voici les résultats</h1>';
         return $html;
     }
 
@@ -356,9 +352,9 @@ class WikiView  extends AbstractView{
         <link rel="stylesheet" href="${style_file}"> 
     </head>
 
-    <body>
+    <body class="grid_float">
         
-        <header class="theme-backcolor1"> ${header}  </header>
+        <header id="head" class="theme-backcolor1  row"> ${header}  </header>
         
         <section>
     
@@ -372,7 +368,7 @@ class WikiView  extends AbstractView{
 
         </section>
 
-        <footer class="theme-backcolor1"> ${footer} </footer>
+        <footer class="theme-backcolor1 row foot"> ${footer} </footer>
 
     </body>
 </html>

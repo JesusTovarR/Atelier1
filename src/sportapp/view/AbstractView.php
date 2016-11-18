@@ -63,7 +63,7 @@ abstract class AbstractView {
      *
      */ 
     protected function renderHeader(){
-        $html ='<h1>SportNet</h1>';
+        $html ='<h1 id="logo" class="textAlignleft column_3">SportNet</h1>';
         return $html;
     }
 
@@ -72,9 +72,9 @@ abstract class AbstractView {
      *
      */
     protected function renderFooter(){
-        $html = '<div>SportNet une app créée pour l&#39;atelier &copy; 2016</div>';
-        $html.= '<div>A propos</div>';
-        $html.= '<div>Nous contacter</div>';
+        $html = '<div class="column_2">SportNet une app créée pour l&#39;atelier &copy; 2016</div>';
+        $html.= '<div class="column_2">A propos</div>';
+        $html.= '<div class="column_2">Nous contacter</div>';
         return $html;
     }
 
@@ -85,7 +85,7 @@ abstract class AbstractView {
      */
     protected function renderMenu(){
         $html  = '<h2>Menu</h2>';
-        $html .= '<ul>';
+        $html .= '<ul class="navbar column_4 nav">';
         $html .= '<li><a href="'.$this->script_name.'/sportnet/default/">Accueil</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/sportnet/events/">Nos événements</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/sportnet/all/">Tous les articles</a></li>';
@@ -98,7 +98,7 @@ abstract class AbstractView {
 
     protected function renderMenu2(){
         $html  = '<h2>Menu</h2>';
-        $html .= '<ul>';
+        $html .= '<ul class="navbar column_4 nav">';
         $html .= '<li><a href="'.$this->script_name.'/admin/myEvents/">Tous mes événements</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/sportnet/new/">Créer une page</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/newEvent/">Créer un événement</a></li>';
