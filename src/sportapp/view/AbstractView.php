@@ -100,7 +100,7 @@ abstract class AbstractView {
         $html = '<ul class="navbar column_4 nav">';
         $html .= '<li><a href="'.$this->script_name.'/admin/myEvents/">Tous mes événements</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/newEvent/">Créer un événement</a></li>';
-        $html .= '<li><a href="'.$this->script_name.'/admin/newTail/">Créer une épreuve</a></li>';
+        $html .= '<li><a href="'.$this->script_name.'/admin/newTrial/">Créer une épreuve</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/gestion/">Gérer</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/myEvents/">Votre Space</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/logout/">Desconexion</a></li>';

@@ -29,10 +29,17 @@ class SportnetAdminController {
 
     }
 
-    public function newTail(){
+    public function newTrial(){
+        $connexion=new Authentification();
+        if($connexion->logged_in==true){
+            $organise = Organiser::findByLogin($_SESSION['user_login']);
+            $events=new Organiser();
+            $events->id=$organise->id;
+            $eventUser=$events->getEvents();
+            $newevent = new SportnetView($eventUser);
+            $newevent->render(SPORTNET_VIEW_NEWTRIAL);;
 
-        $newevent = new SportnetView(null);
-        $newevent->render(SPORTNET_VIEW_NEWTAIL);
+        }
 
     }
 
@@ -86,7 +93,6 @@ class SportnetAdminController {
     }
 
     public function addUser(){
-
             $user=new Organiser();
             $user->firstname=$this->request->post['firstname'];
             $user->name=$this->request->post['name'];
@@ -109,6 +115,18 @@ class SportnetAdminController {
         $event->organiser=$organiser->id;
         $event->save();
         $this->MyEvents();
+
+    }
+    public function addTrial(){
+        $event=new Trial();
+        $event->name=$this->request->post['name'];
+        $event->id_event=$this->request->post['event'];
+        $event->description=$this->request->post['descritpion'];
+        $event->date_trial=$this->request->post['date'];
+        $event->price=$this->request->post['price'];
+        $event->id_event=$this->request->post['end_date'];
+        $event->save();
+        $this->newTrial();
 
     }
 

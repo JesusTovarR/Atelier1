@@ -3,7 +3,6 @@
 namespace sportapp\utils;
 
 use sportapp\model\Organiser;
-use sportapp\model\User;
 
 
 class Authentification extends AbstractAuthentification

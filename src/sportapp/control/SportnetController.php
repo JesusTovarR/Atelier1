@@ -7,7 +7,7 @@ use sportapp\model\Event;
 use sportapp\utils\HttpRequest;
 use sportapp\view\SportnetView;
 use sportapp\utils\AppInit;
-use \sportapp\model\Organizer;
+use \sportapp\model\Organiser;
 use \sportapp\model\Trial;
 use sportapp\model\Participant;
 use \Illuminate\Database\Capsule\Manager as DB;
@@ -47,13 +47,15 @@ class SportnetController {
     }
 
     public function allEvents(){
-        $vEvents = new SportnetView(Event::all());
+        $events = Event::findAll();
+        $vEvents = new SportnetView($events);
         $vEvents->render(SPORTNET_VIEW_EVENTS);
+
     }
 
     public function inscriptionEvent(){
         if(isset($this->request->get['id'])){
-            $event=Event::find($this->request->get['id']);
+            $event=Event::findById($this->request->get['id']);
             $vEvent = new SportnetView($event);
             $vEvent->render(SPORTNET_VIEW_INSCRIPTION);
         }else{

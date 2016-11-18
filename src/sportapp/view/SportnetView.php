@@ -70,11 +70,9 @@ class SportnetView  extends AbstractView{
         $html.='<h3>'.$this->data->name.'</h3>';
         $html.='<p>'.$this->data->place.'</p>';
         $html.='<p>'.$this->data->dicipline.'</p>';
-        $html.='<p>'.$this->data->date_start.'</p>';
-        $html.='<p>'.$this->data->date_end.'</p>';
+        $html.='<p>'.$this->data->start_date.'</p>';
+        $html.='<p>'.$this->data->end_date.'</p>';
         $html.='<p>'.$this->data->description.'</p>';
-        $html.= ' <a href="'.$this->script_name.'/sportnet/infoParticipant/"><button type="sumit" name="" >S&#39;inscrire</button></a>';
-
         $html.= '<section>
                     <h2>S&#39;inscrire au événement</h2>
                     <form method = "post" action ="'.$this->script_name.'/admin/add/">
@@ -159,18 +157,25 @@ class SportnetView  extends AbstractView{
         return $html;
     }
 
-    protected function renderNewTail(){
+    protected function renderNewTrial(){
         $html= '<section class="column_5 offset_1 milieu">
                     <h2 class="row column_4 title">Ajouter une &eacute;preuve</h2>
-                    <form method="post" action="">
+                    <form method="post" action="'.$this->script_name.'/admin/addTrial/">
+                      <div class="row">
+                       <select name="event">';
+       foreach ($this->data as $valeur){
+            $html.='<option value="'.$valeur->id.'">'.$valeur->name.'</option>';
+       }
+        $html.='</select>
+                        </div>
                         <div class="row">
                           <label for="name">Nom de l\'&eacute;preuve</label><br>
                           <input type="text" name="name"/>
                         </div>
                         <div class="row">
-                          <label for="place">Lieu</label><br>
-                          <input type="text" name="place"/>
-                        </div>
+                               <label>Date</label><br>
+                               <input type="date" name="date"/><br>
+                             </div>
                         <div class="row">
                            <label>description</label><br>
                            <textarea name="descritpion" row="10" cols="50"></textarea><br>
@@ -255,8 +260,8 @@ class SportnetView  extends AbstractView{
             $main = $this->renderNewEvent();
             break;
 
-        case 'newTail':
-            $main = $this->renderNewTail();
+        case 'newTrial':
+            $main = $this->renderNewTrial();
             break;
 
         case 'gestion':
