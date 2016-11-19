@@ -215,34 +215,28 @@ class SportnetView  extends AbstractView{
         $html= '<section class="row">
                     <h2  class="column_8 title textcenter">Cr&eacute;er un &eacute;v&eacute;nement</h2>
                     <div>
-                    <form method = "post" action ="'.$this->script_name.'/admin/addEvent/">
+                    <form class="column_8" method = "post" action ="'.$this->script_name.'/admin/addEvent/">
                         <div class="row">
-                          <label for="name">Nom</label><br>
-                          <input type="text" name="name"/>
+                          <input  class="column_6 offset_1" type="text" name="name"  placeholder="Nom..."/>
                         </div>
                         <div class="row">
-                          <label for="place">Lieu</label><br>
-                          <input type="text" name="palce"/>
+                          <input class="column_6 offset_1" type="text" name="palce"  placeholder="Lieu..."/>
                         </div>
                         <div class="row">
-                          <label for="discipline">Dicipline</label><br>
-                          <input class="column_8" type="text" name="discipline"/>
+                          <input  class="column_6 offset_1" type="text" name="discipline"  placeholder="Dicipline..."/>
                         </div>
                         <div class="row">
-                          <label>Date de début</label><br>
-                          <input type="date" name="star_date"/>
+                          <input  class="column_6 offset_1" type="date" name="star_date"  placeholder="Date du debut..."/>
                         </div>
                         <div class="row">
-                          <label>Date de fin</label><br>
-                          <input type="date" name="end_date"/>
+                          <input  class="column_6 offset_1" type="date" name="end_date" placeholder="Date de fin..."/>
                         </div>
                         <div class="row">
-                          <label>Description</label><br>
-                          <textarea name="descritpion" row="10" cols="50"></textarea>
+                          <textarea  class="column_6 offset_1" name="descritpion" row="100" cols="50"  placeholder="Description..."></textarea>
                         </div>
                         <div class="row">
-                          <input type="submit" name="newEvent" value="Créer"/> 
-                          <input type="reset" name="annuler" value="Annuler"/>
+                          <input  class="column_3 offset_1 btn" type="submit" name="newEvent" value="Créer"/> 
+                          <input  class="column_3 btn" type="reset" name="annuler" value="Annuler"/>
                         </div>
                     </form>
                       </div>
@@ -256,31 +250,27 @@ class SportnetView  extends AbstractView{
                     <div>
                     <form method="post" action="'.$this->script_name.'/admin/addTrial/">
                       <div class="row">
-                       <select name="event">';
+                       <select class="column_6 offset_1" name="event">';
        foreach ($this->data as $valeur){
             $html.='<option value="'.$valeur->id.'">'.$valeur->name.'</option>';
        }
         $html.='</select>
                         </div>
                         <div class="row">
-                          <label for="name">Nom de l\'&eacute;preuve</label><br>
-                          <input type="text" name="name"/>
+                          <input class="column_6 offset_1" type="text" name="name" placeholder="Nom un épreuve..."/>
                         </div>
                         <div class="row">
-                               <label>Date</label><br>
-                               <input type="date" name="date"/><br>
+                               <input class="column_6 offset_1" type="date" name="date" placeholder="Date..."/><br>
                              </div>
                         <div class="row">
-                           <label>description</label><br>
-                           <textarea name="descritpion" row="10" cols="50"></textarea><br>
+                           <input class="column_6 offset_1" type="number" id="price" name="price" placeholder="Euros"/>
                         </div>
                         <div class="row">
-                           <label>Tarif</label><br>
-                           <input type="number" id="price" name="price"/>euros
+                           <textarea class="column_6 offset_1" name="descritpion" row="10" cols="50" placeholder="Description..."></textarea><br>
                         </div>
                         <div class="row">
-                          <input type="submit" value="creer"/>
-                          <input type="reset" value="annuler"/>
+                          <input class="column_3 offset_1 btn" type="submit" value="creer"/>
+                          <input class="column_3 btn " type="reset" value="annuler"/>
                         </div>
                     </form></div></section>';
         return $html;
@@ -289,7 +279,7 @@ class SportnetView  extends AbstractView{
         $html= '<section class="row">
                         <h2  class="column_8 title textcenter">G&eacute;rer mon &eacute;v&eacute;nement</h2>
                         <div>
-                        <form class="column_8" class="column_5 offset_1 milieu" method="post" action="'.$this->script_name.'/admin/editEvent/">
+                        <form  class="column_5 offset_1" method="post" action="'.$this->script_name.'/admin/editEvent/">
                              <input type ="hidden" name="id_event" value="'.$this->data->id.'"/>
                              <input type ="hidden" name="organiser" value="'.$this->data->id_organiser.'"/>
                             <div >
