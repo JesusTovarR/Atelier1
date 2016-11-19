@@ -313,7 +313,19 @@ class SportnetView  extends AbstractView{
                              
                         <aside id="menu" class="column_2">
                            <p>Liste des participants</p>
+                           
+                           
+                           <form action="'.$this->script_name.'/admin/addFile/" method="post" enctype="multipart/form-data">
+                             Importar Archivo : <input type="file" name="sel_file" size="20">
+                             <input type="submit" name="submit" value="submit">
+                           </form>
+                           
+                           
+                           
                            <div class="space"><button class="btn type="sumbit" value="upload"/>Deposer Résultats</button></div>
+                        
+                        
+                        
                         </aside>
                       </section>';
         return $html;

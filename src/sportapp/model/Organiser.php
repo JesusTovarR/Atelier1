@@ -128,12 +128,11 @@ use sportapp\model\Event;
 
      }
 
-     public function addFichier(){
+     public function addFile($submit){
 
          try{
-         if (isset($_POST['submit'])) {
+         if (isset($submit)) {
              $fname = $_FILES['sel_file']['name'];
-             echo 'Cargando nombre del archivo: ' . $fname . ' ';
              $chk_ext = explode(".", $fname);
 
              if (strtolower(end($chk_ext)) == "csv") {
@@ -153,35 +152,16 @@ use sportapp\model\Event;
                  }
 
                  fclose($handle);
-                 echo "Importación exitosa!";
+                 //echo "Importación exitosa!";
 
              } else {
-                 echo "Archivo invalido!";
+                // echo "Archivo invalido!";
              }
          }
      }catch(PDOException $e){
  echo $e->getMessage();
  exit;
  }
-
-
-    { ?>
-
-        <!DOCTYPE html>
-        <body>
-        <h1>Importando archivo CSV</h1>
-        <form action='<?php
-
-        echo $_SERVER["PHP_SELF"];
-
-    } ?> ' method='post' enctype="multipart/form-data">
-    Importar Archivo : <input type='file' name='sel_file' size='20'>
-    <input type='submit' name='submit' value='submit'>
-</form>
-    </body>
-    </html>
-
-<?php
      }
 
 

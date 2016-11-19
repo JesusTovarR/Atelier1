@@ -39,6 +39,7 @@ $router->addRoute('/admin/addEvent/', '\sportapp\control\SportnetAdminController
 $router->addRoute('/admin/addTrial/', '\sportapp\control\SportnetAdminController', 'addTrial');
 $router->addRoute('/admin/editEvent/', '\sportapp\control\SportnetAdminController', 'editEvent');
 $router->addRoute('/admin/supprimerEvent/', '\sportapp\control\SportnetAdminController', 'supprimerEvent');
+$router->addRoute('/admin/addFile/', '\sportapp\control\SportnetAdminController', 'addFile');
 $http_req = new sportapp\utils\HttpRequest();
 $router->dispatch($http_req);
 

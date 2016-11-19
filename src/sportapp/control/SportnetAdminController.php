@@ -183,5 +183,12 @@ class SportnetAdminController {
 
         }
     }
+
+
+    public function addFile(){
+        $o = new Organiser();
+        $o->addFile($this->request->post['submit']);
+        $this->gestion();
+    }
     
 }
