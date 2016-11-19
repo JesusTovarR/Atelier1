@@ -37,23 +37,25 @@ class SportnetAdminView  extends AbstractView{
                     <div>
                     <form  method = "post" action ="'.$this->script_name.'/admin/add/">
                         <div class="row">
-                          <input class="column_6 offset_1" type="text" name="firstname" placeholder="Nom..."/>
+                          <input class="column_4 offset_2" type="text" name="firstname" placeholder="Nom..."/>
                        </div>
                        <div class="row">
-                          <input class="column_6 offset_1" type="text" name="name" placeholder="Prenom..."/>
+                          <input class="column_4 offset_2" type="text" name="name" placeholder="Prenom..."/>
                        </div>
                        <div class="row">
-                          <input class="column_6 offset_1" type="email" name="login" placeholder="Email..."/>
+                          <input class="column_4 offset_2" type="email" name="login" placeholder="Email..."/>
                        </div>
                        <div class="row">
-                          <input class="column_6 offset_1" type="date" name="naissance" placeholder="Date de naissance..."/>
+                          <input class="column_4 offset_2" type="date" name="naissance" placeholder="Date de naissance..."/>
                        </div>
                        <div class="row">
-                          <input class="column_6 offset_1" type="password" name="pass" placeholder="Password..."/>
+                          <input class="column_4 offset_2" type="password" name="pass" placeholder="Password..."/>
                        </div>
                        <div class="row">
-                          <input class="column_3 offset_1 btn" type="submit" value="Valider"/>
-                          <input class="column_3 btn" type="reset" value="Annuler"/>
+                          <input class="column_2 offset_3 btn" type="submit" value="Valider"/>
+                       </div>
+                       <div class="row">
+                          <input class="column_2 offset_3 btn" type="reset" value="Annuler"/>
                        </div>
                     </form></div>
                   </section>';

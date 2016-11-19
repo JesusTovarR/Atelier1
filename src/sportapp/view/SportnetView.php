@@ -12,7 +12,7 @@ class SportnetView  extends AbstractView{
         $html='<section class="row">
         <h2  class="column_8 title textcenter">Bienvenue voici tous vos événements</h2>
         <div>
-        <table class="table column_6 offset_1 title">
+        <table class="table column_6 offset_1">
              <thead>
                     <tr>
                         <td>Nom</td>
@@ -153,35 +153,31 @@ class SportnetView  extends AbstractView{
                     <div>
                     <form method = "post" action ="'.$this->script_name.'/sportnet/addParticipant/">
                         <div class="row">
-                          <label for="firstname">Nom</label><br>
-                          <input type="text" name="firstname"/>
+                          <input class="column_6 offset_1" type="text" name="firstname" placeholder="Nom..."/>
                        </div>
                        <div class="row">
-                          <label for="name">Prénom</label><br>
-                          <input type="text" name="name"/>
+                          <input class="column_6 offset_1" type="text" name="name" placeholder="Prenom..."/>
                        </div>
                        <div class="row">
-                          <label for="email">email</label><br>
-                          <input type="email" name="email"/>
+                          <input class="column_6 offset_1" type="email" name="email" placeholder="Email..."/>
                        </div>
                        <div class="row">
-                          <label for="naissance">Date de naissance</label><br>
-                          <input type="date" name="naissance"/>
+                          <input class="column_6 offset_1"  type="date" name="naissance" placeholder="Date de naissance..."/>
                        </div>
-                       <div class="row">
-                       <div class="row">
-                         <label for="naissance">Épuvres</label><br>';
+                       <div class="row">';
 
                    foreach ($this->data as $value){
                        $cont+=1;
-                        $html.='<input type="checkbox" name="trial'.$cont.'" value="'.$value->id.'">'.$value->name.'';
+                        $html.='<input class="offset_1"  type="checkbox" name="trial'.$cont.'" value="'.$value->id.'">'.$value->name.'';
                     }
 
                     $html.='</div>
                         <input type ="hidden" name="cont" value="'.$cont.'"/>
                        <div class="row">
-                          <input type="submit" value="Valider"/>
-                          <input type="reset" value="Annuler"/>
+                          <input class="column_3 offset_3 btn" type="submit" value="Valider"/>
+                          </div>
+                           <div class="row">
+                          <input class="column_3 offset_3 btn"  type="reset" value="Annuler"/>
                        </div>
                     </form>
                     </div>
