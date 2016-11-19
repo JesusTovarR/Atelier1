@@ -278,83 +278,78 @@ class SportnetView  extends AbstractView{
     protected function renderGestion(){
         $html= '<section class="row">
                         <h2  class="column_8 title textcenter">G&eacute;rer mon &eacute;v&eacute;nement</h2>
-                        <div>
-                        <form  class="column_5 offset_1" method="post" action="'.$this->script_name.'/admin/editEvent/">
-                             <input type ="hidden" name="id_event" value="'.$this->data->id.'"/>
-                             <input type ="hidden" name="organiser" value="'.$this->data->id_organiser.'"/>
-                            <div >
-                              <label for="name">Nom</label><br>
-                              <input type="text" name="name"  value="'.$this->data->name.'"/>
-                            </div>
-                            <div>
-                              <label for="place">Lieu</label><br>
-                              <input type="text" name="place"  value="'.$this->data->place.'"/>
-                            </div>
-                            <div >
-                              <label for="discipline">Dicipline</label><br>
-                              <input type="text" name="discipline"  value="'.$this->data->dicipline.'"/>
-                            </div>
-                            <div >
-                               <label>Description</label><br>
-                               <textarea name="descritpion" row="10" cols="50">'.$this->data->description.'</textarea>
-                             </div>
-                             <div >
-                               <label>Date du debut</label><br>
-                               <input type="date" name="start_date"  value="'.$this->data->start_date.'"/><br>
-                             </div>
-                             <div>
-                               <label>Date du fin</label><br>
-                               <input type="date" name="end_date"  value="'.$this->data->end_date.'"/><br>
-                             </div>';
-                        if($this->data->status==0){
-                            $html.='
+                        <div class="column_5 ">
+                        <form  class="column_5 offset_1" method="post" action="'.$this->script_name.'/admin/editEvent/">';
+        if($this->data->status==0){
+            $html.='
                                      <div class="row">
-                                        <label>Status:</label><br>
-                                        <select name="status">
+                                        <select class="column_7" name="status">
+                                         <option value="0">Status</option>
                                          <option value="0">Non Publié</option>
                                          <option value="1">Publié</option>
                                         </select>
                                      </div>';
-                        }else{
-                            $html.='
+        }else{
+            $html.='
                                          <div class="row">
-                                            <label>Status:</label><br>
-                                            <select name="status">
+                                            <select class="column_7" name="status">
+                                             <option value="0">Status</option>
                                              <option value="1">Publié</option>
                                              <option value="0">Non Publié</option>
                                             </select>
                                          </div>';
-                        }
-                        if($this->data->inscription==0){
-                            $html.='
+        }
+        if($this->data->inscription==0){
+            $html.='
                              <div class="row">
-                                <label>Inscription:</label><br>
-                                <select name="inscription">
+                                <select class="column_7" name="inscription">
+                                 <option value="0">Inscriptions</option>
                                  <option value="0">Fermées</option>
                                  <option value="1">Ouvertes</option>
                                 </select>
                              </div>';
-                        }else{
-                            $html.='
+        }else{
+            $html.='
                              <div class="row">
-                                <label>Inscriptions</label><br>
-                                <select name="inscription">
+                                <select class="column_7" name="inscription">
+                                  <option value="0">Inscriptions</option>
                                  <option value="1">Ouvertes</option>
                                  <option value="0">Fermées</option>
                                 </select>
                              </div>';
-                        }
+        }
+            $html.=' <input type ="hidden" name="id_event" value="'.$this->data->id.'"/>
+                             <input type ="hidden" name="organiser" value="'.$this->data->id_organiser.'"/>
+                            <div class="row">
+                              <input  class="column_7" type="text" name="name"  value="'.$this->data->name.'"/>
+                            </div>
+                            <div class="row">
+                              <input class="column_7" type="text" name="place"  value="'.$this->data->place.'"/>
+                            </div>
+                            <div class="row">
+                              <input class="column_7" type="text" name="discipline"  value="'.$this->data->dicipline.'"/>
+                            </div>
+                             <div class="row">
+                               <input class="column_7" type="date" name="start_date"  value="'.$this->data->start_date.'"/><br>
+                             </div>
+                             <div class="row">
+                               <input class="column_7" type="date" name="end_date"  value="'.$this->data->end_date.'"/><br>
+                             </div>
+                             <div >
+                               <textarea class="column_7" name="descritpion" row="10" cols="50">'.$this->data->description.'</textarea>
+                             </div>';
                         $html.='
                              <div class="row">
-                              <input type="submit" neme="valider" value="Valider"/> 
-                              <input type="reset" name="annuler" value="Annuler"/>
+                              <input class="column_7 btn" type="submit" neme="valider" value="Valider"/> 
+                              <div class="row">
+                              <input class="column_7 btn" type="reset" name="annuler" value="Annuler"/>
                              </div>
                         </form>
                         </div>
                              
                         <aside id="menu" class="column_2">
-                           <p>Liste des participants</p>  
-                           <form action="'.$this->script_name.'/admin/addFile/" method="post" enctype="multipart/form-data">
+                           <p class="column_4">Liste des participants</p>  
+                           <form   class="column_4" action="'.$this->script_name.'/admin/addFile/" method="post" enctype="multipart/form-data">
                              Importar Archivo : <input type="file" name="sel_file" size="20">
                              <input type="submit" name="submit" value="submit">
                            </form>
