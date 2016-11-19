@@ -151,6 +151,7 @@ use sportapp\model\Event;
                      $insert_prep->bindParam(':nb_participant',$data[5], \PDO::PARAM_INT);
                      $insert_prep->execute();
                  }
+
                  fclose($handle);
                  echo "Importación exitosa!";
 

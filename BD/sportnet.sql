@@ -6,7 +6,9 @@
 -- Tiempo de generación: 19-11-2016 a las 01:16:58
 -- Versión del servidor: 5.5.24-log
 -- Versión de PHP: 5.4.3
-
+drop database sportnet;
+create database sportnet;
+use  sportnet;
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
