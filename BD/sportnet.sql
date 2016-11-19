@@ -3,12 +3,10 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-11-2016 a las 01:16:58
+-- Tiempo de generación: 19-11-2016 a las 03:10:51
 -- Versión del servidor: 5.5.24-log
 -- Versión de PHP: 5.4.3
-drop database sportnet;
-create database sportnet;
-use  sportnet;
+
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -93,10 +91,20 @@ CREATE TABLE IF NOT EXISTS `participants` (
   `firstname` varchar(50) DEFAULT NULL,
   `name` varchar(20) DEFAULT NULL,
   `mail` varchar(20) DEFAULT NULL,
-  `n_dossard` int(11) NOT NULL,
-  `id_event` int(11) NOT NULL,
+  `naissance` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Volcado de datos para la tabla `participants`
+--
+
+INSERT INTO `participants` (`id`, `firstname`, `name`, `mail`, `naissance`) VALUES
+(1, 'yo', 'yomas', 'yo@gmail.com', '1995-02-18'),
+(2, 'yo', 'Jesus', 'yo2@gmail.com', '1995-02-18'),
+(3, 'yo', 'Jesus', 'yo2@gmail.com', '1995-02-18'),
+(7, 'Tovar', 'Jesus', 'jes@gmail.com', '1990-02-02'),
+(8, 'Rocha', 'Jose', 'joserocha@gmail.com', '1990-02-02');
 
 -- --------------------------------------------------------
 
@@ -170,6 +178,16 @@ CREATE TABLE IF NOT EXISTS `trial_participants` (
   PRIMARY KEY (`id_p`,`id_t`),
   KEY `id_t` (`id_t`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `trial_participants`
+--
+
+INSERT INTO `trial_participants` (`id_p`, `id_t`) VALUES
+(7, 2),
+(8, 2),
+(7, 4),
+(8, 4);
 
 -- --------------------------------------------------------
 
