@@ -86,20 +86,18 @@ img {
 }
 
 .table {
-	background-color: #4D93AB;
-	border: 1px solid #D5DCDE;
-
+	background-color: #FFFFFF;
+	border: 1px solid #4D93AB;
 	margin: 0 0 50px 0;
 }
 
-.table th {
-	background: #FC424E;
+.table th, .table  {
 	padding: 5px;
 	font-weight: bolder;
 	text-align: center;
 }
 
-.table td {
+.table td, .table tbody tr{
 	border-bottom: 1px solid #5858FB;
 	padding: 5px;
 	text-align: center;

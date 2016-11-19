@@ -110,7 +110,7 @@ class SportnetView  extends AbstractView{
                  <div>
                  <table class="table column_6 offset_1" >
                 <thead>
-                    <tr>
+                    <tr  class="table">
                         <td>Nom</td>
                         <td>Lieu</td>
                         <td>Dicipline</td>
@@ -226,7 +226,7 @@ class SportnetView  extends AbstractView{
                         </div>
                         <div class="row">
                           <label for="discipline">Dicipline</label><br>
-                          <input type="text" name="discipline"/>
+                          <input class="column_8" type="text" name="discipline"/>
                         </div>
                         <div class="row">
                           <label>Date de début</label><br>
@@ -289,30 +289,30 @@ class SportnetView  extends AbstractView{
         $html= '<section class="row">
                         <h2  class="column_8 title textcenter">G&eacute;rer mon &eacute;v&eacute;nement</h2>
                         <div>
-                        <form class="column_5 offset_1 milieu" method="post" action="'.$this->script_name.'/admin/editEvent/">
+                        <form class="column_8" class="column_5 offset_1 milieu" method="post" action="'.$this->script_name.'/admin/editEvent/">
                              <input type ="hidden" name="id_event" value="'.$this->data->id.'"/>
                              <input type ="hidden" name="organiser" value="'.$this->data->id_organiser.'"/>
-                            <div class="row">
+                            <div >
                               <label for="name">Nom</label><br>
                               <input type="text" name="name"  value="'.$this->data->name.'"/>
                             </div>
-                            <div class="row">
+                            <div>
                               <label for="place">Lieu</label><br>
                               <input type="text" name="place"  value="'.$this->data->place.'"/>
                             </div>
-                            <div class="row">
+                            <div >
                               <label for="discipline">Dicipline</label><br>
                               <input type="text" name="discipline"  value="'.$this->data->dicipline.'"/>
                             </div>
-                            <div class="row">
+                            <div >
                                <label>Description</label><br>
                                <textarea name="descritpion" row="10" cols="50">'.$this->data->description.'</textarea>
                              </div>
-                             <div class="row">
+                             <div >
                                <label>Date du debut</label><br>
                                <input type="date" name="start_date"  value="'.$this->data->start_date.'"/><br>
                              </div>
-                             <div class="row">
+                             <div>
                                <label>Date du fin</label><br>
                                <input type="date" name="end_date"  value="'.$this->data->end_date.'"/><br>
                              </div>';

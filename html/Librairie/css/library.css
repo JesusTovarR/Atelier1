@@ -492,7 +492,7 @@ kbd {
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .navbar {
     list-style-type: none;
     padding: 0px 0px 0px 0px;
@@ -535,73 +535,6 @@ kbd {
     display: block;
   }
 }
-/*
-.navbar {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  text-align: center; }
-  .navbar li ul {
-    display: none;
-    position: absolute; }
-  .navbar li:hover ul {
-    display: block; }
-    .navbar li:hover ul li {
-      float: none; }
-  .navbar li {
-    list-style-type: none;
-    float: left;
-    margin: auto;
-    padding: 0;
-    background-color: #4D93AB;
-    border-right: 1px solid #215769;
-    border-bottom: 1px solid #215769;
-    margin-right: 5px; }
-    .navbar li a {
-      display: block;
-      width: 100%;
-      color: white;
-      text-decoration: none;
-      padding: 5px;
-      margin: auto;
-      height: 30px;
-      box-sizing: border-box; }
-      .navbar li a:hover {
-        background-color: #80BDBA; }
-      .navbar li a.disabled {
-        cursor: default;
-        color: #939998; }
-      .navbar li a.active {
-        background-color: #57A193;
-        color: #334180; }
-
-  @media screen and (max-width: 35em) {
-    .navbar::before {
-      content: "";
-      display: inline-block;
-      background-image: url("../images/menu.png");
-      background-size: 50px;
-      cursor: pointer;
-      width: 50px;
-      height: 50px; }
-    .navbar:hover li {
-      display: block; }
-    .navbar li {
-      display: none;
-      margin: 0;
-      padding: 16px;
-      width: 100%;
-      border: 1px solid;
-      border-top: 0px solid #273D3C; }
-      .navbar li:last-child {
-        border-bottom: 1px solid #273D3C; }
-      .navbar li a:hover {
-        color: #FFFFFF;
-        border-top: 0px solid #273D3C; }
-      .navbar li.active a {
-        border-top: 0px solid #273D3C; } }
-*/
-/*Listes*/
 ul {
   margin-left: 20px; }
   ul li {
