@@ -140,14 +140,13 @@ use sportapp\model\Event;
                  $handle = fopen($filename, "r");
                  while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 
-                     $sql = "INSERT into participant(last_name,name,email,birthday,nb_participant) values(:last_name, :name, :email, :birthday, :nb_participant)";
+                     $sql = "INSERT into participant(last_name,name,email,birthday,nb_participant) values(:last_name, :name, :email, :birthday)";
                      // cambiar el valor de conexion
                      $insert_prep = $this->db->prepare($sql);
                      $insert_prep->bindParam(':last_name',$data[1], \PDO::PARAM_STR);
                      $insert_prep->bindParam(':name',$data[2], \PDO::PARAM_STR);
                      $insert_prep->bindParam(':email',$data[3], \PDO::PARAM_STR);
                      $insert_prep->bindParam(':birthday',$data[4], \PDO::PARAM_STR);
-                     $insert_prep->bindParam(':nb_participant',$data[5], \PDO::PARAM_INT);
                      $insert_prep->execute();
                  }
 
