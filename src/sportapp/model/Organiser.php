@@ -152,7 +152,6 @@ use sportapp\model\Event;
 
                  fclose($handle);
                  //echo "Importación exitosa!";
-
              } else {
                 // echo "Archivo invalido!";
              }
