@@ -75,7 +75,13 @@ class SportnetView  extends AbstractView{
                  <table border="1px" >
                 <thead>
                     <tr>
-                        Événement
+                        <td>Nom</td>
+                        <td>Lieu</td>
+                        <td>Dicipline</td>
+                        <td>Date du debut</td>
+                        <td>Date du fin</td>
+                        <td>Description</td>
+                        <td>Inscriptions</td>
                     </tr>
                 </thead>
                 <tbody>';
@@ -83,8 +89,18 @@ class SportnetView  extends AbstractView{
             if($valeur->status==1) {
                 $html .= "<tr>
                     <td>$valeur->name</td>
-                    <td><a href='$this->script_name/sportnet/inscription/?id=$valeur->id'><button>Description</button></a></td>
+                    <td>$valeur->place</td>
+                    <td>$valeur->dicipline</td>
+                    <td>$valeur->start_date</td>
+                    <td>$valeur->end_date</td>
+                    <td><a href='$this->script_name/sportnet/descriptionEvent/?id=$valeur->id'><button>Détaillée</button></a></td>";
+                if($valeur->inscription==1){
+                    $html.="<td><a href='$this->script_name/sportnet/inscription/?id=$valeur->id'><button>S&#39;inscrire</button></a></td>
                 </tr>";
+                }else{
+                    $html.="<td><button disable>S&#39;inscrire</button></td>
+                </tr>";
+                }
             }
         }
 
@@ -95,19 +111,10 @@ class SportnetView  extends AbstractView{
     }
 
     protected function renderInscription(){
-        $html= '<h2 class="row column_4 title">Bienvenue, vous pouvez vous s&#39;inscrire dans l&#39;événement suivant:</h2>';
-        $html.='<h3>'.$this->data->name.'</h3>';
-        $html.='<p>'.$this->data->place.'</p>';
-        $html.='<p>'.$this->data->dicipline.'</p>';
-        $html.='<p>'.$this->data->start_date.'</p>';
-        $html.='<p>'.$this->data->end_date.'</p>';
-        $html.='<p>'.$this->data->description.'</p>';
-        if($this->data->inscription==0){
-            $html.='<h3>Les Inscriptions ne sont pas toujour disponibles</h3>';
-        }else{
+        $html= '<h2 class="row column_4 title">Bienvenue, vous pouvez vous s&#39;inscrire dans l&#39;événement:</h2>';
             $html.= '<section>
                     <h2>S&#39;inscrire au événement</h2>
-                    <form method = "post" action ="'.$this->script_name.'/admin/add/">
+                    <form method = "post" action ="'.$this->script_name.'/sportnet/addParticipant/">
                         <div class="row">
                           <label for="firstname">Nom</label><br>
                           <input type="text" name="firstname"/>
@@ -126,21 +133,25 @@ class SportnetView  extends AbstractView{
                        </div>
                        <div class="row">
                        <div class="row">
-                          <label for="naissance">Épuvres</label><br>
-                        <input type="checkbox" name="transporte" value="1">Coche
-                        <br>
-                        <input type="checkbox" name="transporte" value="2" checked>Avión
-                        <br>
-                        <input type="checkbox" name="transporte" value="3">Tren
-                       </div>
+                          <label for="naissance">Épuvres</label><br>';
+                    foreach ($this->data as $value){
+                        $html.='<input type="checkbox" name="trial" value="'.$value->id.'">'.$value->name.'';
+                    }
+
+                    $html.='</div>
                        <div class="row">
                           <input type="submit" value="Valider"/>
                           <input type="reset" value="Annuler"/>
                        </div>
                     </form>
                   </section>';
-            $html.= ' <a href="'.$this->script_name.'/sportnet/infoParticipant/"><button type="submit" name="" >S&#39;inscrire</button></a>';
-        }
+        return $html;
+    }
+
+    protected function renderDescription(){
+        $html= '<h2 class="row column_4 title">Bienvenue, vous pouvez vous s&#39;inscrire dans l&#39;événement suivant:</h2>';
+        $html.='<h3>'.$this->data->name.'</h3>';
+        $html.='<p>'.$this->data->description.'</p>';
         return $html;
     }
 
@@ -322,6 +333,10 @@ class SportnetView  extends AbstractView{
 
         case 'inscription':
             $main = $this->renderInscription();
+            break;
+
+        case 'description':
+            $main = $this->renderDescription();
             break;
 
         case 'infoParticipant':

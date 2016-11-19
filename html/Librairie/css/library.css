@@ -45,7 +45,9 @@ q:before, q:after {
 
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+  border:1px solid black;
+}
 
 button, .btn, .jumbotron button, .jumbotron .green-btn, .jumbotron .red-btn, .green-btn, .red-btn {
   border-radius: 4px;

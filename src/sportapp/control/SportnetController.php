@@ -10,17 +10,6 @@ use sportapp\utils\AppInit;
 use \sportapp\model\Organiser;
 use \sportapp\model\Trial;
 use sportapp\model\Participant;
-use \Illuminate\Database\Capsule\Manager as DB;
-
-AppInit::bootEloquent('conf/conf.ini');
-DB::connection()->enableQueryLog();
-
-
-$queries = DB::getQueryLog();
-
-foreach ($queries as $query){
-    var_dump($query);
-}
 
 class SportnetController {
 
@@ -55,9 +44,29 @@ class SportnetController {
 
     public function inscriptionEvent(){
         if(isset($this->request->get['id'])){
+            $event= new Event();
+            $event->id=$this->request->get['id'];
+            $trial=$event->getTrials();
+            $vEvent = new SportnetView($trial);
+            $vEvent->render(SPORTNET_VIEW_INSCRIPTION);
+        }else{
+            $insc = new SportnetView(null);
+            $insc->render(SPORTNET_VIEW_ACCUEIL);
+        }
+    }
+
+    public function addParticipant(){
+        $participant=new Participant();
+        $participant->firstname=$this->request->post['firstname'];
+        $participant->name=$this->request->post['name'];
+        $participant->mail=$this->request->post['email'];
+    }
+
+    public function descriptionEvent(){
+        if(isset($this->request->get['id'])){
             $event=Event::findById($this->request->get['id']);
             $vEvent = new SportnetView($event);
-            $vEvent->render(SPORTNET_VIEW_INSCRIPTION);
+            $vEvent->render(SPORTNET_VIEW_DESCRIPTION);
         }else{
             $insc = new SportnetView(null);
             $insc->render(SPORTNET_VIEW_ACCUEIL);
