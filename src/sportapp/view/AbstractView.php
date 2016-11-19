@@ -64,7 +64,7 @@ abstract class AbstractView {
      *
      */ 
     protected function renderHeader(){
-        $html ='<h1 id="logo" class="textAlignleft column_3">SportNet</h1>';
+        $html ='';
         return $html;
     }
 

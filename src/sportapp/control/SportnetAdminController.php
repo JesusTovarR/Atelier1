@@ -46,6 +46,17 @@ class SportnetAdminController {
 
     public function gestion(){
         if(isset($this->request->get['id'])){
+            $trials=new Event();
+            $trials->id=$this->request->get['id'];
+            $alltrials=$trials->getTrials();
+            $_SESSION['trials']=$alltrials;
+            var_dump($_SESSION['trials']);
+            foreach ($_SESSION[$trials] as $cle=>$value){
+                foreach ($cle as $value2){
+
+
+                }
+            }
             $event=Event::findById($this->request->get['id']);
             $vGestion = new SportnetView($event);
             $vGestion->render(SPORTNET_VIEW_GESTION);
