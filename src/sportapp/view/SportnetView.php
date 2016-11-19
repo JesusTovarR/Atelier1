@@ -31,7 +31,7 @@ class SportnetView  extends AbstractView{
                     <td>$valeur->description</td>
                     <td>$valeur->place</td>
                     <td>$valeur->start_date</td>
-                    <td>$valeur->end_date</td>'";
+                    <td>$valeur->end_date</td>";
                     if($valeur->status==0){
                    $html.="<td>Non publié</td>";
                     }else{
@@ -102,7 +102,10 @@ class SportnetView  extends AbstractView{
         $html.='<p>'.$this->data->start_date.'</p>';
         $html.='<p>'.$this->data->end_date.'</p>';
         $html.='<p>'.$this->data->description.'</p>';
-        $html.= '<section>
+        if($this->data->inscription==0){
+            $html.='<h3>Les Inscriptions ne sont pas toujour disponibles</h3>';
+        }else{
+            $html.= '<section>
                     <h2>S&#39;inscrire au événement</h2>
                     <form method = "post" action ="'.$this->script_name.'/admin/add/">
                         <div class="row">
@@ -115,19 +118,20 @@ class SportnetView  extends AbstractView{
                        </div>
                        <div class="row">
                           <label for="email">email</label><br>
-                          <input type="email" name="login"/>
+                          <input type="email" name="email"/>
                        </div>
                        <div class="row">
                           <label for="naissance">Date de naissance</label><br>
                           <input type="date" name="naissance"/>
                        </div>
                        <div class="row">
-                          <label for="pass">Mot de passe</label><br>
-                          <input type="password" name="pass"/>
-                       </div>
                        <div class="row">
-                          <label for="pass">Confirmation de mot de passe</label><br>
-                          <input type="password" name="pass_verifycation"/>
+                          <label for="naissance">Épuvres</label><br>
+                        <input type="checkbox" name="transporte" value="1">Coche
+                        <br>
+                        <input type="checkbox" name="transporte" value="2" checked>Avión
+                        <br>
+                        <input type="checkbox" name="transporte" value="3">Tren
                        </div>
                        <div class="row">
                           <input type="submit" value="Valider"/>
@@ -135,7 +139,8 @@ class SportnetView  extends AbstractView{
                        </div>
                     </form>
                   </section>';
-        $html.= ' <a href="'.$this->script_name.'/sportnet/infoParticipant/"><button type="submit" name="" >S&#39;inscrire</button></a>';
+            $html.= ' <a href="'.$this->script_name.'/sportnet/infoParticipant/"><button type="submit" name="" >S&#39;inscrire</button></a>';
+        }
         return $html;
     }
 
@@ -253,23 +258,26 @@ class SportnetView  extends AbstractView{
                         if($this->data->status==0){
                             $html.='
                                      <div class="row">
+                                        <label>Status:</label><br>
                                         <select name="status">
-                                         <option value="0">Non Publier</option>
-                                         <option value="1">Publier</option>
+                                         <option value="0">Non Publié</option>
+                                         <option value="1">Publié</option>
                                         </select>
                                      </div>';
                         }else{
                             $html.='
                                          <div class="row">
+                                            <label>Status:</label><br>
                                             <select name="status">
-                                             <option value="1">Publier</option>
-                                             <option value="0">Non Publier</option>
+                                             <option value="1">Publié</option>
+                                             <option value="0">Non Publié</option>
                                             </select>
                                          </div>';
                         }
                         if($this->data->inscription==0){
                             $html.='
                              <div class="row">
+                                <label>Inscription:</label><br>
                                 <select name="inscription">
                                  <option value="0">Fermées</option>
                                  <option value="1">Ouvertes</option>
@@ -278,6 +286,7 @@ class SportnetView  extends AbstractView{
                         }else{
                             $html.='
                              <div class="row">
+                                <label>Inscriptions</label><br>
                                 <select name="inscription">
                                  <option value="1">Ouvertes</option>
                                  <option value="0">Fermées</option>
@@ -293,9 +302,6 @@ class SportnetView  extends AbstractView{
                              
                         <aside id="menu" class="column_2">
                            <p>Liste des participants</p>
-                           <div class="space"><button class="btn type="sumbit" value="open">Ouvrir Inscription</button></div>
-                           <div class="space"><button class="btn type="sumbit" value="close"/>Fermer Inscription</button></div>
-                           <div class="space"><button class="btn type="sumbit" value="publish"/>Publier Événement</button></div>
                            <div class="space"><button class="btn type="sumbit" value="upload"/>Deposer Résultats</button></div>
                         </aside>
                       </section>';
