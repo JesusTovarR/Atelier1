@@ -278,8 +278,8 @@ class SportnetView  extends AbstractView{
     protected function renderGestion(){
         $html= '<section class="row">
                         <h2  class="column_8 title textcenter">G&eacute;rer mon &eacute;v&eacute;nement</h2>
-                        <div class="column_5 ">
-                        <form  class="column_5 offset_1" method="post" action="'.$this->script_name.'/admin/editEvent/">';
+                        <div class="row">
+                        <form  class="column_6 offset_1" method="post" action="'.$this->script_name.'/admin/editEvent/">';
         if($this->data->status==0){
             $html.='
                                      <div class="row">
@@ -318,7 +318,7 @@ class SportnetView  extends AbstractView{
                                 </select>
                              </div>';
         }
-            $html.=' <input type ="hidden" name="id_event" value="'.$this->data->id.'"/>
+            $html.='<input type ="hidden" name="id_event" value="'.$this->data->id.'"/>
                              <input type ="hidden" name="organiser" value="'.$this->data->id_organiser.'"/>
                             <div class="row">
                               <input  class="column_7" type="text" name="name"  value="'.$this->data->name.'"/>
@@ -336,32 +336,25 @@ class SportnetView  extends AbstractView{
                                <input class="column_7" type="date" name="end_date"  value="'.$this->data->end_date.'"/><br>
                              </div>
                              <div >
-                               <textarea class="column_7" name="descritpion" row="10" cols="50">'.$this->data->description.'</textarea>
-                             </div>';
+                               <textarea class="column_7 margin" name="descritpion" row="10" cols="50">'.$this->data->description.'</textarea>
+                             </div> ';
                         $html.='
                              <div class="row">
                               <input class="column_7 btn" type="submit" neme="valider" value="Valider"/> 
+                               </div>
                               <div class="row">
                               <input class="column_7 btn" type="reset" name="annuler" value="Annuler"/>
                              </div>
                         </form>
                         </div>
                              
-                        <aside id="menu" class="column_2">
-                           <p class="column_4">Liste des participants</p>  
-                           <form   class="column_4" action="'.$this->script_name.'/admin/addFile/" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                         
+                           <form   class="column_8 offset_1" action="'.$this->script_name.'/admin/addFile/" method="post" enctype="multipart/form-data">
                              Importar Archivo : <input type="file" name="sel_file" size="20">
-                             <input type="submit" name="submit" value="submit">
+                             <input  class="column_8" type="submit" name="submit" value="submit">
                            </form>
-                           <p>Nombre de participants par épuvre</p>
-                          <form action="'.$this->script_name.'/admin/addFile/" method="post" enctype="multipart/form-data">
-                                 <select name="inscription">
-                                     <option value="1">Ouvertes</option>
-                                     <option value="0">Fermées</option>
-                                  </select>
-                             <input type="submit" name="submit" value="submit">
-                           </form>
-                        </aside>
+                        </div>
                       </section>';
         return $html;
     }
