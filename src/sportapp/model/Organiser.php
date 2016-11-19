@@ -163,6 +163,19 @@ use sportapp\model\Event;
  }
      }
 
+     function downloadFile($id_t){
+         $requete = "select * from participants inner join trial_participants on participants.id=trial_participants.id_p where id_t= $id_t;";
+         echo $requete;
+         $resultat =$this->db->query($requete);
+         $resultado = $resultat->fetchAll(PDO::FETCH_ASSOC);
+         $fp = fopen('fichero.csv', 'w');
+         foreach ($resultado as $campos) {
+             fputcsv($fp, $campos);
+         }
+
+         fclose($fp);
+     }
+
 
 
  }
