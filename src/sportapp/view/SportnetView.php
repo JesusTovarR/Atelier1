@@ -160,7 +160,12 @@ class SportnetView  extends AbstractView{
     }
 
     protected function renderInfoParticipant(){
-        $html= '<h2 class="row column_4 title">Voici l&#39;information du participant</h2>';
+        $html= '<h2 class="row column_4 title">Voici ton information</h2>
+                <pre>Numero de dossard: '.$this->data->id.'
+                Nom: '.$this->data->firstname.'
+                Prenom: '.$this->data->name.'
+                Email: '.$this->data->mail.'
+                Date du naissance: '.$this->data->naissance.'</pre>';
         return $html;
     }
 

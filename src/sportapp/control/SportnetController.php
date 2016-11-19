@@ -67,7 +67,7 @@ class SportnetController {
             $nom='trial'.$i;
             $participant->insertTrials($participant2->id,$this->request->post[$nom]);
         }
-        $this->infoParticipant();
+        $this->infoParticipant($participant2);
 
    }
 
@@ -81,9 +81,8 @@ class SportnetController {
             $insc->render(SPORTNET_VIEW_ACCUEIL);
         }
     }
-    public function infoParticipant(){
-
-        $info = new SportnetView(null);
+    public function infoParticipant($participants){
+        $info = new SportnetView($participants);
         $info->render(SPORTNET_VIEW_INFOPARTICIPANT);
 
     }
