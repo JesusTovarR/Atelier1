@@ -64,7 +64,7 @@ abstract class AbstractView {
      *
      */ 
     protected function renderHeader(){
-        $html ='<h1 id="logo" class="textAlignleft column_3">SportNet</h1>';
+        $html ='<h1 id="logo" class="textAlignleft column_1">SportNet</h1>';
         return $html;
     }
 
@@ -86,22 +86,20 @@ abstract class AbstractView {
      */
     protected function renderMenu(){
      
-        $html  = '<ul class="navbar column_5 nav">';
+        $html  = '<ul class="navbar column_5 offset_2 nav">';
         $html .= '<li><a href="'.$this->script_name.'/sportnet/default/">Accueil</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/sportnet/events/">Nos événements</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/login/">Connexion</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/sportnet/create/">Créer un compte organisateur</a></li>';
-        $html .= '<li><a href="'.$this->script_name.'/sportnet/default/">Contact</a></li>';
         $html .= "</ul>"; 
         return $html;
     }
 
     protected function renderMenu2(){
-        $html = '<ul class="navbar column_4 nav">';
+        $html = '<ul class="navbar column_6 offset_1 nav">';
         $html .= '<li><a href="'.$this->script_name.'/admin/myEvents/">Tous mes événements</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/newEvent/">Créer un événement</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/newTrial/">Créer une épreuve</a></li>';
-        $html .= '<li><a href="'.$this->script_name.'/admin/myEvents/">Votre Space</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/logout/">Desconexion</a></li>';
         $html .= "</ul>";
         return $html;

@@ -9,8 +9,10 @@ class SportnetView  extends AbstractView{
     }
 
     protected function renderMyEvents(){
-        $html='<h2 class="row column_5 offset_1 title">Bienvenue '.$_SESSION['user_login'].', voici tous vos événements</h2>
-        <table>
+        $html='<section class="row">
+        <h2  class="column_8 title textcenter">Bienvenue voici tous vos événements</h2>
+        <div>
+        <table class="table column_6 offset_1 title">
              <thead>
                     <tr>
                         <td>Nom</td>
@@ -48,22 +50,54 @@ class SportnetView  extends AbstractView{
                 }
 
         $html.='</tbody>
-            </table>';
+            </table>
+            </div>
+            </section>';
         return $html;
     }
 
     protected function renderAccueil(){
-        $html= ' <section class="column_4">
-                        <h2 class="row column_4 title">Bienvenue</h2>
-                        <p>Avec Sportnet, cr&eacute;ez  tous vos &eacute;v&eacute;nements sportifs</p>
+        $html= ' <section class="row">
+                        <h2  class="column_8 title textcenter">Bienvenue</h2>
+                        <div>
+                        <p class="textjustifie column_6 offset_1 ">Avec Sportnet, cr&eacute;ez  tous vos &eacute;v&eacute;nements sportifs.Lorsque l’on souhaite obtenir les 
+                        autorisations en mairie ou le financement de l’événement sportif par une entreprise, cela nécessite automatiquement 
+                        un argumentaire solide. Vos partenaires potentiels ont besoin également de voir un intérêt, pour eux-mêmes, à soutenir 
+                        votre événement.</p>
+                        </div>
+                        <div>
+                        <p class="textjustifie column_6 offset_1 ">N’hésitez pas à vous renseigner auprès des associations de la ville si vous voulez un avis sur votre projet. 
+                        Les demandes d’autorisations se font à la mairie, mais il faudra les convaincre en insistant sur la mise en valeur de 
+                        l’activité de la ville, les retombées économiques possibles sur la ville, etc. La municipalité peut vous fournir un 
+                        site et des équipements.</p>
+                        </div>
+                        <div>
+                        <p class="textjustifie column_6 offset_1  ">Si vous désirez obtenir un financement par des entreprises, mettez en avant l’image de l’entreprise qui sera 
+                        amplifiée par cet événement.</p>
+                        </div>
+                        <div>
+                        <p class="textjustifie column_6 offset_1  ">Si vous êtes dans une association caritative, vous pouvez obtenir également un soutien financier des habitants de la ville concernée.</p>
+                        </div>
+                        <div>
+                        <p class="textjustifie column_6 offset_1  ">Pensez à aller voir votre assureur pour couvrir les risques liés àvotre événement. Il est indispensable de s\'assurer, 
+                        au risque d’être considéré comme responsable personnellement, lors d’un accident ou d’une avarie.Il est également possible 
+                        de prendre contact avec des animateurs sportifs (dûment habilités) pour vous épauler dans votre projet.</p>
+                       </div>
+                        <div>
+                        <p class="textjustifie column_6 offset_1 ">N’oubliez pas de faire remplir des autorisations parentales pour les enfants mineurs et des attestation d\'assurance 
+                        responsabilité civile pour les participants, afin de vous justifier auprès de votre compagnie d’assurance. </p>
+                        </div>
+                        
                   </section>
                   <section class="row">
-                          <div>
+                           <div class="column_6 offset_1">
+                          <div  class="btn column_2 offset_1 img">
                             <img src="'.$this->app_root.'/html/Librairie/images/sport.jpg">
                           </div>
                 
-                          <div>
-                            <img src="'.$this->app_root.'/html/Librairie/images/sport2.jpg">
+                          <div class="btn column_2 offset_1 img">
+                            <img src="'.$this->app_root.'/html/Librairie/images/sport.jpg">
+                          </div>
                           </div>
                 
                   </section>';
@@ -71,10 +105,12 @@ class SportnetView  extends AbstractView{
     }
 
     protected function renderEvents(){
-        $html= '<h2 class="row column_4 title">Bienvenue, voici tous nos événements et leur description</h2>
-                 <table border="1px" >
+        $html= '<section class="row">
+                <h2 class="column_8 title textcenter">Bienvenue, voici tous nos événements et leur description</h2>
+                 <div>
+                 <table class="table column_6 offset_1" >
                 <thead>
-                    <tr>
+                    <tr  class="table">
                         <td>Nom</td>
                         <td>Lieu</td>
                         <td>Dicipline</td>
@@ -105,16 +141,16 @@ class SportnetView  extends AbstractView{
         }
 
         $html.='</tbody>
-            </table>';
+            </table></div></section>';
         $html.= '<li><a href="'.$this->script_name.'/sportnet/resultats/">Résultats</a></li>';
         return $html;
     }
 
     protected function renderInscription(){
         $cont=0;
-        $html= '<h2 class="row column_4 title">Bienvenue, vous pouvez vous s&#39;inscrire dans l&#39;événement:</h2>';
-            $html.= '<section>
-                    <h2>S&#39;inscrire au événement</h2>
+            $html= '<section class="row">
+                    <h2 class="column_8 title textcenter">S&#39;inscrire au événement</h2>
+                    <div>
                     <form method = "post" action ="'.$this->script_name.'/sportnet/addParticipant/">
                         <div class="row">
                           <label for="firstname">Nom</label><br>
@@ -148,35 +184,37 @@ class SportnetView  extends AbstractView{
                           <input type="reset" value="Annuler"/>
                        </div>
                     </form>
+                    </div>
                   </section>';
         return $html;
     }
 
     protected function renderDescription(){
-        $html= '<h2 class="row column_4 title">Bienvenue, vous pouvez vous s&#39;inscrire dans l&#39;événement suivant:</h2>';
+        $html= '<section class="row"><h2 class="column_8 title textcenter">Bienvenue, vous pouvez vous s&#39;inscrire dans l&#39;événement suivant:</h2>';
         $html.='<h3>'.$this->data->name.'</h3>';
-        $html.='<p>'.$this->data->description.'</p>';
+        $html.='<p>'.$this->data->description.'</p></section>';
         return $html;
     }
 
     protected function renderInfoParticipant(){
-        $html= '<h2 class="row column_4 title">Voici ton information</h2>
+        $html= '<section class="row"><h2  class="column_8 title textcenter">Voici ton information</h2>
                 <pre>Numero de dossard: '.$this->data->id.'
                 Nom: '.$this->data->firstname.'
                 Prenom: '.$this->data->name.'
                 Email: '.$this->data->mail.'
-                Date du naissance: '.$this->data->naissance.'</pre>';
+                Date du naissance: '.$this->data->naissance.'</pre></section>';
         return $html;
     }
 
     protected function renderResultats(){
-        $html= '<h2 class="row column_4 title">Voici les résultats</h2>';
+        $html= '<section class="row"><h2 class="column_8 title textcenter">Voici les résultats</h2></section>';
         return $html;
     }
 
     protected function renderNewEvent(){
-        $html= '<section class="column_5 offset_1 milieu">
-                    <h2 class="row column_4 title">Cr&eacute;er un &eacute;v&eacute;nement</h2>
+        $html= '<section class="row">
+                    <h2  class="column_8 title textcenter">Cr&eacute;er un &eacute;v&eacute;nement</h2>
+                    <div>
                     <form method = "post" action ="'.$this->script_name.'/admin/addEvent/">
                         <div class="row">
                           <label for="name">Nom</label><br>
@@ -188,7 +226,7 @@ class SportnetView  extends AbstractView{
                         </div>
                         <div class="row">
                           <label for="discipline">Dicipline</label><br>
-                          <input type="text" name="discipline"/>
+                          <input class="column_8" type="text" name="discipline"/>
                         </div>
                         <div class="row">
                           <label>Date de début</label><br>
@@ -206,14 +244,16 @@ class SportnetView  extends AbstractView{
                           <input type="submit" name="newEvent" value="Créer"/> 
                           <input type="reset" name="annuler" value="Annuler"/>
                         </div>
-                    </form>   
+                    </form>
+                      </div>
                      </section>';
         return $html;
     }
 
     protected function renderNewTrial(){
-        $html= '<section class="column_5 offset_1 milieu">
-                    <h2 class="row column_4 title">Ajouter une &eacute;preuve</h2>
+        $html= '<section class="row">
+                    <h2 class="column_8 title textcenter">Ajouter une &eacute;preuve</h2>
+                    <div>
                     <form method="post" action="'.$this->script_name.'/admin/addTrial/">
                       <div class="row">
                        <select name="event">';
@@ -242,36 +282,37 @@ class SportnetView  extends AbstractView{
                           <input type="submit" value="creer"/>
                           <input type="reset" value="annuler"/>
                         </div>
-                    </form>';
+                    </form></div></section>';
         return $html;
     }
     protected function renderGestion(){
         $html= '<section class="row">
-                        <h2 class="row column_4 title">G&eacute;rer mon &eacute;v&eacute;nement</h2>
-                        <form class="column_5 offset_1 milieu" method="post" action="'.$this->script_name.'/admin/editEvent/">
+                        <h2  class="column_8 title textcenter">G&eacute;rer mon &eacute;v&eacute;nement</h2>
+                        <div>
+                        <form class="column_8" class="column_5 offset_1 milieu" method="post" action="'.$this->script_name.'/admin/editEvent/">
                              <input type ="hidden" name="id_event" value="'.$this->data->id.'"/>
                              <input type ="hidden" name="organiser" value="'.$this->data->id_organiser.'"/>
-                            <div class="row">
+                            <div >
                               <label for="name">Nom</label><br>
                               <input type="text" name="name"  value="'.$this->data->name.'"/>
                             </div>
-                            <div class="row">
+                            <div>
                               <label for="place">Lieu</label><br>
                               <input type="text" name="place"  value="'.$this->data->place.'"/>
                             </div>
-                            <div class="row">
+                            <div >
                               <label for="discipline">Dicipline</label><br>
                               <input type="text" name="discipline"  value="'.$this->data->dicipline.'"/>
                             </div>
-                            <div class="row">
+                            <div >
                                <label>Description</label><br>
                                <textarea name="descritpion" row="10" cols="50">'.$this->data->description.'</textarea>
                              </div>
-                             <div class="row">
+                             <div >
                                <label>Date du debut</label><br>
                                <input type="date" name="start_date"  value="'.$this->data->start_date.'"/><br>
                              </div>
-                             <div class="row">
+                             <div>
                                <label>Date du fin</label><br>
                                <input type="date" name="end_date"  value="'.$this->data->end_date.'"/><br>
                              </div>';
@@ -319,22 +360,22 @@ class SportnetView  extends AbstractView{
                               <input type="reset" name="annuler" value="Annuler"/>
                              </div>
                         </form>
+                        </div>
                              
                         <aside id="menu" class="column_2">
-                           <p>Liste des participants</p>
-                           
-                           
+                           <p>Liste des participants</p>  
                            <form action="'.$this->script_name.'/admin/addFile/" method="post" enctype="multipart/form-data">
                              Importar Archivo : <input type="file" name="sel_file" size="20">
                              <input type="submit" name="submit" value="submit">
                            </form>
-                           
-                           
-                           
-                           <div class="space"><button class="btn type="sumbit" value="upload"/>Deposer Résultats</button></div>
-                        
-                        
-                        
+                           <p>Nombre de participants par épuvre</p>
+                          <form action="'.$this->script_name.'/admin/addFile/" method="post" enctype="multipart/form-data">
+                                 <select name="inscription">
+                                     <option value="1">Ouvertes</option>
+                                     <option value="0">Fermées</option>
+                                  </select>
+                             <input type="submit" name="submit" value="submit">
+                           </form>
                         </aside>
                       </section>';
         return $html;
@@ -393,6 +434,7 @@ class SportnetView  extends AbstractView{
         //<link rel="stylesheet" href="${style_file}">
         $style_file2 = $this->app_root.'/html/Librairie/css/library.css';
         $style_file3 = $this->app_root.'/html/Librairie/css/theme.css';
+        $style_file4 = $this->app_root.'/html/Librairie/css/style.css';
 
         $header = $this->renderHeader();
       //$header.= $this->renderMenu();
@@ -423,17 +465,13 @@ class SportnetView  extends AbstractView{
         <link rel="stylesheet" href="${style_file3}"> 
     </head>
 
-    <body class="grid_float">
+  <body class="grid_float">
         
-        <header class="row"> ${header}  <nav id="menu" class=""> ${menu} </nav></header>
+        <header id="head" class="row"> ${menu} </header>
         
-        <section>
-
-            <article class="">  ${main} </article>
-
-        </section>
-
-        <footer class="row foot"> ${footer} </footer>
+        <article>
+            ${main}
+        </article>
 
     </body>
 </html>
@@ -446,4 +484,4 @@ EOT;
 
 }
 
-
+//<footer class="row foot"> ${footer} </footer>

@@ -115,4 +115,17 @@ class Trial extends AbstractModel{
         }
 
     }
+
+    public function getParticipants(){
+
+        $select = 'SELECT * FROM participants inner JOIN trial_participants on participants.id=trial_participants.id_p where participants.id = :id';
+        $select_prep = $this->db->prepare($select);
+        $select_prep->bindParam(":id", $this->id);
+        if($select_prep->execute()){
+            return $select_prep->fetchAll(\PDO::FETCH_CLASS);
+        }else{
+            return null;
+        }
+
+    }
 }

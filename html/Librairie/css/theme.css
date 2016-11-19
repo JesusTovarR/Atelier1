@@ -1,5 +1,11 @@
-body{
+body {
 	background-color: #D5DCDE;
+	color: black;
+	font-family: Verdana;
+	font-size: 1em;
+	min-width: 300px;
+	line-height: 1;
+	box-sizing: border-box;
 }
 header{
 	background-color: #4D93AB;
@@ -14,6 +20,95 @@ header{
 }
 .nav{
 	text-align: left;
+}
+
+div {
+	box-sizing: border-box;
+	margin-top: 10px;
+}
+
+code {
+	font-family: monospace;
+}
+
+pre {
+	display: block;
+	font-family: Verdana;
+	white-space: pre;
+	margin: 1em 0;
+}
+
+kbd {
+	font-family: "Times New Roman";
+}
+
+p {
+	font-family: Arial;
+	margin-bottom: 2em;
+	margin-top: 2em;
+	line-height: 1.2;
+}
+
+.square {
+	list-style-type: square;
+}
+
+.rien {
+	list-style-type: none;
+}
+
+.textgauche {
+	text-align: left;
+}
+
+.textdroit {
+	text-align: right;
+}
+
+.textcenter {
+	text-align: center;
+}
+
+.textjustifie {
+	text-align: justify;
+}
+
+.textmajuscules {
+	text-transform: uppercase;
+}
+
+.textminuscules {
+	text-transform: lowercase;
+}
+img {
+	width: 100%;
+	height: auto;
+}
+
+.table {
+	background-color: #FFFFFF;
+	border: 1px solid #4D93AB;
+	margin: 0 0 50px 0;
+}
+
+.table th, .table  {
+	padding: 5px;
+	font-weight: bolder;
+	text-align: center;
+}
+
+.table td, .table tbody tr{
+	border-bottom: 1px solid #5858FB;
+	padding: 5px;
+	text-align: center;
+}
+
+.table tr:last-child td {
+	border: 0;
+}
+
+article {
+	box-sizing: border-box;
 }
 
 .title{
