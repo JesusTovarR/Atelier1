@@ -16,15 +16,15 @@ class SportnetAdminView  extends AbstractView{
     protected function renderLogin(){
         $html= '<section class="row">
                     <h2  class="column_8 title textcenter">Se connecter</h2>
-                     <form class= "column_1" method = "post" action ="'.$this->script_name.'/admin/singup/" name="formulaire">
-                       <div class="login_text">
-                           <input type ="text" name="login"  placeholder="Email..."/>
+                     <form  method = "post" action ="'.$this->script_name.'/admin/singup/" name="formulaire">
+                       <div class="row">
+                           <input class="column_4 offset_2" type ="text" name="login"  placeholder="Email..."/>
                        </div>
-                       <div class="login_text">
-                           <input type="password" name="pass" placeholder="Mot de pass..."/>
+                       <div class="row">
+                           <input class="column_4 offset_2" type="password" name="pass" placeholder="Mot de pass..."/>
                        </div>
-                       <div class="login_button">
-                           <input type="submit" value="Se connecter"/>
+                       <div class="row">
+                           <input class="column_4 offset_2 btn" type="submit" value="Se connecter"/>
                        </div>
                     </form>
                   </section>';
