@@ -111,6 +111,7 @@ class SportnetView  extends AbstractView{
     }
 
     protected function renderInscription(){
+        $cont=0;
         $html= '<h2 class="row column_4 title">Bienvenue, vous pouvez vous s&#39;inscrire dans l&#39;événement:</h2>';
             $html.= '<section>
                     <h2>S&#39;inscrire au événement</h2>
@@ -133,12 +134,15 @@ class SportnetView  extends AbstractView{
                        </div>
                        <div class="row">
                        <div class="row">
-                          <label for="naissance">Épuvres</label><br>';
-                    foreach ($this->data as $value){
-                        $html.='<input type="checkbox" name="trial" value="'.$value->id.'">'.$value->name.'';
+                         <label for="naissance">Épuvres</label><br>';
+
+                   foreach ($this->data as $value){
+                       $cont+=1;
+                        $html.='<input type="checkbox" name="trial'.$cont.'" value="'.$value->id.'">'.$value->name.'';
                     }
 
                     $html.='</div>
+                        <input type ="hidden" name="cont" value="'.$cont.'"/>
                        <div class="row">
                           <input type="submit" value="Valider"/>
                           <input type="reset" value="Annuler"/>
@@ -156,7 +160,7 @@ class SportnetView  extends AbstractView{
     }
 
     protected function renderInfoParticipant(){
-        $html= '<h2 class="row column_4 title>Voici l&#39;information du participant</h2>';
+        $html= '<h2 class="row column_4 title">Voici l&#39;information du participant</h2>';
         return $html;
     }
 

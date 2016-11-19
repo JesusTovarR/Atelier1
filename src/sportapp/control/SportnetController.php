@@ -60,7 +60,16 @@ class SportnetController {
         $participant->firstname=$this->request->post['firstname'];
         $participant->name=$this->request->post['name'];
         $participant->mail=$this->request->post['email'];
-    }
+        $participant->naissance=$this->request->post['naissance'];
+        $participant->save();
+        $participant2=Participant::findByEmail($this->request->post['email']);
+        for($i=1; $i<=$this->request->post['cont']; $i++){
+            $nom='trial'.$i;
+            $participant->insertTrials($participant2->id,$this->request->post[$nom]);
+        }
+        $this->infoParticipant();
+
+   }
 
     public function descriptionEvent(){
         if(isset($this->request->get['id'])){

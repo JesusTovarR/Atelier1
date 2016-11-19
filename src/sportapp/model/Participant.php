@@ -2,9 +2,9 @@
 namespace sportapp\model;
 
 use sportapp\utils\ConnectionFactory;
-use sportapp\model\Event;
+//use sportapp\model\Event;
 
- class Organiser extends AbstractModel{
+ class Participant extends AbstractModel{
      private $id, $firstname, $name, $mail, $naissance;
 
      public function __construct()
@@ -85,12 +85,12 @@ use sportapp\model\Event;
          }
      }
 
-     static public function findByNom($nom)
+     static public function findByEmail($email)
      {
          $db = ConnectionFactory::makeConnection();
-         $requete = 'SELECT * FROM participants WHERE firstname = :firstname';
+         $requete = 'SELECT * FROM participants WHERE mail = :email';
          $requete_prep = $db->prepare($requete);
-         $requete_prep->bindParam(':firstname', $nom, \PDO::PARAM_STR);
+         $requete_prep->bindParam(':email', $email, \PDO::PARAM_STR);
          if ($requete_prep->execute()) {
              return $requete_prep->fetchObject();
          }else{
@@ -121,5 +121,15 @@ use sportapp\model\Event;
              return null;
          }
 
+     }
+
+     public function insertTrials($id_p, $id_t)
+     {
+         $insert = 'INSERT INTO trial_participants values(:id_p, :id_t)';
+         $insert_prep = $this->db->prepare($insert);
+         $insert_prep->bindParam(':id_p', $id_p, \PDO::PARAM_INT);
+         $insert_prep->bindParam(':id_t', $id_t, \PDO::PARAM_INT);
+         $nb_lignes = $insert_prep->execute();
+         return $nb_lignes;
      }
  }
