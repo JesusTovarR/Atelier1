@@ -35,34 +35,25 @@ class SportnetAdminView  extends AbstractView{
         $html= '<section class="row">
                     <h2  class="column_8 title textcenter">S&#39;inscrire en tant qu&#39;Organisateur</h2>
                     <div>
-                    <form class="center column_4" method = "post" action ="'.$this->script_name.'/admin/add/">
+                    <form  method = "post" action ="'.$this->script_name.'/admin/add/">
                         <div class="row">
-                          <label for="firstname">Nom</label><br>
-                          <input type="text" name="firstname"/>
+                          <input class="column_6 offset_1" type="text" name="firstname" placeholder="Nom..."/>
                        </div>
                        <div class="row">
-                          <label for="name">Prénom</label><br>
-                          <input type="text" name="name"/>
+                          <input class="column_6 offset_1" type="text" name="name" placeholder="Prenom..."/>
                        </div>
                        <div class="row">
-                          <label for="email">email</label><br>
-                          <input type="email" name="login"/>
+                          <input class="column_6 offset_1" type="email" name="login" placeholder="Email..."/>
                        </div>
                        <div class="row">
-                          <label for="naissance">Date de naissance</label><br>
-                          <input type="date" name="naissance"/>
+                          <input class="column_6 offset_1" type="date" name="naissance" placeholder="Date de naissance..."/>
                        </div>
                        <div class="row">
-                          <label for="pass">Mot de passe</label><br>
-                          <input type="password" name="pass"/>
+                          <input class="column_6 offset_1" type="password" name="pass" placeholder="Password..."/>
                        </div>
                        <div class="row">
-                          <label for="pass">Confirmation de mot de passe</label><br>
-                          <input type="password" name="pass_verifycation"/>
-                       </div>
-                       <div class="row">
-                          <input type="submit" value="Valider"/>
-                          <input type="reset" value="Annuler"/>
+                          <input class="column_3 offset_1 btn" type="submit" value="Valider"/>
+                          <input class="column_3 btn" type="reset" value="Annuler"/>
                        </div>
                     </form></div>
                   </section>';
