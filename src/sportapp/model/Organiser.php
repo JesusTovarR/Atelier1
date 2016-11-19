@@ -127,4 +127,62 @@ use sportapp\model\Event;
          }
 
      }
+
+     public function addFichier(){
+
+         try{
+         if (isset($_POST['submit'])) {
+             $fname = $_FILES['sel_file']['name'];
+             echo 'Cargando nombre del archivo: ' . $fname . ' ';
+             $chk_ext = explode(".", $fname);
+
+             if (strtolower(end($chk_ext)) == "csv") {
+                 $filename = $_FILES['sel_file']['tmp_name'];
+                 $handle = fopen($filename, "r");
+                 while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+
+                     $sql = "INSERT into participant(last_name,name,email,birthday,nb_participant) values(:last_name, :name, :email, :birthday, :nb_participant)";
+                     // cambiar el valor de conexion
+                     $insert_prep = $this->db->prepare($sql);
+                     $insert_prep->bindParam(':last_name',$data[1], \PDO::PARAM_STR);
+                     $insert_prep->bindParam(':name',$data[2], \PDO::PARAM_STR);
+                     $insert_prep->bindParam(':email',$data[3], \PDO::PARAM_STR);
+                     $insert_prep->bindParam(':birthday',$data[4], \PDO::PARAM_STR);
+                     $insert_prep->bindParam(':nb_participant',$data[5], \PDO::PARAM_INT);
+                     $insert_prep->execute();
+                 }
+                 fclose($handle);
+                 echo "Importación exitosa!";
+
+             } else {
+                 echo "Archivo invalido!";
+             }
+         }
+     }catch(PDOException $e){
+ echo $e->getMessage();
+ exit;
+ }
+
+
+    { ?>
+
+        <!DOCTYPE html>
+        <body>
+        <h1>Importando archivo CSV</h1>
+        <form action='<?php
+
+        echo $_SERVER["PHP_SELF"];
+
+    } ?> ' method='post' enctype="multipart/form-data">
+    Importar Archivo : <input type='file' name='sel_file' size='20'>
+    <input type='submit' name='submit' value='submit'>
+</form>
+    </body>
+    </html>
+
+<?php
+     }
+
+
+
  }
