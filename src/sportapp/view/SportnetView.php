@@ -424,7 +424,7 @@ class SportnetView  extends AbstractView{
 
     <body class="grid_float">
         
-        <header class="row"> ${header}  <nav id="menu" class=""> ${menu} </nav></header>
+        <header class="row"> <nav id="menu" class=""> ${menu} </nav></header>
         
         <section>
 

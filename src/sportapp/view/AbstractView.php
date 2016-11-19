@@ -64,7 +64,7 @@ abstract class AbstractView {
      *
      */ 
     protected function renderHeader(){
-        $html ='';
+        $html ='<h1 id="logo" class="textAlignleft column_1">SportNet</h1>';
         return $html;
     }
 
@@ -86,7 +86,7 @@ abstract class AbstractView {
      */
     protected function renderMenu(){
      
-        $html  = '<ul class="navbar column_5 nav">';
+        $html  = '<ul class="navbar column_8 nav">';
         $html .= '<li><a href="'.$this->script_name.'/sportnet/default/">Accueil</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/sportnet/events/">Nos événements</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/login/">Connexion</a></li>';
@@ -97,7 +97,7 @@ abstract class AbstractView {
     }
 
     protected function renderMenu2(){
-        $html = '<ul class="navbar column_4 nav">';
+        $html = '<ul class="navbar column_8 nav">';
         $html .= '<li><a href="'.$this->script_name.'/admin/myEvents/">Tous mes événements</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/newEvent/">Créer un événement</a></li>';
         $html .= '<li><a href="'.$this->script_name.'/admin/newTrial/">Créer une épreuve</a></li>';

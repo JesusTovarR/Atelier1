@@ -92,7 +92,7 @@ class SportnetAdminView  extends AbstractView{
         $style_file2 = $this->app_root.'/html/Librairie/css/library.css';
         $style_file3 = $this->app_root.'/html/Librairie/css/theme.css';
 
-      //  $header = $this->renderHeader();
+        $header = $this->renderHeader();
         $menu   = $this->renderMenu();
         $footer = $this->renderFooter();
 
@@ -118,7 +118,7 @@ class SportnetAdminView  extends AbstractView{
 
     <body class="grid_float">
         
-        <header id="head" class="row"><nav id="menu" class=""> ${menu} </nav> </header>
+        <header id="head" class="row"> <nav id="menu" class=""> ${menu} </nav> </header>
         
         <section>
         
