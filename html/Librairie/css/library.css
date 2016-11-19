@@ -452,6 +452,91 @@ kbd {
       border-top: 1px solid #000000; }
 
 .navbar {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.navbar li {
+  display: inline-block;
+}
+
+.navbar li a, .navbar li a.active {
+  background-color:  #4D93AB;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #FFFFFF;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width:100%;
+}
+
+.navbar li a:hover, .navbar li a.active:hover {
+  background-color: #80BDBA;
+  color: #FFFFFF;
+}
+
+.navbar li a.active:hover {
+  text-decoration: none;
+}
+
+.navbar li a.disabled {
+  background-color: #A4A8A5;
+  color: #868B88;
+  cursor: default;
+}
+
+.navbar li a.disabled:hover {
+  color: #868B88;
+  border: none;
+}
+
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    list-style-type: none;
+    padding: 0px 0px 0px 0px;
+  }
+  .navbar li {
+    list-style-type: none;
+    display: none;
+    border-bottom: 1px solid white;
+  }
+  .navbar li a, .navbar li a.active {
+    list-style-type: none;
+    display: block;
+    padding: 25px 0;
+    transition: background-color 0.1s;
+  }
+  .navbar li a:hover, .navbar li a.active:hover {
+    color: #FFFFFF;
+    background-color: #80BDBA;
+  }
+  .navbar li a.disabled {
+    background-color: #A4A8A5;
+    color: #868B88;
+    cursor: default;
+  }
+  .navbar li a.disabled:hover {
+    color: #868B88;
+    border: none;
+  }
+  .navbar::before {
+    list-style-type: none;
+    width: 100%;
+    font-size: 3em;
+    text-align: center;
+    content: "Menu";
+    display: inline-block;
+    background-color: #4D93AB;
+    cursor: pointer;
+  }
+  .navbar:hover li {
+    display: block;
+  }
+}
+/*
+.navbar {
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -489,6 +574,7 @@ kbd {
       .navbar li a.active {
         background-color: #57A193;
         color: #334180; }
+
   @media screen and (max-width: 35em) {
     .navbar::before {
       content: "";
@@ -514,7 +600,7 @@ kbd {
         border-top: 0px solid #273D3C; }
       .navbar li.active a {
         border-top: 0px solid #273D3C; } }
-
+*/
 /*Listes*/
 ul {
   margin-left: 20px; }

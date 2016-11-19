@@ -14,8 +14,9 @@ class SportnetAdminView  extends AbstractView{
     }
 
     protected function renderLogin(){
-        $html= '<section  class="column_4 offset_1 connexion">
-                    <h2 class="row column_4 title">Se connecter</h2>
+        $html= '<section class="row">
+                    <h2  class="column_8 title textcenter">Se connecter</h2>
+                    <div>
                     <form class= "login space" method = "post" action ="'.$this->script_name.'/admin/singup/" name="formulaire">
                        <div class="login_text">
                            <label for="email">Email</label><br>
@@ -29,13 +30,15 @@ class SportnetAdminView  extends AbstractView{
                            <input type="submit" value="Se connecter"/>
                        </div>
                     </form>
+                    </div>
                   </section>';
         return $html;
     }
 
     protected function renderCreateUser(){
-        $html= '<section>
-                    <h2 class="row column_4 title">S&#39;inscrire en tant qu&#39;Organisateur</h2>
+        $html= '<section class="row">
+                    <h2  class="column_8 title textcenter">S&#39;inscrire en tant qu&#39;Organisateur</h2>
+                    <div>
                     <form class="center column_4" method = "post" action ="'.$this->script_name.'/admin/add/">
                         <div class="row">
                           <label for="firstname">Nom</label><br>
@@ -65,7 +68,7 @@ class SportnetAdminView  extends AbstractView{
                           <input type="submit" value="Valider"/>
                           <input type="reset" value="Annuler"/>
                        </div>
-                    </form>
+                    </form></div>
                   </section>';
         return $html;
     }
@@ -118,16 +121,13 @@ class SportnetAdminView  extends AbstractView{
 
     <body class="grid_float">
         
-        <header id="head" class="row"> <nav id="menu" class=""> ${menu} </nav> </header>
+        <header id="head" class="row"> ${menu} </header>
         
-        <section>
+        <article>
+            ${main}
+        </article>
+
         
-
-            <article class="theme-backcolor2">  ${main} </article>
-
-        </section>
-
-        <footer class="row foot"> ${footer} </footer>
 
     </body>
 </html>
@@ -144,4 +144,6 @@ EOT;
 
                 <nav id="menu" class="theme-backcolor1"> ${menu} </nav>
 
-            </aside>*/
+            </aside>
+
+<footer class="row foot"> ${footer} </footer>*/
